@@ -42,9 +42,9 @@
                 </env:objecttype>
             </env:objecttypes>
 
-
             <env:processtypes>
-                <env:processtype name="create_forest" class="ForestProcess"/>
+                <env:processtype name="create_forest" class="processes.ForestProcess"/>
+                <env:processtype name="fireProcess" class="processes.FireProcess"/>
             </env:processtypes>
 
             <env:avatarmappings>
@@ -104,6 +104,7 @@
 
                     <env:processes>
                         <env:process type="create_forest"/>
+                        <env:process type="fireProcess"/>
                     </env:processes>
 
                     <env:observers>
