@@ -22,7 +22,7 @@
     </imports>
 
     <extensiontypes>
-        <env:envspacetype name="2dspace" class="Grid2D" width="20" height="20">
+        <env:envspacetype name="2dspace" class="Grid2D" width="30" height="30">
 
             <env:objecttypes>
 

@@ -21,6 +21,7 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
         int spaceHeight = space.getAreaSize().getXAsInteger();
         int spaceWidth = space.getAreaSize().getYAsInteger();
 
+
         boolean isFireSet = false;
         for(int i = 0; i < spaceHeight; i++) {
             for(int j = 0; j < spaceWidth; j++) {
@@ -28,24 +29,19 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
                 Map properties = new HashMap();
                 properties.put("position", new Vector2Int(j, i));
 
-                if (!isFireSet){
-                    Random binario = new Random();
-                    if (binario.nextInt(100) < 5){
-                        isFireSet = true;
-                        properties.put("type", 1);
-                        space.createSpaceObject("fire", properties, null);
-                    }
-                    else {
-                        properties.put("type", 1);
-                        space.createSpaceObject("terrain", properties, null);
-                    }
-                }
-                else {
-                    properties.put("type", 1);
-                    space.createSpaceObject("terrain", properties, null);
-                }
+                properties.put("type", 1);
+                space.createSpaceObject("terrain", properties, null);
             }
         }
+
+        Random rnd = new Random();
+
+        // set fire
+        Map properties = new HashMap();
+        properties.put("position", new Vector2Int(rnd.nextInt() % spaceWidth, rnd.nextInt() % spaceHeight));
+
+        properties.put("type", 1);
+        space.createSpaceObject("fire", properties, null);
     }
 
     @Override
