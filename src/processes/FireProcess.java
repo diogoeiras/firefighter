@@ -8,10 +8,7 @@ import jadex.extension.envsupport.environment.ISpaceProcess;
 import jadex.extension.envsupport.environment.space2d.Space2D;
 import jadex.extension.envsupport.math.Vector2Double;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 
 public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
@@ -20,6 +17,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     ISpaceObject[] fireElement;
     long initTime;
     int spaceHeight , spaceWidth;
+    char[][] fireCells;
 
     // Random variable
     Random rnd = new Random();
@@ -29,6 +27,9 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     double Kmh = 50.0, humidity = 88;
     int cellsToFire = 1;
 
+    // TODO: ELIMINATE DEBUG
+    int memoryCellsSaved = 0;
+
     @Override
     public void start(IClockService arg0, IEnvironmentSpace arg1) {
         System.out.println("> Initializing FireProcess");
@@ -37,12 +38,16 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
         spaceHeight = space.getAreaSize().getXAsInteger();
         spaceWidth = space.getAreaSize().getYAsInteger();
 
+        fireCells = new char[spaceWidth][spaceHeight];
+
         System.out.println(">> Getting Fire first element.");
 
         fireElement = space.getSpaceObjectsByType("fire");
 
-        System.out.println(">> Initialize clock.");
+        fireCells[((Vector2Double)(fireElement[0].getProperty("position"))).getXAsInteger() ]
+                [((Vector2Double)(fireElement[0].getProperty("position"))).getYAsInteger()] = 'X';
 
+        System.out.println(">> Initialize clock.");
         initTime = arg0.getTime();
     }
 
@@ -90,9 +95,6 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
                         createFireCell(newPos);
                     }
                 }
-
-                System.out.println("FireDirection: " + direction + "\nSecondDirection: " + secondDirection +
-                                        "\nCellsToAdvance: " + cellsToFire);
             }
 
             System.out.println(">> Setting new timer.");
@@ -102,10 +104,19 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
     // Create a cell of fire in position Pos in a space
     public void createFireCell(Vector2Double Pos) {
-        Map properties = new HashMap();
-        properties.put("type", 1);
-        properties.put("position", Pos);
-        space.createSpaceObject("fire", properties, null);
+
+        if (fireCells[Pos.getXAsInteger()][Pos.getYAsInteger()] != 'X') {
+            Map properties = new HashMap();
+            properties.put("type", 1);
+            properties.put("position", Pos);
+            space.createSpaceObject("fire", properties, null);
+
+            // Update fireCells[][]
+            fireCells[Pos.getXAsInteger()][Pos.getYAsInteger()] = 'X';
+        } else {
+            memoryCellsSaved++;
+            System.out.println("Células saved :" + memoryCellsSaved);
+        }
     }
 
     // Retrieve a list of cardinal points without the one set as wind direction.
