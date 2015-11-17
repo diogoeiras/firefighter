@@ -81,11 +81,11 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
                 setCellsToFire(rnd.nextDouble());
 
                 // Unitary vectors of adding fire cells.
-                ArrayList<Vector2Double> unitaryVector = getNewPositionsForFireCells();
+                ArrayList<Vector2Double> unitaryVectors = getNewPositionsForFireCells();
 
-                for (int j = 0; j < unitaryVector.size(); j++) {
-                    Vector2Double newPos = new Vector2Double(pos.getXAsInteger() + unitaryVector.get(j).getXAsInteger()
-                            , pos.getYAsInteger() + unitaryVector.get(j).getYAsInteger());
+                for (int j = 0; j < unitaryVectors.size(); j++) {
+                    Vector2Double newPos = new Vector2Double(pos.getXAsInteger() + unitaryVectors.get(j).getXAsInteger()
+                            , pos.getYAsInteger() + unitaryVectors.get(j).getYAsInteger());
                     if (newPos.getXAsInteger() >= 0 && newPos.getXAsInteger() < spaceHeight
                             && newPos.getYAsInteger() >= 0 && newPos.getYAsInteger() < spaceWidth) {
                         createFireCell(newPos);
