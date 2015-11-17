@@ -5,6 +5,7 @@ import jadex.commons.SimplePropertyObject;
 import jadex.extension.envsupport.environment.IEnvironmentSpace;
 import jadex.extension.envsupport.environment.ISpaceObject;
 import jadex.extension.envsupport.environment.ISpaceProcess;
+import jadex.extension.envsupport.environment.space2d.Grid2D;
 import jadex.extension.envsupport.environment.space2d.Space2D;
 import jadex.extension.envsupport.math.Vector2Double;
 
@@ -13,11 +14,10 @@ import java.util.*;
 
 public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
-    Space2D space;
+    Grid2D space;
     ISpaceObject[] fireElement;
     long initTime;
     int spaceHeight , spaceWidth;
-    char[][] fireCells;
 
     // Random variable
     Random rnd = new Random();
@@ -34,18 +34,14 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     public void start(IClockService arg0, IEnvironmentSpace arg1) {
         System.out.println("> Initializing FireProcess");
 
-        space = (Space2D)arg1;
+        space = (Grid2D)arg1;
         spaceHeight = space.getAreaSize().getXAsInteger();
         spaceWidth = space.getAreaSize().getYAsInteger();
 
-        fireCells = new char[spaceWidth][spaceHeight];
 
         System.out.println(">> Getting Fire first element.");
 
         fireElement = space.getSpaceObjectsByType("fire");
-
-        fireCells[((Vector2Double)(fireElement[0].getProperty("position"))).getXAsInteger() ]
-                [((Vector2Double)(fireElement[0].getProperty("position"))).getYAsInteger()] = 'X';
 
         System.out.println(">> Initialize clock.");
         initTime = arg0.getTime();
@@ -59,7 +55,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 1000) {
+        if (iClockService.getTime() - initTime > 10) {
             cellsToFire = 1;
             fireElement = space.getSpaceObjectsByType("fire");
 
@@ -85,11 +81,11 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
                 setCellsToFire(rnd.nextDouble());
 
                 // Unitary vectors of adding fire cells.
-                ArrayList<Vector2Double> positions = getNewPositionsForFireCells();
+                ArrayList<Vector2Double> unitaryVector = getNewPositionsForFireCells();
 
-                for (int j = 0; j < positions.size(); j++) {
-                    Vector2Double newPos = new Vector2Double(pos.getXAsInteger() + positions.get(j).getXAsInteger()
-                            , pos.getYAsInteger() + positions.get(j).getYAsInteger());
+                for (int j = 0; j < unitaryVector.size(); j++) {
+                    Vector2Double newPos = new Vector2Double(pos.getXAsInteger() + unitaryVector.get(j).getXAsInteger()
+                            , pos.getYAsInteger() + unitaryVector.get(j).getYAsInteger());
                     if (newPos.getXAsInteger() >= 0 && newPos.getXAsInteger() < spaceHeight
                             && newPos.getYAsInteger() >= 0 && newPos.getYAsInteger() < spaceWidth) {
                         createFireCell(newPos);
@@ -105,14 +101,18 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     // Create a cell of fire in position Pos in a space
     public void createFireCell(Vector2Double Pos) {
 
-        if (fireCells[Pos.getXAsInteger()][Pos.getYAsInteger()] != 'X') {
+        ArrayList<ISpaceObject> terrainObjects = (ArrayList)space.getSpaceObjectsByGridPosition(Pos,"terrain");
+        ArrayList<ISpaceObject> fireObjects = (ArrayList)space.getSpaceObjectsByGridPosition(Pos,"fire");
+
+        if (fireObjects == null){
+            for (int i = 0; i < terrainObjects.size(); i++){
+                space.destroySpaceObject(terrainObjects.get(i).getId());
+            }
+
             Map properties = new HashMap();
             properties.put("type", 1);
             properties.put("position", Pos);
             space.createSpaceObject("fire", properties, null);
-
-            // Update fireCells[][]
-            fireCells[Pos.getXAsInteger()][Pos.getYAsInteger()] = 'X';
         } else {
             memoryCellsSaved++;
             System.out.println("Células saved :" + memoryCellsSaved);
