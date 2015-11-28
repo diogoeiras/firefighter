@@ -6,7 +6,6 @@ import jadex.extension.envsupport.environment.IEnvironmentSpace;
 import jadex.extension.envsupport.environment.ISpaceObject;
 import jadex.extension.envsupport.environment.ISpaceProcess;
 import jadex.extension.envsupport.environment.space2d.Grid2D;
-import jadex.extension.envsupport.environment.space2d.Space2D;
 import jadex.extension.envsupport.math.Vector2Double;
 
 import java.util.*;
@@ -26,9 +25,6 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     String direction = "W", secondDirection;
     double Kmh = 50.0, humidity = 88;
     int cellsToFire = 1;
-
-    // TODO: ELIMINATE DEBUG
-    int memoryCellsSaved = 0;
 
     @Override
     public void start(IClockService arg0, IEnvironmentSpace arg1) {
@@ -55,7 +51,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 10) {
+        if (iClockService.getTime() - initTime > 1000) {
             cellsToFire = 1;
             fireElement = space.getSpaceObjectsByType("fire");
 
@@ -92,8 +88,6 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
                     }
                 }
             }
-
-            System.out.println(">> Setting new timer.");
             initTime = iClockService.getTime();
         }
     }
@@ -113,9 +107,6 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
             properties.put("type", 1);
             properties.put("position", Pos);
             space.createSpaceObject("fire", properties, null);
-        } else {
-            memoryCellsSaved++;
-            System.out.println("Células saved :" + memoryCellsSaved);
         }
     }
 
