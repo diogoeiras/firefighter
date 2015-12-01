@@ -1,77 +1,13 @@
 <component name="libraryTable">
-  <library name="Jadex">
+  <library name="jadex">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/activation-1.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/antlr-2.7.7.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/antlr-runtime-3.1.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/asm4-4.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/bcprov-jdk15-140.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/bridj-0.6.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/collections-generic-4.01.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/colt-1.2.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/concurrent-1.3.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/de.huxhorn.sulky.3rdparty.jlayer-1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/dx-1.7.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/filters-2.0.235-1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/gluegen-rt-1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-applib-bdi-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-applications-bdi-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-applications-bdibpmn-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-applications-bdiv3-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-applications-bpmn-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-applications-micro-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-bridge-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-commons-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-javaparser-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-application-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-base-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-bdi-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-bdibpmn-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-bdiv3-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-bpmn-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-component-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-extension-agr-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-extension-envsupport-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-extension-envsupport-opengl-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-gpmn-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-kernel-micro-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-model-bpmn-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-nuggets-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-platform-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-rules-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-rules-applications-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-rules-eca-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-rules-tools-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-runtimetools-swing-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-tools-base-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-tools-base-swing-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-tools-bdi-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-tools-bpmn-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-tools-comanalyzer-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jadex-xml-2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/janino-2.5.10.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/javassist-3.12.1.GA.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jcalendar-1.3.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jcodec-0.1.5.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jcommon-1.0.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jfreechart-1.0.12.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jogl-1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jung-algorithms-2.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jung-api-2.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jung-graph-impl-2.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jung-visualization-2.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/junit-3.8.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/mail-1.4.5.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/slf4j-api-1.7.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/smack-3.1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/smackx-3.1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/stringtemplate-3.2.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/webcam-capture-0.3.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/xpp3-1.1.4c.jar!/" />
+      <root url="file://$PROJECT_DIR$/libs" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/libs/jadex-bridge-2.4.jar!/" />
+      <root url="file://$PROJECT_DIR$/libs" />
     </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/libs" recursive="false" type="SOURCES" />
   </library>
 </component>
