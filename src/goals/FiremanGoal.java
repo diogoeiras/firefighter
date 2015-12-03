@@ -12,6 +12,8 @@ public class FiremanGoal {
 
     protected Vector2Int currentPosition;
 
+    protected boolean noMoreFireCells = false;
+
     public FiremanGoal(Vector2Int desiredPosition){
         this.desiredPosition = desiredPosition;
     }
@@ -34,9 +36,12 @@ public class FiremanGoal {
 
     @GoalRecurCondition(beliefs="currentTime")
     public boolean checkRecur(ChangeEvent event) {
-        if(currentPosition != desiredPosition)
-            return true;
-        else
+        if (noMoreFireCells) {
             return false;
+        } else return true;
+    }
+
+    public void changeNoMoreFireCells(){
+        this.noMoreFireCells = !this.noMoreFireCells;
     }
 }
