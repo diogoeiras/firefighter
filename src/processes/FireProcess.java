@@ -31,8 +31,8 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
         System.out.println("> Initializing FireProcess");
 
         space = (Grid2D)arg1;
-        spaceHeight = space.getAreaSize().getXAsInteger();
-        spaceWidth = space.getAreaSize().getYAsInteger();
+        spaceHeight = space.getAreaSize().getYAsInteger();
+        spaceWidth = space.getAreaSize().getXAsInteger();
 
 
         System.out.println(">> Getting Fire first element.");
@@ -51,7 +51,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 1000) {
+        if (iClockService.getTime() - initTime > 2000) {
             cellsToFire = 1;
             fireElement = space.getSpaceObjectsByType("fire");
 
@@ -84,7 +84,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
                             , pos.getYAsInteger() + unitaryVectors.get(j).getYAsInteger());
                     if (newPos.getXAsInteger() >= 0 && newPos.getXAsInteger() < spaceHeight
                             && newPos.getYAsInteger() >= 0 && newPos.getYAsInteger() < spaceWidth) {
-                        createFireCell(newPos);
+                            createFireCell(newPos);
                     }
                 }
             }
@@ -97,16 +97,20 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
         ArrayList<ISpaceObject> terrainObjects = (ArrayList)space.getSpaceObjectsByGridPosition(Pos,"terrain");
         ArrayList<ISpaceObject> fireObjects = (ArrayList)space.getSpaceObjectsByGridPosition(Pos,"fire");
+        ArrayList<ISpaceObject> wetObjects = (ArrayList)space.getSpaceObjectsByGridPosition(Pos,"wetTerrain");
 
-        if (fireObjects == null){
-            for (int i = 0; i < terrainObjects.size(); i++){
-                space.destroySpaceObject(terrainObjects.get(i).getId());
+        if (wetObjects == null || wetObjects.size() == 0){
+            if (fireObjects == null){
+                for (int i = 0; i < terrainObjects.size(); i++){
+                    if (terrainObjects.get(i) != null)
+                        space.destroySpaceObject(terrainObjects.get(i).getId());
+                }
+
+                Map properties = new HashMap();
+                properties.put("type", 1);
+                properties.put("position", Pos);
+                space.createSpaceObject("fire", properties, null);
             }
-
-            Map properties = new HashMap();
-            properties.put("type", 1);
-            properties.put("position", Pos);
-            space.createSpaceObject("fire", properties, null);
         }
     }
 

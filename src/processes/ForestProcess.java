@@ -18,16 +18,14 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
 
         Space2D space = (Space2D)arg1;
 
-        int spaceHeight = space.getAreaSize().getXAsInteger();
-        int spaceWidth = space.getAreaSize().getYAsInteger();
+        int spaceHeight = space.getAreaSize().getYAsInteger();
+        int spaceWidth = space.getAreaSize().getXAsInteger();
 
-
-        boolean isFireSet = false;
-        for(int i = 0; i < spaceHeight; i++) {
-            for(int j = 0; j < spaceWidth; j++) {
+        for(int i = 0; i < spaceWidth; i++) {
+            for(int j = 0; j < spaceHeight; j++) {
 
                 Map properties = new HashMap();
-                properties.put("position", new Vector2Int(j, i));
+                properties.put("position", new Vector2Int(i, j));
 
                 properties.put("type", 1);
                 space.createSpaceObject("terrain", properties, null);
