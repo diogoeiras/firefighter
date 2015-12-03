@@ -1,4 +1,4 @@
-## FireFighter ##
+# FireFighter
 
 Firefighter, built in Java and JADEX, is a multi-agent system that allows a simulation of a fire fighting in distinct environmental characteristics. The existing agents in the project are:
 
@@ -9,7 +9,7 @@ Firefighter, built in Java and JADEX, is a multi-agent system that allows a simu
  > BDI agents that have no communication with other agents. His only interest is to save himself of dying. 
 
 
-### Contributors ###
+## Contributors
 
  - [@Cowtard](https://github.com/CowTard)
  - [@diogoeiras](https://github.com/diogoeiras)
