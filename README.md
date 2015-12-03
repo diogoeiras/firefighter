@@ -8,7 +8,7 @@ Firefighter, built in Java and JADEX, is a multi-agent system that allows a simu
  - Person
  > BDI agents that have no communication with other agents. His only interest is to save himself of dying. 
 
-----------
+
 ### Contributors ###
 
  - [@Cowtard](https://github.com/CowTard)
