@@ -126,6 +126,7 @@
 
             <components>
                 <component type="fireman"/>
+                <component type="fireman"/>
             </components>
 
         </configuration>

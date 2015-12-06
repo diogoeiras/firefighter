@@ -44,7 +44,10 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
 
     @Override
     public void shutdown(IEnvironmentSpace iEnvironmentSpace) {
-
+        if (iEnvironmentSpace.getSpaceObjectsByType("terrain").length == 0){
+            iEnvironmentSpace.removeSpaceProcessType("fireProcess");
+            System.out.println("Fire process ended.");
+        }
     }
 
     @Override

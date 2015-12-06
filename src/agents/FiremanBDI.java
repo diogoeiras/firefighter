@@ -40,8 +40,8 @@ protected BDIAgent fireman;
     @AgentBody
     public void body() {
 
-        nearObjects = new LinkedList < ISpaceObject > ();
-        nearObjectsToExtinguish = new LinkedList< ISpaceObject >();
+        nearObjects = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
+        nearObjectsToExtinguish = new ArrayDeque<ISpaceObject>();
         previousPosition = null;
 
         Random r = new Random();
@@ -142,10 +142,16 @@ protected BDIAgent fireman;
                     nearObjectsToExtinguish.remove();
                 }
             } else {
+
                 if (nearObjects.size() > 0){
-                    Vector2Double nObjects = (Vector2Double) nearObjects.remove().getProperty("position");
-                    direction = returnDirection(currentPosition,new Vector2Int(nObjects.getXAsInteger(),nObjects.getYAsInteger()));
-                    //nearObjects.clear();
+
+                    System.out.println(nearObjects.peek().getProperty("position") + "\n-------");
+                    Vector2Double nObject = (Vector2Double) nearObjects.remove().getProperty("position");
+                    direction = returnDirection(currentPosition,new Vector2Int(nObject.getXAsInteger(),nObject.getYAsInteger()));
+                    if (nObject.getXAsInteger() + direction.getXAsInteger() == previousPosition.getXAsInteger() &&
+                            nObject.getYAsInteger() + direction.getYAsInteger() == previousPosition.getYAsInteger()) {
+                        direction = null;
+                    }
                 } else {
                     ISpaceObject[] fireObjects = space.getSpaceObjectsByType("fire");
                     if (fireObjects.length > 0){
@@ -171,19 +177,38 @@ protected BDIAgent fireman;
             if (direction != null) {
                 previousPosition = goal.getCurrentPosition();
                 goal.setCurrentPosition(new Vector2Int(currentPosition.getXAsInteger() + direction.getXAsInteger(), currentPosition.getYAsInteger() + direction.getYAsInteger()));
-                myself.setProperty("position", new Vector2Int(goal.getCurrentPosition().getXAsInteger(), goal.getCurrentPosition().getYAsInteger()));
+
+                ISpaceObject[] allFireman = space.getSpaceObjectsByType("fireman");
+
+                boolean canChangePosition = true;
+                for(int i = 0; i < allFireman.length; i++){
+                    Vector2Int pos = (Vector2Int) allFireman[i].getProperty("position");
+                    if (pos.getXAsInteger() == goal.getCurrentPosition().getXAsInteger()
+                            && pos.getYAsInteger() == pos.getYAsInteger()){
+                        canChangePosition = false;
+                    }
+                }
+
+                if (canChangePosition)
+                    myself.setProperty("position", new Vector2Int(goal.getCurrentPosition().getXAsInteger(), goal.getCurrentPosition().getYAsInteger()));
+                else {
+                    goal.setCurrentPosition(previousPosition);
+                }
                 getNearObjects(goal.getCurrentPosition(),EXTINGUISH_CAMPS,true);
                 getNearObjects(goal.getCurrentPosition(),VISION_CAMPS,false);
+            } else {
+                System.out.println("direction null");
             }
             throw new PlanFailureException();
-        }
-
-            @PlanPassed
-            public void passed() {
-                System.out.println("Reached destination");
-            }
 
         }
+
+        @PlanPassed
+        public void passed() {
+            System.out.println("Reached destination");
+        }
+
+    }
 
 
 }

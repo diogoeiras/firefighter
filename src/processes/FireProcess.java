@@ -102,7 +102,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
         if (wetObjects == null || wetObjects.size() == 0){
             if (fireObjects == null){
                 for (int i = 0; i < terrainObjects.size(); i++){
-                    System.out.println("Trying to access:" + i + " of " + terrainObjects.size());
+                    //System.out.println("Trying to access:" + i + " of " + terrainObjects.size());
                     if (terrainObjects.get(i) != null)
                         space.destroySpaceObject(terrainObjects.get(i).getId());
                 }
