@@ -51,7 +51,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 2000) {
+        if (iClockService.getTime() - initTime > 100) {
             cellsToFire = 1;
             fireElement = space.getSpaceObjectsByType("fire");
 
@@ -102,6 +102,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
         if (wetObjects == null || wetObjects.size() == 0){
             if (fireObjects == null){
                 for (int i = 0; i < terrainObjects.size(); i++){
+                    System.out.println("Trying to access:" + i + " of " + terrainObjects.size());
                     if (terrainObjects.get(i) != null)
                         space.destroySpaceObject(terrainObjects.get(i).getId());
                 }

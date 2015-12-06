@@ -28,7 +28,10 @@ protected BDIAgent fireman;
     @Belief
     protected Queue < ISpaceObject > nearObjects, nearObjectsToExtinguish;
 
-    @Belief(updaterate = 500)
+    @Belief
+    protected Vector2Int previousPosition;
+
+    @Belief(updaterate = 100)
     protected long currentTime = System.currentTimeMillis();
 
     @Belief
@@ -39,11 +42,12 @@ protected BDIAgent fireman;
 
         nearObjects = new LinkedList < ISpaceObject > ();
         nearObjectsToExtinguish = new LinkedList< ISpaceObject >();
+        previousPosition = null;
 
         Random r = new Random();
 
-        int spaceHeight = space.getAreaSize().getXAsInteger(),
-                spaceWidth = space.getAreaSize().getYAsInteger(), xPosition = r.nextInt(spaceWidth),
+        int spaceHeight = space.getAreaSize().getYAsInteger(),
+                spaceWidth = space.getAreaSize().getXAsInteger(), xPosition = r.nextInt(spaceWidth),
                 yPosition = r.nextInt(spaceHeight);
 
         myself.setProperty("position", new Vector2Int(xPosition, yPosition));
@@ -96,6 +100,24 @@ protected BDIAgent fireman;
         return direction;
     }
 
+    public boolean canExtinguish(Vector2Int currentPosition, Vector2Double positionToExtinguish){
+
+        int spaceWidth = space.getAreaSize().getXAsInteger(),
+                spaceHeight = space.getAreaSize().getYAsInteger();
+
+        if (currentPosition.getXAsInteger() == spaceWidth-1 && positionToExtinguish.getXAsInteger() == 0){
+            return false;
+        } else if (currentPosition.getXAsInteger() == 0 && positionToExtinguish.getXAsInteger() == spaceWidth-1){
+            return false;
+        } else if (currentPosition.getYAsInteger() == spaceHeight-1 && positionToExtinguish.getYAsInteger() == 0){
+            return false;
+        } else if (currentPosition.getYAsInteger() == 0 && positionToExtinguish.getYAsInteger() == spaceHeight-1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @Plan(trigger = @Trigger(goals = FiremanGoal.class))
     public class MovingPlan {
 
@@ -106,24 +128,40 @@ protected BDIAgent fireman;
 
             // Check if we can extinguish fire
             if (nearObjectsToExtinguish.size() > 0){
-                ISpaceObject toEliminateFire = nearObjectsToExtinguish.remove();
-                space.destroySpaceObject(toEliminateFire.getId());
+                Vector2Double positionToExtinguish = (Vector2Double)nearObjectsToExtinguish.peek().getProperty("position");
+                if ( canExtinguish(goal.getCurrentPosition(),positionToExtinguish) ) {
+                    ISpaceObject toEliminateFire = nearObjectsToExtinguish.remove();
+                    space.destroySpaceObject(toEliminateFire.getId());
 
-                Vector2Double doubleVector = (Vector2Double)toEliminateFire.getProperty("position");
-                Map properties = new HashMap();
-                properties.put("position", new Vector2Int(doubleVector.getXAsInteger(),doubleVector.getYAsInteger()));
-                properties.put("type", 1);
-                space.createSpaceObject("wetTerrain",properties,null);
+                    Vector2Double doubleVector = (Vector2Double) toEliminateFire.getProperty("position");
+                    Map properties = new HashMap();
+                    properties.put("position", new Vector2Int(doubleVector.getXAsInteger(), doubleVector.getYAsInteger()));
+                    properties.put("type", 1);
+                    space.createSpaceObject("wetTerrain", properties, null);
+                } else {
+                    nearObjectsToExtinguish.remove();
+                }
             } else {
                 if (nearObjects.size() > 0){
                     Vector2Double nObjects = (Vector2Double) nearObjects.remove().getProperty("position");
                     direction = returnDirection(currentPosition,new Vector2Int(nObjects.getXAsInteger(),nObjects.getYAsInteger()));
-                    nearObjects.clear();
+                    //nearObjects.clear();
                 } else {
                     ISpaceObject[] fireObjects = space.getSpaceObjectsByType("fire");
                     if (fireObjects.length > 0){
-                        Vector2Double heliTip = ((Vector2Double)fireObjects[0].getProperty("position"));
-                        direction = returnDirection(currentPosition,new Vector2Int(heliTip.getXAsInteger(),heliTip.getYAsInteger()));
+                        for(int i = 0; i < fireObjects.length; i++) {
+                            Vector2Double heliTip = (Vector2Double) fireObjects[i].getProperty("position");
+                            direction = returnDirection(currentPosition, new Vector2Int(heliTip.getXAsInteger(), heliTip.getYAsInteger()));
+                            if (previousPosition == null){
+                                break;
+                            }
+                            else if (currentPosition.getXAsInteger()+direction.getXAsInteger() != previousPosition.getXAsInteger()
+                                    && currentPosition.getYAsInteger()+ direction.getYAsInteger() !=  previousPosition.getYAsInteger()) {
+                                break;
+                            } else {
+                                direction = null;
+                            }
+                        }
                     } else {
                         goal.changeNoMoreFireCells();
                     }
@@ -131,6 +169,7 @@ protected BDIAgent fireman;
             }
 
             if (direction != null) {
+                previousPosition = goal.getCurrentPosition();
                 goal.setCurrentPosition(new Vector2Int(currentPosition.getXAsInteger() + direction.getXAsInteger(), currentPosition.getYAsInteger() + direction.getYAsInteger()));
                 myself.setProperty("position", new Vector2Int(goal.getCurrentPosition().getXAsInteger(), goal.getCurrentPosition().getYAsInteger()));
                 getNearObjects(goal.getCurrentPosition(),EXTINGUISH_CAMPS,true);

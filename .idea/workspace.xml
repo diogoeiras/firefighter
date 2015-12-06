@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03dd84d0-2bf4-41b3-8cf1-78e31d4dd4a7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/grass.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SimpleGrid.application.xml" afterPath="$PROJECT_DIR$/src/SimpleGrid.application.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/FiremanBDI.java" afterPath="$PROJECT_DIR$/src/agents/FiremanBDI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/processes/FireProcess.java" afterPath="$PROJECT_DIR$/src/processes/FireProcess.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/processes/ForestProcess.java" afterPath="$PROJECT_DIR$/src/processes/ForestProcess.java" />
     </list>
     <ignored path="FireFighter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,14 +30,15 @@
       <file leaf-file-name="FiremanBDI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/agents/FiremanBDI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.475">
-              <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
+            <state vertical-scroll-proportion="-0.50715744">
+              <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
-                <element signature="e#5984#5985#0" expanded="true" />
-                <element signature="e#6057#6058#0" expanded="true" />
+                <element signature="method#canExtinguish#0;class#FiremanBDI#0" expanded="false" />
+                <element signature="e#7979#7980#0" expanded="true" />
+                <element signature="e#8052#8053#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/src/processes/FireProcess.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
+              <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -673,14 +670,16 @@
       <workItem from="1449140024702" duration="5474000" />
       <workItem from="1449154606562" duration="2680000" />
       <workItem from="1449158031991" duration="8038000" />
+      <workItem from="1449166321936" duration="1133000" />
+      <workItem from="1449413419925" duration="6308000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16192000" />
+    <option name="totallyTimeSpent" value="23633000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="886" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -690,10 +689,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3342071" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33376288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16736111" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -738,8 +737,71 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
-            <element signature="e#5984#5985#0" expanded="true" />
-            <element signature="e#6057#6058#0" expanded="true" />
+            <element signature="method#canExtinguish#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="e#7979#7980#0" expanded="true" />
+            <element signature="e#8052#8053#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processes/ForestProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processes/FireProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/agents/FiremanBDI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="method#canExtinguish#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="e#7979#7980#0" expanded="true" />
+            <element signature="e#8052#8053#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processes/ForestProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processes/FireProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/agents/FiremanBDI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="method#canExtinguish#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="e#7979#7980#0" expanded="true" />
+            <element signature="e#8052#8053#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -752,8 +814,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
-            <element signature="e#5984#5985#0" expanded="true" />
-            <element signature="e#6057#6058#0" expanded="true" />
+            <element signature="method#canExtinguish#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="e#7979#7980#0" expanded="true" />
+            <element signature="e#8052#8053#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -790,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4661017">
           <caret line="102" column="42" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,14 +876,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.20971303">
           <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processes/FireProcess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
+          <caret line="107" column="17" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -836,14 +897,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/agents/FiremanBDI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.475">
-          <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
+        <state vertical-scroll-proportion="-0.50715744">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
-            <element signature="e#5984#5985#0" expanded="true" />
-            <element signature="e#6057#6058#0" expanded="true" />
+            <element signature="method#canExtinguish#0;class#FiremanBDI#0" expanded="false" />
+            <element signature="e#7979#7980#0" expanded="true" />
+            <element signature="e#8052#8053#0" expanded="true" />
           </folding>
         </state>
       </provider>
