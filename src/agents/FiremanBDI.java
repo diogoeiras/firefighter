@@ -212,16 +212,13 @@ protected BDIAgent fireman;
                     + goal.getCurrentPosition() + ")");
                     Vector2Double positionToExtinguish = (Vector2Double) nearObjectsToExtinguish.peek().getProperty("position");
                     Vector2Int pos = new Vector2Int(positionToExtinguish.getXAsInteger(),positionToExtinguish.getYAsInteger());
-                    //direction = returnDirection(goal.getCurrentPosition(), pos);
-
-                    direction = new Vector2Int(0,0);
-                } else {
-                    direction = new Vector2Int(0,0);
                 }
+                direction = new Vector2Int(0,0);
                 nearObjectsToExtinguish.remove();
             } else if (nearObjects.size() > 0){
 
                 Vector2Double pos = (Vector2Double) nearObjects.peek().getProperty("position");
+                goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
                 nearObjects.remove();
                 direction = returnDirection(goal.getCurrentPosition(),new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
 
