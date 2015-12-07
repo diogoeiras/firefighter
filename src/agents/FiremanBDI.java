@@ -212,7 +212,9 @@ protected BDIAgent fireman;
                     + goal.getCurrentPosition() + ")");
                     Vector2Double positionToExtinguish = (Vector2Double) nearObjectsToExtinguish.peek().getProperty("position");
                     Vector2Int pos = new Vector2Int(positionToExtinguish.getXAsInteger(),positionToExtinguish.getYAsInteger());
-                    direction = returnDirection(goal.getCurrentPosition(), pos);
+                    //direction = returnDirection(goal.getCurrentPosition(), pos);
+
+                    direction = new Vector2Int(0,0);
                 } else {
                     direction = new Vector2Int(0,0);
                 }
@@ -247,6 +249,7 @@ protected BDIAgent fireman;
             myself.setProperty("position",goal.getCurrentPosition());
 
             getNearObjects(goal.getCurrentPosition(),VISION_CAMPS,false);
+
             getNearObjects(goal.getCurrentPosition(),EXTINGUISH_CAMPS,true);
 
             System.out.println("[" + currentTime + "] NearObjects size: " + nearObjects.size());
