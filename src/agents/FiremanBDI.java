@@ -48,7 +48,7 @@ protected BDIAgent fireman;
                 spaceWidth = space.getAreaSize().getXAsInteger(), xPosition = r.nextInt(spaceWidth),
                 yPosition = r.nextInt(spaceHeight);
 
-        myself.setProperty("position", new Vector2Int(0,0));//new Vector2Int(xPosition, yPosition));
+        myself.setProperty("position", new Vector2Int(xPosition, yPosition));
         myself.setProperty("speed", 10);
 
         FiremanGoal Goal = new FiremanGoal(null);
