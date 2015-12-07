@@ -7,6 +7,10 @@ import jadex.extension.envsupport.environment.ISpaceProcess;
 import jadex.extension.envsupport.environment.space2d.Space2D;
 import jadex.extension.envsupport.math.Vector2Int;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -15,6 +19,17 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
 
     @Override
     public void start(IClockService arg0, IEnvironmentSpace arg1) {
+
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("dd_mm_yyyy_HH_mm_ss");
+            Date date = new Date();
+            String dateForLog = "logs/" + dateFormat.format(date) + ".log";
+            System.out.println("Debug file: " + dateForLog);
+            System.setOut(new PrintStream(new FileOutputStream( dateForLog, true)));
+        } catch(FileNotFoundException e){
+            System.out.println(e);
+            System.out.println("Logging to file is not possible.");
+        }
 
         Space2D space = (Space2D)arg1;
 
@@ -46,7 +61,7 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
     public void shutdown(IEnvironmentSpace iEnvironmentSpace) {
         if (iEnvironmentSpace.getSpaceObjectsByType("terrain").length == 0){
             iEnvironmentSpace.removeSpaceProcessType("fireProcess");
-            System.out.println("Fire process ended.");
+            System.out.println("[TERMINATING PROCESS] Fire process ended.");
         }
     }
 

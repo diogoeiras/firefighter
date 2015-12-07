@@ -28,37 +28,36 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
     @Override
     public void start(IClockService arg0, IEnvironmentSpace arg1) {
-        System.out.println("> Initializing FireProcess");
+        System.out.println("[" + arg0.getTime() + "] > Initializing FireProcess");
 
         space = (Grid2D)arg1;
         spaceHeight = space.getAreaSize().getYAsInteger();
         spaceWidth = space.getAreaSize().getXAsInteger();
 
 
-        System.out.println(">> Getting Fire first element.");
+        System.out.println("[" + arg0.getTime() + "] Getting Fire first element");
 
         fireElement = space.getSpaceObjectsByType("fire");
 
-        System.out.println(">> Initialize clock.");
+        System.out.println("[" + arg0.getTime() + "] Initialize clock.");
+        System.out.println("\n\n");
         initTime = arg0.getTime();
     }
 
     @Override
     public void shutdown(IEnvironmentSpace iEnvironmentSpace) {
-        System.out.println("Fire consumed everything");
+        System.out.println("[TERMINATED] Fire Process consumed everything or got extinguished");
     }
 
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 300) {
+        if (iClockService.getTime() - initTime > 100) {
 
             ISpaceObject[] terrain = space.getSpaceObjectsByType("terrain");
             if ( terrain.length == 0 || terrain == null){
-                System.out.println("TO terminate.");
                 shutdown(iEnvironmentSpace);
             }
-
 
             cellsToFire = 1;
             fireElement = space.getSpaceObjectsByType("fire");
@@ -109,16 +108,17 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
         if (wetObjects == null || wetObjects.size() == 0){
             if (fireObjects == null){
-                for (int i = 0; i < terrainObjects.size(); i++){
-                    //System.out.println("Trying to access:" + i + " of " + terrainObjects.size());
-                    if (terrainObjects.get(i) != null)
-                        space.destroySpaceObject(terrainObjects.get(i).getId());
-                }
+                if (terrainObjects != null) {
+                    for (int i = 0; i < terrainObjects.size(); i++) {
+                        if (terrainObjects.get(i) != null)
+                            space.destroySpaceObject(terrainObjects.get(i).getId());
+                    }
 
-                Map properties = new HashMap();
-                properties.put("type", 1);
-                properties.put("position", Pos);
-                space.createSpaceObject("fire", properties, null);
+                    Map properties = new HashMap();
+                    properties.put("type", 1);
+                    properties.put("position", Pos);
+                    space.createSpaceObject("fire", properties, null);
+                }
             }
         }
     }

@@ -28,7 +28,7 @@ protected BDIAgent fireman;
     @Belief
     protected Queue < ISpaceObject > nearObjects, nearObjectsToExtinguish;
 
-    @Belief(updaterate = 100)
+    @Belief(updaterate = 500)
     protected long currentTime = System.currentTimeMillis();
 
     @Belief
@@ -37,6 +37,8 @@ protected BDIAgent fireman;
     @AgentBody
     public void body() {
 
+        System.out.println("Vision Sight: " + VISION_CAMPS);
+        System.out.println("Vision Extinguish: " + EXTINGUISH_CAMPS);
         nearObjects = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
         nearObjectsToExtinguish = new ArrayDeque<ISpaceObject>();
 
@@ -46,7 +48,7 @@ protected BDIAgent fireman;
                 spaceWidth = space.getAreaSize().getXAsInteger(), xPosition = r.nextInt(spaceWidth),
                 yPosition = r.nextInt(spaceHeight);
 
-        myself.setProperty("position", new Vector2Int(xPosition, yPosition));
+        myself.setProperty("position", new Vector2Int(0,0));//new Vector2Int(xPosition, yPosition));
         myself.setProperty("speed", 10);
 
         FiremanGoal Goal = new FiremanGoal(null);
@@ -76,18 +78,18 @@ protected BDIAgent fireman;
     public Vector2Int returnDirection(Vector2Int curr, Vector2Int Des){
         Vector2Int direction = new Vector2Int();
 
-        if (Des.getXAsInteger() < curr.getXAsInteger() && space.getDistance(Des, curr).getAsInteger() > 1) {
+        if (Des.getXAsInteger() < curr.getXAsInteger() && space.getDistance(Des, curr).getAsInteger() >= 1) {
             direction.setX(new Vector1Int(-1));
-        } else if (Des.getXAsInteger() > curr.getXAsInteger() && space.getDistance(Des, curr).getAsInteger() > 1) {
+        } else if (Des.getXAsInteger() > curr.getXAsInteger() && space.getDistance(Des, curr).getAsInteger() >= 1) {
             direction.setX(new Vector1Int(1));
         } else {
             direction.setX(new Vector1Int(0));
         }
 
         // Y position
-        if (Des.getYAsInteger() < curr.getYAsInteger() && space.getDistance(Des, curr).getAsInteger() > 1) {
+        if (Des.getYAsInteger() < curr.getYAsInteger() && space.getDistance(Des, curr).getAsInteger() >= 1) {
             direction.setY(new Vector1Int(-1));
-        } else if (Des.getYAsInteger() > curr.getYAsInteger() && space.getDistance(Des, curr).getAsInteger() > 1) {
+        } else if (Des.getYAsInteger() > curr.getYAsInteger() && space.getDistance(Des, curr).getAsInteger() >= 1) {
             direction.setY(new Vector1Int(1));
         } else {
             direction.setY(new Vector1Int(0));
@@ -109,7 +111,11 @@ protected BDIAgent fireman;
             return false;
         } else if (currentPosition.getYAsInteger() == 0 && positionToExtinguish.getYAsInteger() == spaceHeight-1) {
             return false;
-        } else {
+        } else if ( Math.abs(currentPosition.getXAsInteger() - positionToExtinguish.getXAsInteger()) > 1 &&
+                Math.abs(currentPosition.getYAsInteger() - positionToExtinguish.getYAsInteger()) > 1){
+            return false;
+        }
+        else {
             return true;
         }
     }
@@ -125,18 +131,18 @@ protected BDIAgent fireman;
 
     }
 
-    public void removeRepeatedCells(){
+    public void removeRepeatedCells(Vector2Int current){
 
         Queue<ISpaceObject> newNear = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
 
-        nearObjects = getQueueRepeatedFree(nearObjects,false);
+        nearObjects = getQueueRepeatedFree(nearObjects, current, false);
 
         Queue<ISpaceObject> newVisionSight = new ArrayDeque<ISpaceObject>();
 
-        nearObjectsToExtinguish = getQueueRepeatedFree(nearObjectsToExtinguish,true);
+        nearObjectsToExtinguish = getQueueRepeatedFree(nearObjectsToExtinguish, current, true);
     }
 
-    public Queue<ISpaceObject> getQueueRepeatedFree(Queue<ISpaceObject> oldQueue, boolean toExtinguished){
+    public Queue<ISpaceObject> getQueueRepeatedFree(Queue<ISpaceObject> oldQueue,Vector2Int currentPosition, boolean toExtinguished){
 
         Queue<ISpaceObject> newQueue = new ArrayDeque<ISpaceObject>();
         Queue<ISpaceObject> newVisionSight = new ArrayDeque<ISpaceObject>();
@@ -146,12 +152,15 @@ protected BDIAgent fireman;
         while(oldQueue.size() != 0){
             Vector2Double current = (Vector2Double) oldQueue.peek().getProperty("position");
             if(grid[current.getXAsInteger()][current.getYAsInteger()] != "X"){
-                if (toExtinguished){
+                if (toExtinguished && canExtinguish(currentPosition,current)){
                     newQueue.add(oldQueue.remove());
-                } else {
+                    grid[current.getXAsInteger()][current.getYAsInteger()] = "X";
+                } else if (!toExtinguished && canExtinguish(currentPosition,current)){
                     newVisionSight.add(oldQueue.remove());
+                    grid[current.getXAsInteger()][current.getYAsInteger()] = "X";
+                } else {
+                    oldQueue.remove();
                 }
-                grid[current.getXAsInteger()][current.getYAsInteger()] = "X";
             } else {
                 oldQueue.remove();
             }
@@ -173,17 +182,20 @@ protected BDIAgent fireman;
         @PlanBody
         protected void changePosition(FiremanGoal goal) {
 
-            Vector2Int direction = null;
+            Vector2Int direction = new Vector2Int(0,0);
 
-            if (goal.getDesiredPosition() != null && goal.getDesiredPosition() == goal.getCurrentPosition()){
+            if (goal.getDesiredPosition() != null &&
+                    (goal.getDesiredPosition().getXAsInteger() == goal.getCurrentPosition().getXAsInteger()
+                        && goal.getDesiredPosition().getYAsInteger() == goal.getCurrentPosition().getYAsInteger())) {
                 goal.setDesiredPosition(null);
-                System.out.println("We reached it ;)");
                 direction = new Vector2Int(0,0);
             }
             else if (nearObjectsToExtinguish.size() > 0){
 
                 if(canExtinguish(goal.getCurrentPosition(),(Vector2Double) nearObjectsToExtinguish.peek().getProperty("position"))){
                     putDownFireCell(nearObjectsToExtinguish.peek());
+                    System.out.println("[" + currentTime + "] Eliminating (" + nearObjectsToExtinguish.peek().getProperty("position") + ") from ("
+                    + goal.getCurrentPosition() + ")");
                     Vector2Double positionToExtinguish = (Vector2Double) nearObjectsToExtinguish.peek().getProperty("position");
                     Vector2Int pos = new Vector2Int(positionToExtinguish.getXAsInteger(),positionToExtinguish.getYAsInteger());
                     direction = returnDirection(goal.getCurrentPosition(), pos);
@@ -216,19 +228,28 @@ protected BDIAgent fireman;
             Vector2Int actualPosition = goal.getCurrentPosition();
             goal.setCurrentPosition(new Vector2Int(actualPosition.getXAsInteger() + direction.getXAsInteger(),
                     actualPosition.getYAsInteger() + direction.getYAsInteger()));
+
             myself.setProperty("position",goal.getCurrentPosition());
 
             getNearObjects(goal.getCurrentPosition(),VISION_CAMPS,false);
             getNearObjects(goal.getCurrentPosition(),EXTINGUISH_CAMPS,true);
 
-            removeRepeatedCells();
+            System.out.println("[" + currentTime + "] NearObjects size: " + nearObjects.size());
+            System.out.println("[" + currentTime + "] NearObjectsToExtinguish: " + nearObjectsToExtinguish.size());
+            System.out.println("[" + currentTime + "] Current position: (" + goal.getCurrentPosition() + ")");
+            System.out.println("[" + currentTime + "] Desired Position: (" + goal.getDesiredPosition() + ")");
+            System.out.println("[" + currentTime + "] Direction: (" + direction + ")");
+            System.out.println("______________");
+
+
+            removeRepeatedCells(goal.getCurrentPosition());
             throw new PlanFailureException();
 
         }
 
         @PlanPassed
         public void passed() {
-            System.out.println("Reached destination");
+            System.out.println("[" + currentTime + "] ~~~Reached destination~~~");
         }
 
     }

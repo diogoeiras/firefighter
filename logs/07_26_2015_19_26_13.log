@@ -1,0 +1,100 @@
+[1449516373616] > Initializing FireProcess
+[1449516373616] Getting Fire first element
+[1449516373616] Initialize clock.
+
+
+
+Vision Sight: 5
+Vision Extinguish: 1
+[1449516373621] NearObjects size: 1
+[1449516373621] NearObjectsToExtinguish: 1
+[1449516373621] Current position: (6, 0)
+[1449516373621] Desired Position: (null)
+[1449516373621] Direction: (1, -1)
+______________
+[1449516373724] Eliminating (6, 0) from (6, 0)
+[1449516373724] NearObjects size: 1
+[1449516373724] NearObjectsToExtinguish: 0
+[1449516373724] Current position: (6, 0)
+[1449516373724] Desired Position: (null)
+[1449516373724] Direction: (0, 0)
+______________
+[1449516373824] NearObjects size: 0
+[1449516373824] NearObjectsToExtinguish: 0
+[1449516373824] Current position: (6, 0)
+[1449516373824] Desired Position: (null)
+[1449516373824] Direction: (0, 0)
+______________
+[1449516373924] NearObjects size: 0
+[1449516373924] NearObjectsToExtinguish: 0
+[1449516373924] Current position: (6, 0)
+[1449516373924] Desired Position: (null)
+[1449516373924] Direction: (0, 0)
+______________
+[1449516374024] NearObjects size: 0
+[1449516374024] NearObjectsToExtinguish: 0
+[1449516374024] Current position: (6, 0)
+[1449516374024] Desired Position: (null)
+[1449516374024] Direction: (0, 0)
+______________
+[1449516374125] NearObjects size: 0
+[1449516374125] NearObjectsToExtinguish: 0
+[1449516374125] Current position: (6, 0)
+[1449516374125] Desired Position: (null)
+[1449516374125] Direction: (0, 0)
+______________
+[1449516374225] NearObjects size: 0
+[1449516374225] NearObjectsToExtinguish: 0
+[1449516374225] Current position: (6, 0)
+[1449516374225] Desired Position: (null)
+[1449516374225] Direction: (0, 0)
+______________
+[1449516374326] NearObjects size: 0
+[1449516374326] NearObjectsToExtinguish: 0
+[1449516374326] Current position: (6, 0)
+[1449516374326] Desired Position: (null)
+[1449516374326] Direction: (0, 0)
+______________
+[1449516374427] NearObjects size: 0
+[1449516374427] NearObjectsToExtinguish: 0
+[1449516374427] Current position: (6, 0)
+[1449516374427] Desired Position: (null)
+[1449516374427] Direction: (0, 0)
+______________
+[1449516374528] NearObjects size: 0
+[1449516374528] NearObjectsToExtinguish: 0
+[1449516374528] Current position: (6, 0)
+[1449516374528] Desired Position: (null)
+[1449516374528] Direction: (0, 0)
+______________
+[1449516374628] NearObjects size: 0
+[1449516374628] NearObjectsToExtinguish: 0
+[1449516374628] Current position: (6, 0)
+[1449516374628] Desired Position: (null)
+[1449516374628] Direction: (0, 0)
+______________
+[1449516374729] NearObjects size: 0
+[1449516374729] NearObjectsToExtinguish: 0
+[1449516374729] Current position: (6, 0)
+[1449516374729] Desired Position: (null)
+[1449516374729] Direction: (0, 0)
+______________
+[1449516374829] NearObjects size: 0
+[1449516374829] NearObjectsToExtinguish: 0
+[1449516374829] Current position: (6, 0)
+[1449516374829] Desired Position: (null)
+[1449516374829] Direction: (0, 0)
+______________
+[1449516374929] NearObjects size: 0
+[1449516374929] NearObjectsToExtinguish: 0
+[1449516374929] Current position: (6, 0)
+[1449516374929] Desired Position: (null)
+[1449516374929] Direction: (0, 0)
+______________
+[1449516375030] NearObjects size: 0
+[1449516375030] NearObjectsToExtinguish: 0
+[1449516375030] Current position: (6, 0)
+[1449516375030] Desired Position: (null)
+[1449516375030] Direction: (0, 0)
+______________
+Debug file: logs/07_26_2015_19_26_15.log
