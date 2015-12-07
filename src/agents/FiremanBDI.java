@@ -28,7 +28,7 @@ protected BDIAgent fireman;
     @Belief
     protected Queue < ISpaceObject > nearObjects, nearObjectsToExtinguish;
 
-    @Belief(updaterate = 500)
+    @Belief(updaterate = 100)
     protected long currentTime = System.currentTimeMillis();
 
     @Belief
@@ -39,6 +39,8 @@ protected BDIAgent fireman;
 
         System.out.println("Vision Sight: " + VISION_CAMPS);
         System.out.println("Vision Extinguish: " + EXTINGUISH_CAMPS);
+        System.out.println("\n\n");
+
         nearObjects = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
         nearObjectsToExtinguish = new ArrayDeque<ISpaceObject>();
 
@@ -111,7 +113,7 @@ protected BDIAgent fireman;
             return false;
         } else if (currentPosition.getYAsInteger() == 0 && positionToExtinguish.getYAsInteger() == spaceHeight-1) {
             return false;
-        } else if ( Math.abs(currentPosition.getXAsInteger() - positionToExtinguish.getXAsInteger()) > 1 &&
+        } else if ( Math.abs(currentPosition.getXAsInteger() - positionToExtinguish.getXAsInteger()) > 1 ||
                 Math.abs(currentPosition.getYAsInteger() - positionToExtinguish.getYAsInteger()) > 1){
             return false;
         }
@@ -142,6 +144,14 @@ protected BDIAgent fireman;
         nearObjectsToExtinguish = getQueueRepeatedFree(nearObjectsToExtinguish, current, true);
     }
 
+    public boolean wasAlreadyExtinguished(ISpaceObject cell){
+        if (cell.getType() == "fire"){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Queue<ISpaceObject> getQueueRepeatedFree(Queue<ISpaceObject> oldQueue,Vector2Int currentPosition, boolean toExtinguished){
 
         Queue<ISpaceObject> newQueue = new ArrayDeque<ISpaceObject>();
@@ -156,7 +166,11 @@ protected BDIAgent fireman;
                     newQueue.add(oldQueue.remove());
                     grid[current.getXAsInteger()][current.getYAsInteger()] = "X";
                 } else if (!toExtinguished && canExtinguish(currentPosition,current)){
-                    newVisionSight.add(oldQueue.remove());
+                    if (wasAlreadyExtinguished(oldQueue.peek())) {
+                        newVisionSight.add(oldQueue.remove());
+                    } else {
+                        oldQueue.remove();
+                    }
                     grid[current.getXAsInteger()][current.getYAsInteger()] = "X";
                 } else {
                     oldQueue.remove();
@@ -202,7 +216,6 @@ protected BDIAgent fireman;
                 } else {
                     direction = new Vector2Int(0,0);
                 }
-
                 nearObjectsToExtinguish.remove();
             } else if (nearObjects.size() > 0){
 
@@ -221,6 +234,8 @@ protected BDIAgent fireman;
                         Vector2Double pos = (Vector2Double) fire[0].getProperty("position");
                         goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(), pos.getYAsInteger()));
                         direction = returnDirection(goal.getCurrentPosition(),goal.getDesiredPosition());
+                    } else {
+                        goal.changeNoMoreFireCells();
                     }
                 }
             }
