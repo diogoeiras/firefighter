@@ -28,9 +28,6 @@ protected BDIAgent fireman;
     @Belief
     protected Queue < ISpaceObject > nearObjects, nearObjectsToExtinguish;
 
-    @Belief
-    protected Vector2Int previousPosition;
-
     @Belief(updaterate = 100)
     protected long currentTime = System.currentTimeMillis();
 
@@ -42,7 +39,6 @@ protected BDIAgent fireman;
 
         nearObjects = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
         nearObjectsToExtinguish = new ArrayDeque<ISpaceObject>();
-        previousPosition = null;
 
         Random r = new Random();
 
@@ -53,7 +49,7 @@ protected BDIAgent fireman;
         myself.setProperty("position", new Vector2Int(xPosition, yPosition));
         myself.setProperty("speed", 10);
 
-        FiremanGoal Goal = new FiremanGoal(new Vector2Int(0, 0));
+        FiremanGoal Goal = new FiremanGoal(null);
         Goal.setCurrentPosition(new Vector2Int(xPosition, yPosition));
 
         // initialize array with ISpaceObjects near current position
@@ -118,87 +114,114 @@ protected BDIAgent fireman;
         }
     }
 
+    public void putDownFireCell(ISpaceObject cell){
+        space.destroySpaceObject(cell.getId());
+
+        Vector2Double doubleVector = (Vector2Double) cell.getProperty("position");
+        Map properties = new HashMap();
+        properties.put("position", new Vector2Int(doubleVector.getXAsInteger(), doubleVector.getYAsInteger()));
+        properties.put("type", 1);
+        space.createSpaceObject("wetTerrain", properties, null);
+
+    }
+
+    public void removeRepeatedCells(){
+
+        Queue<ISpaceObject> newNear = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
+
+        nearObjects = getQueueRepeatedFree(nearObjects,false);
+
+        Queue<ISpaceObject> newVisionSight = new ArrayDeque<ISpaceObject>();
+
+        nearObjectsToExtinguish = getQueueRepeatedFree(nearObjectsToExtinguish,true);
+    }
+
+    public Queue<ISpaceObject> getQueueRepeatedFree(Queue<ISpaceObject> oldQueue, boolean toExtinguished){
+
+        Queue<ISpaceObject> newQueue = new ArrayDeque<ISpaceObject>();
+        Queue<ISpaceObject> newVisionSight = new ArrayDeque<ISpaceObject>();
+
+        String[][] grid = new String[space.getAreaSize().getXAsInteger()][space.getAreaSize().getYAsInteger()];
+
+        while(oldQueue.size() != 0){
+            Vector2Double current = (Vector2Double) oldQueue.peek().getProperty("position");
+            if(grid[current.getXAsInteger()][current.getYAsInteger()] != "X"){
+                if (toExtinguished){
+                    newQueue.add(oldQueue.remove());
+                } else {
+                    newVisionSight.add(oldQueue.remove());
+                }
+                grid[current.getXAsInteger()][current.getYAsInteger()] = "X";
+            } else {
+                oldQueue.remove();
+            }
+        }
+        if (toExtinguished){
+            Queue<ISpaceObject> toReturn = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
+            Object[] temp = newQueue.toArray();
+            for( int i = temp.length - 1; i >= 0; i--){
+                toReturn.add((ISpaceObject) temp[i]);
+            }
+            return toReturn;
+        } else
+            return newVisionSight;
+    }
+
     @Plan(trigger = @Trigger(goals = FiremanGoal.class))
     public class MovingPlan {
 
         @PlanBody
         protected void changePosition(FiremanGoal goal) {
-            Vector2Int currentPosition = goal.getCurrentPosition();
+
             Vector2Int direction = null;
 
-            // Check if we can extinguish fire
-            if (nearObjectsToExtinguish.size() > 0){
-                Vector2Double positionToExtinguish = (Vector2Double)nearObjectsToExtinguish.peek().getProperty("position");
-                if ( canExtinguish(goal.getCurrentPosition(),positionToExtinguish) ) {
-                    ISpaceObject toEliminateFire = nearObjectsToExtinguish.remove();
-                    space.destroySpaceObject(toEliminateFire.getId());
+            if (goal.getDesiredPosition() != null && goal.getDesiredPosition() == goal.getCurrentPosition()){
+                goal.setDesiredPosition(null);
+                System.out.println("We reached it ;)");
+                direction = new Vector2Int(0,0);
+            }
+            else if (nearObjectsToExtinguish.size() > 0){
 
-                    Vector2Double doubleVector = (Vector2Double) toEliminateFire.getProperty("position");
-                    Map properties = new HashMap();
-                    properties.put("position", new Vector2Int(doubleVector.getXAsInteger(), doubleVector.getYAsInteger()));
-                    properties.put("type", 1);
-                    space.createSpaceObject("wetTerrain", properties, null);
+                if(canExtinguish(goal.getCurrentPosition(),(Vector2Double) nearObjectsToExtinguish.peek().getProperty("position"))){
+                    putDownFireCell(nearObjectsToExtinguish.peek());
+                    Vector2Double positionToExtinguish = (Vector2Double) nearObjectsToExtinguish.peek().getProperty("position");
+                    Vector2Int pos = new Vector2Int(positionToExtinguish.getXAsInteger(),positionToExtinguish.getYAsInteger());
+                    direction = returnDirection(goal.getCurrentPosition(), pos);
                 } else {
-                    nearObjectsToExtinguish.remove();
+                    direction = new Vector2Int(0,0);
                 }
+
+                nearObjectsToExtinguish.remove();
+            } else if (nearObjects.size() > 0){
+
+                Vector2Double pos = (Vector2Double) nearObjects.peek().getProperty("position");
+                nearObjects.remove();
+                direction = returnDirection(goal.getCurrentPosition(),new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
+
             } else {
 
-                if (nearObjects.size() > 0){
-
-                    System.out.println(nearObjects.peek().getProperty("position") + "\n-------");
-                    Vector2Double nObject = (Vector2Double) nearObjects.remove().getProperty("position");
-                    direction = returnDirection(currentPosition,new Vector2Int(nObject.getXAsInteger(),nObject.getYAsInteger()));
-                    if (nObject.getXAsInteger() + direction.getXAsInteger() == previousPosition.getXAsInteger() &&
-                            nObject.getYAsInteger() + direction.getYAsInteger() == previousPosition.getYAsInteger()) {
-                        direction = null;
-                    }
+                if (goal.getDesiredPosition() != null){
+                    direction = returnDirection(goal.getCurrentPosition(),goal.getDesiredPosition());
                 } else {
-                    ISpaceObject[] fireObjects = space.getSpaceObjectsByType("fire");
-                    if (fireObjects.length > 0){
-                        for(int i = 0; i < fireObjects.length; i++) {
-                            Vector2Double heliTip = (Vector2Double) fireObjects[i].getProperty("position");
-                            direction = returnDirection(currentPosition, new Vector2Int(heliTip.getXAsInteger(), heliTip.getYAsInteger()));
-                            if (previousPosition == null){
-                                break;
-                            }
-                            else if (currentPosition.getXAsInteger()+direction.getXAsInteger() != previousPosition.getXAsInteger()
-                                    && currentPosition.getYAsInteger()+ direction.getYAsInteger() !=  previousPosition.getYAsInteger()) {
-                                break;
-                            } else {
-                                direction = null;
-                            }
-                        }
-                    } else {
-                        goal.changeNoMoreFireCells();
+                    ISpaceObject[] fire = space.getSpaceObjectsByType("fire");
+
+                    if (fire.length > 0) {
+                        Vector2Double pos = (Vector2Double) fire[0].getProperty("position");
+                        goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(), pos.getYAsInteger()));
+                        direction = returnDirection(goal.getCurrentPosition(),goal.getDesiredPosition());
                     }
                 }
             }
 
-            if (direction != null) {
-                previousPosition = goal.getCurrentPosition();
-                goal.setCurrentPosition(new Vector2Int(currentPosition.getXAsInteger() + direction.getXAsInteger(), currentPosition.getYAsInteger() + direction.getYAsInteger()));
+            Vector2Int actualPosition = goal.getCurrentPosition();
+            goal.setCurrentPosition(new Vector2Int(actualPosition.getXAsInteger() + direction.getXAsInteger(),
+                    actualPosition.getYAsInteger() + direction.getYAsInteger()));
+            myself.setProperty("position",goal.getCurrentPosition());
 
-                ISpaceObject[] allFireman = space.getSpaceObjectsByType("fireman");
+            getNearObjects(goal.getCurrentPosition(),VISION_CAMPS,false);
+            getNearObjects(goal.getCurrentPosition(),EXTINGUISH_CAMPS,true);
 
-                boolean canChangePosition = true;
-                for(int i = 0; i < allFireman.length; i++){
-                    Vector2Int pos = (Vector2Int) allFireman[i].getProperty("position");
-                    if (pos.getXAsInteger() == goal.getCurrentPosition().getXAsInteger()
-                            && pos.getYAsInteger() == pos.getYAsInteger()){
-                        canChangePosition = false;
-                    }
-                }
-
-                if (canChangePosition)
-                    myself.setProperty("position", new Vector2Int(goal.getCurrentPosition().getXAsInteger(), goal.getCurrentPosition().getYAsInteger()));
-                else {
-                    goal.setCurrentPosition(previousPosition);
-                }
-                getNearObjects(goal.getCurrentPosition(),EXTINGUISH_CAMPS,true);
-                getNearObjects(goal.getCurrentPosition(),VISION_CAMPS,false);
-            } else {
-                System.out.println("direction null");
-            }
+            removeRepeatedCells();
             throw new PlanFailureException();
 
         }

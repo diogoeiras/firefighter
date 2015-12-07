@@ -45,13 +45,21 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
     @Override
     public void shutdown(IEnvironmentSpace iEnvironmentSpace) {
-
+        System.out.println("Fire consumed everything");
     }
 
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 100) {
+        if (iClockService.getTime() - initTime > 300) {
+
+            ISpaceObject[] terrain = space.getSpaceObjectsByType("terrain");
+            if ( terrain.length == 0 || terrain == null){
+                System.out.println("TO terminate.");
+                shutdown(iEnvironmentSpace);
+            }
+
+
             cellsToFire = 1;
             fireElement = space.getSpaceObjectsByType("fire");
 
