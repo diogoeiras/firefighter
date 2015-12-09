@@ -16,8 +16,9 @@ import goals.FiremanGoal;
 import java.util.*;
 
 @Agent
-public class FiremanBDI {@Agent
-protected BDIAgent fireman;
+public class FiremanBDI {
+    @Agent
+    protected BDIAgent fireman;
 
     private static final int VISION_CAMPS = 5;
     private static final int EXTINGUISH_CAMPS = 1;
@@ -28,7 +29,7 @@ protected BDIAgent fireman;
     @Belief
     protected Queue < ISpaceObject > nearObjects, nearObjectsToExtinguish;
 
-    @Belief(updaterate = 100)
+    @Belief(updaterate = 350)
     protected long currentTime = System.currentTimeMillis();
 
     @Belief
@@ -51,7 +52,6 @@ protected BDIAgent fireman;
                 yPosition = r.nextInt(spaceHeight);
 
         myself.setProperty("position", new Vector2Int(xPosition, yPosition));
-        myself.setProperty("speed", 10);
 
         FiremanGoal Goal = new FiremanGoal(null);
         Goal.setCurrentPosition(new Vector2Int(xPosition, yPosition));
@@ -59,7 +59,6 @@ protected BDIAgent fireman;
         // initialize array with ISpaceObjects near current position
         getNearObjects(Goal.getCurrentPosition(),VISION_CAMPS, false);
         getNearObjects(Goal.getCurrentPosition(),EXTINGUISH_CAMPS, true);
-
 
         FiremanGoal goal = (FiremanGoal) fireman.dispatchTopLevelGoal(Goal).get();
 
@@ -77,7 +76,7 @@ protected BDIAgent fireman;
         }
     }
 
-    public Vector2Int returnDirection(Vector2Int curr, Vector2Int Des){
+    public static Vector2Int returnDirection(Grid2D space, Vector2Int curr, Vector2Int Des){
         Vector2Int direction = new Vector2Int();
 
         if (Des.getXAsInteger() < curr.getXAsInteger() && space.getDistance(Des, curr).getAsInteger() >= 1) {
@@ -218,21 +217,21 @@ protected BDIAgent fireman;
             } else if (nearObjects.size() > 0){
 
                 Vector2Double pos = (Vector2Double) nearObjects.peek().getProperty("position");
-                goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
+                //goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
                 nearObjects.remove();
-                direction = returnDirection(goal.getCurrentPosition(),new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
+                direction = returnDirection(space, goal.getCurrentPosition(),new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
 
             } else {
 
                 if (goal.getDesiredPosition() != null){
-                    direction = returnDirection(goal.getCurrentPosition(),goal.getDesiredPosition());
+                    direction = returnDirection(space, goal.getCurrentPosition(),goal.getDesiredPosition());
                 } else {
                     ISpaceObject[] fire = space.getSpaceObjectsByType("fire");
 
                     if (fire.length > 0) {
                         Vector2Double pos = (Vector2Double) fire[0].getProperty("position");
                         goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(), pos.getYAsInteger()));
-                        direction = returnDirection(goal.getCurrentPosition(),goal.getDesiredPosition());
+                        direction = returnDirection(space, goal.getCurrentPosition(),goal.getDesiredPosition());
                     } else {
                         goal.changeNoMoreFireCells();
                     }

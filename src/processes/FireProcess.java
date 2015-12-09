@@ -28,7 +28,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
     @Override
     public void start(IClockService arg0, IEnvironmentSpace arg1) {
-        System.out.println("[" + arg0.getTime() + "] > Initializing FireProcess");
+        System.out.println("[" + arg0.getTime() + "] Initializing FireProcess");
 
         space = (Grid2D)arg1;
         spaceHeight = space.getAreaSize().getYAsInteger();
@@ -52,7 +52,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 100) {
+        if (iClockService.getTime() - initTime > 600) {
 
             ISpaceObject[] terrain = space.getSpaceObjectsByType("terrain");
             if ( terrain.length == 0 || terrain == null){

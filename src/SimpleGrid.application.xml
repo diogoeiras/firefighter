@@ -22,9 +22,17 @@
     </imports>
 
     <extensiontypes>
-        <env:envspacetype name="2dspace" class="Grid2D" width="20" height="20">
+        <env:envspacetype name="2dspace" class="Grid2D" width="25" height="25">
 
             <env:objecttypes>
+
+                <env:objecttype name="fireman">
+                    <env:property name="position" class="IVector2"/>
+                </env:objecttype>
+
+                <env:objecttype name="person">
+                    <env:property name="position" class="IVector2"/>
+                </env:objecttype>
 
                 <env:objecttype name="terrain">
                     <env:property name="position" class="IVector2"/>
@@ -36,11 +44,6 @@
                     <env:property name="type" class="String"/>
                 </env:objecttype>
 
-                <env:objecttype name="fireman">
-                    <env:property name="position" class="IVector2"/>
-                    <env:property name="speed" class="Double"/>
-                </env:objecttype>
-
                 <env:objecttype name="fire">
                     <env:property name="position" class="IVector2"/>
                     <env:property name="type" class="String"/>
@@ -50,10 +53,12 @@
             <env:processtypes>
                 <env:processtype name="create_forest" class="processes.ForestProcess"/>
                 <env:processtype name="fireProcess" class="processes.FireProcess"/>
+                <env:processtype name="utilProcess" class="processes.UtilProcess"/>
             </env:processtypes>
 
             <env:avatarmappings>
                 <env:avatarmapping componenttype="fireman" objecttype="fireman"/>
+                <env:avatarmapping componenttype="person" objecttype="person"/>
             </env:avatarmappings>
 
 
@@ -64,8 +69,13 @@
 
             <env:perspectives>
                 <env:perspective name="icons" class="Perspective2D" objectplacement="center">
+
                     <env:drawable objecttype="fireman" height="1.0" width="1.0">
-                        <env:texturedrectangle layer="2" imagepath="images/wanderer.png"/>
+                        <env:texturedrectangle layer="2" imagepath="images/fireman.png"/>
+                    </env:drawable>
+
+                    <env:drawable objecttype="person" height="1.0" width="1.0">
+                        <env:texturedrectangle layer="2" imagepath="images/person.png"/>
                     </env:drawable>
 
                     <env:drawable objecttype="terrain" height="1.0" width="1.0">
@@ -106,16 +116,18 @@
 
     <componenttypes>
         <componenttype name="fireman" filename="agents\FiremanBDI.class"/>
+        <componenttype name="person" filename="agents\PersonBDI.class"/>
     </componenttypes>
 
     <configurations>
-        <configuration name="Default">
+        <configuration name="1_bombeiro">
             <extensions>
                 <env:envspace name="2dspace" type="2dspace">
 
                     <env:processes>
                         <env:process type="create_forest"/>
                         <env:process type="fireProcess"/>
+                        <env:process type="utilProcess"/>
                     </env:processes>
 
                     <env:observers>
@@ -126,6 +138,7 @@
 
             <components>
                 <component type="fireman"/>
+                <component type="person"/>
             </components>
 
         </configuration>
