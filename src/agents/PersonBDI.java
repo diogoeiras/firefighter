@@ -36,7 +36,6 @@ public class PersonBDI {
     public void body() {
         System.out.println("PERSON Vision: " + VISION);
 
-
         Random rnd = new Random();
 
         while(true) {
@@ -80,6 +79,25 @@ public class PersonBDI {
         } else return 4;
     }
 
+    public boolean fireAffectsme(Vector2Int currentPosition, Vector2Double positionToExtinguish){
+
+        int spaceWidth = space.getAreaSize().getXAsInteger(),
+                spaceHeight = space.getAreaSize().getYAsInteger();
+
+        if (currentPosition.getXAsInteger() == spaceWidth-1 && positionToExtinguish.getXAsInteger() == 0){
+            return false;
+        } else if (currentPosition.getXAsInteger() == 0 && positionToExtinguish.getXAsInteger() == spaceWidth-1){
+            return false;
+        } else if (currentPosition.getYAsInteger() == spaceHeight-1 && positionToExtinguish.getYAsInteger() == 0){
+            return false;
+        } else if (currentPosition.getYAsInteger() == 0 && positionToExtinguish.getYAsInteger() == spaceHeight-1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     @Plan(trigger = @Trigger(goals = PersonGoal.class))
     public class SavingPlan {
 
@@ -93,8 +111,9 @@ public class PersonBDI {
 
             if (nearFireman != null && nearFireman.length > 0){
                 System.out.println("A person was saved on: (" + currentPosition + ")");
-                myself.setProperty("position",new Vector2Int(-1,-1));
+                //myself.setProperty("position",new Vector2Int(-1,-1));
                 goal.changeRescuedStatus();
+                space.destroySpaceObject(myself.getId());
             }
             else if (nearFire != null && nearFire.length > 0){
 
@@ -104,24 +123,30 @@ public class PersonBDI {
 
                 for(int i = 0; i < nearFire.length; i++){
                     Vector2Double thisFireCell = (Vector2Double) ((ISpaceObject) nearFire[i]).getProperty("position");
-                    Vector2Int thisFireCell_int = new Vector2Int(thisFireCell.getXAsInteger(), thisFireCell.getYAsInteger());
-                    Vector2Int resultDirection = FiremanBDI.returnDirection(space,currentPosition, thisFireCell_int);
 
-                    allDir[resultDirection.getXAsInteger()+1][resultDirection.getYAsInteger()+1] = "X";
+                    if (fireAffectsme(currentPosition,thisFireCell)) {
+                        Vector2Int thisFireCell_int = new Vector2Int(thisFireCell.getXAsInteger(), thisFireCell.getYAsInteger());
+                        Vector2Int resultDirection = FiremanBDI.returnDirection(space, currentPosition, thisFireCell_int);
+
+                        allDir[resultDirection.getXAsInteger() + 1][resultDirection.getYAsInteger() + 1] = "X";
+                    }
                 }
 
                 if (allDir[1][1] == "X"){
                     // TODO: DEAD;
                     System.out.println("A person died on: (" + currentPosition + ")");
                     goal.changeDeadStatus();
-                    myself.setProperty("position",new Vector2Int(-1,-1));
+                    space.destroySpaceObject(myself.getId());
+                    //myself.setProperty("position",new Vector2Int(-1,-1));
                 } else {
                     for (int i = 0; i < allDir.length; i++) {
                         for (int j = 0; j < allDir[i].length; j++) {
                             if (allDir[i][j] != "X") {
                                 nextDirection = new Vector2Int(i-1, j-1);
                                 if (currentPosition.getXAsInteger() + nextDirection.getXAsInteger() > space.getAreaSize().getXAsInteger()-1 ||
-                                        currentPosition.getYAsInteger() + nextDirection.getYAsInteger() > space.getAreaSize().getYAsInteger()-1){
+                                        currentPosition.getXAsInteger() + nextDirection.getXAsInteger() < 0 ||
+                                            currentPosition.getYAsInteger() + nextDirection.getYAsInteger() > space.getAreaSize().getYAsInteger()-1 ||
+                                                currentPosition.getYAsInteger() + nextDirection.getYAsInteger() < 0 ){
                                     nextDirection = null;
                                 } else {
                                     break;
@@ -180,8 +205,8 @@ public class PersonBDI {
 
                             if (isDeadBecauseFire(selectiveArray, numCellsNeeded)){
                                 System.out.println("A person died on: (" + currentPosition + ")");
-                                myself.setProperty("position",new Vector2Int(-1,-1));
                                 goal.changeDeadStatus();
+                                space.destroySpaceObject(myself.getId());
                             }
                         }
                     } else {
