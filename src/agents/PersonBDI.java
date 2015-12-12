@@ -1,24 +1,33 @@
 package agents;
 
-import goals.FiremanGoal;
 import goals.PersonGoal;
 import jadex.bdiv3.BDIAgent;
 import jadex.bdiv3.annotation.*;
 import jadex.bdiv3.runtime.impl.PlanFailureException;
+import jadex.bridge.service.annotation.Service;
 import jadex.extension.envsupport.environment.ISpaceObject;
 import jadex.extension.envsupport.environment.space2d.Grid2D;
 import jadex.extension.envsupport.math.Vector1Int;
 import jadex.extension.envsupport.math.Vector2Double;
 import jadex.extension.envsupport.math.Vector2Int;
-import jadex.micro.annotation.Agent;
-import jadex.micro.annotation.AgentBody;
+import jadex.micro.annotation.*;
+import services.ICommunicationService;
+import utils.SharedCode;
 
 import java.util.*;
 
+@Description("An agent who does nothing but cry for help.")
 @Agent
-public class PersonBDI {
+@Service
+@ProvidedServices(@ProvidedService(type=ICommunicationService.class))
+public class PersonBDI implements ICommunicationService {
 
     protected static int VISION = 3;
+    protected SharedCode textMessage;
+    protected Object firemanResponsableForSalvation;
+
+    protected boolean helpAsked, responsedHelp;
+    private long helpAskedTime;
 
     @Agent
     protected BDIAgent person;
@@ -29,12 +38,16 @@ public class PersonBDI {
     @Belief
     protected ISpaceObject myself = space.getAvatar(person.getComponentDescription(), person.getModel().getFullName());
 
-    @Belief(updaterate = 200)
+    @Belief(updaterate = 450)
     protected long currentTime = System.currentTimeMillis();
 
     @AgentBody
     public void body() {
-        System.out.println("PERSON Vision: " + VISION);
+
+        System.out.println("["+ person.getAgentName() + "]" + " Vision Sight: " + VISION);
+
+        helpAsked = false;
+        textMessage = new SharedCode(person,myself.getId());
 
         Random rnd = new Random();
 
@@ -79,7 +92,7 @@ public class PersonBDI {
         } else return 4;
     }
 
-    public boolean fireAffectsme(Vector2Int currentPosition, Vector2Double positionToExtinguish){
+    public boolean fireAffectsMe(Vector2Int currentPosition, Vector2Double positionToExtinguish){
 
         int spaceWidth = space.getAreaSize().getXAsInteger(),
                 spaceHeight = space.getAreaSize().getYAsInteger();
@@ -98,7 +111,26 @@ public class PersonBDI {
         }
     }
 
-    @Plan(trigger = @Trigger(goals = PersonGoal.class))
+    public void sendRescueRequest(){
+        this.helpAsked = true;
+        this.helpAskedTime = System.currentTimeMillis();
+        textMessage.messageFiremanForRescue(space.getSpaceObjectsByType("fireman"));
+    }
+
+    @Override
+    public void RescueConfirmation(Object firemanID, Object personID) {
+        if (personID == myself.getId()){
+            this.responsedHelp = true;
+            this.firemanResponsableForSalvation = firemanID;
+        }
+    }
+
+    @Override
+    public void RescueMessage(Object senderID, Object receiverID) {
+
+    }
+
+    @Plan(trigger = @Trigger(goals = PersonGoal.class,service=@ServiceTrigger(type=ICommunicationService.class)))
     public class SavingPlan {
 
         @PlanBody
@@ -111,20 +143,27 @@ public class PersonBDI {
 
             if (nearFireman != null && nearFireman.length > 0){
                 System.out.println("A person was saved on: (" + currentPosition + ")");
-                //myself.setProperty("position",new Vector2Int(-1,-1));
                 goal.changeRescuedStatus();
                 space.destroySpaceObject(myself.getId());
             }
             else if (nearFire != null && nearFire.length > 0){
 
-                // TODO: Send distress signal
+                if (!helpAsked) {
+                    if (!responsedHelp) {
+                        if (System.currentTimeMillis() - helpAskedTime > 1000) {
+                            sendRescueRequest();
+                            helpAsked = true;
+                        }
+                    }
+                }
+
                 String[][] allDir = new String[3][3];
                 Vector2Int nextDirection = null;
 
                 for(int i = 0; i < nearFire.length; i++){
                     Vector2Double thisFireCell = (Vector2Double) ((ISpaceObject) nearFire[i]).getProperty("position");
 
-                    if (fireAffectsme(currentPosition,thisFireCell)) {
+                    if (fireAffectsMe(currentPosition,thisFireCell)) {
                         Vector2Int thisFireCell_int = new Vector2Int(thisFireCell.getXAsInteger(), thisFireCell.getYAsInteger());
                         Vector2Int resultDirection = FiremanBDI.returnDirection(space, currentPosition, thisFireCell_int);
 
@@ -133,11 +172,9 @@ public class PersonBDI {
                 }
 
                 if (allDir[1][1] == "X"){
-                    // TODO: DEAD;
                     System.out.println("A person died on: (" + currentPosition + ")");
                     goal.changeDeadStatus();
                     space.destroySpaceObject(myself.getId());
-                    //myself.setProperty("position",new Vector2Int(-1,-1));
                 } else {
                     for (int i = 0; i < allDir.length; i++) {
                         for (int j = 0; j < allDir[i].length; j++) {

@@ -22,7 +22,7 @@
     </imports>
 
     <extensiontypes>
-        <env:envspacetype name="2dspace" class="Grid2D" width="50" height="50">
+        <env:envspacetype name="2dspace" class="Grid2D" width="75" height="75">
 
             <env:objecttypes>
 
@@ -53,7 +53,6 @@
             <env:processtypes>
                 <env:processtype name="create_forest" class="processes.ForestProcess"/>
                 <env:processtype name="fireProcess" class="processes.FireProcess"/>
-                <env:processtype name="utilProcess" class="processes.UtilProcess"/>
             </env:processtypes>
 
             <env:avatarmappings>
@@ -127,7 +126,6 @@
                     <env:processes>
                         <env:process type="create_forest"/>
                         <env:process type="fireProcess"/>
-                        <env:process type="utilProcess"/>
                     </env:processes>
 
                     <env:observers>

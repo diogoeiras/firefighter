@@ -26,6 +26,7 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
             String dateForLog = "logs/" + dateFormat.format(date) + ".log";
             System.out.println("Debug file: " + dateForLog);
             System.setOut(new PrintStream(new FileOutputStream( dateForLog, true)));
+            System.out.println("[STARTING RUN OF "+ dateForLog + " ]\n\n");
         } catch(FileNotFoundException e){
             System.out.println(e);
             System.out.println("Logging to file is not possible.");

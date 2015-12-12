@@ -1,27 +1,36 @@
 package agents;
 
+import events.FiremanPersonEvent;
 import jadex.bdiv3.BDIAgent;
 import jadex.bdiv3.annotation.*;
 import jadex.bdiv3.runtime.impl.PlanFailureException;
+import jadex.bridge.service.annotation.Service;
 import jadex.extension.envsupport.environment.ISpaceObject;
 import jadex.extension.envsupport.environment.space2d.Grid2D;
+import jadex.extension.envsupport.math.IVector2;
 import jadex.extension.envsupport.math.Vector1Int;
 import jadex.extension.envsupport.math.Vector2Double;
 import jadex.extension.envsupport.math.Vector2Int;
-import jadex.micro.annotation.Agent;
-import jadex.micro.annotation.AgentBody;
-
+import jadex.micro.annotation.*;
 import goals.FiremanGoal;
+import services.ICommunicationService;
+import utils.SharedCode;
 
 import java.util.*;
 
+@Description("An agent who does everything since helping people who does nothing but cry to put down fire.")
 @Agent
-public class FiremanBDI {
+@Service
+@ProvidedServices(@ProvidedService(type=ICommunicationService.class))
+public class FiremanBDI implements ICommunicationService{
     @Agent
     protected BDIAgent fireman;
-
+    protected FiremanGoal Goal;
     private static final int VISION_CAMPS = 5;
     private static final int EXTINGUISH_CAMPS = 1;
+    private SharedCode textMessage;
+    private ArrayList<FiremanPersonEvent> stressSignals = new ArrayList<>();
+
 
     @Belief
     protected Grid2D space = (Grid2D) fireman.getParentAccess().getExtension("2dspace").get();
@@ -29,7 +38,7 @@ public class FiremanBDI {
     @Belief
     protected Queue < ISpaceObject > nearObjects, nearObjectsToExtinguish;
 
-    @Belief(updaterate = 350)
+    @Belief(updaterate = 500)
     protected long currentTime = System.currentTimeMillis();
 
     @Belief
@@ -38,12 +47,13 @@ public class FiremanBDI {
     @AgentBody
     public void body() {
 
-        System.out.println("Vision Sight: " + VISION_CAMPS);
-        System.out.println("Vision Extinguish: " + EXTINGUISH_CAMPS);
-        System.out.println("\n\n");
+        textMessage = new SharedCode(fireman,myself.getId());
+
+        System.out.println("["+ fireman.getAgentName() + "]" + " Vision Sight: " + VISION_CAMPS);
+        System.out.println("["+ fireman.getAgentName() + "]" + " Vision Extinguish: " + EXTINGUISH_CAMPS);
 
         nearObjects = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
-        nearObjectsToExtinguish = new ArrayDeque<ISpaceObject>();
+        nearObjectsToExtinguish = new ArrayDeque<>();
 
         Random r = new Random();
 
@@ -53,7 +63,7 @@ public class FiremanBDI {
 
         myself.setProperty("position", new Vector2Int(xPosition, yPosition));
 
-        FiremanGoal Goal = new FiremanGoal(null);
+        Goal = new FiremanGoal(null);
         Goal.setCurrentPosition(new Vector2Int(xPosition, yPosition));
 
         // initialize array with ISpaceObjects near current position
@@ -64,6 +74,7 @@ public class FiremanBDI {
 
     }
 
+    // Get space objects that are in some distance from curent position
     public void getNearObjects(Vector2Int currPosition, int SIGHT, boolean toExtinguish) {
 
         Object[] nearObj = space.getNearObjects(currPosition, new Vector1Int(SIGHT), "fire").toArray();
@@ -76,6 +87,7 @@ public class FiremanBDI {
         }
     }
 
+    // Function that returns a unitary vector, so the fireman can move from his current position to his destination.
     public static Vector2Int returnDirection(Grid2D space, Vector2Int curr, Vector2Int Des){
         Vector2Int direction = new Vector2Int();
 
@@ -99,6 +111,7 @@ public class FiremanBDI {
         return direction;
     }
 
+    // Check if a fireman can put down a fire on a determined cell from his current position
     public boolean canExtinguish(Vector2Int currentPosition, Vector2Double positionToExtinguish){
 
         int spaceWidth = space.getAreaSize().getXAsInteger(),
@@ -121,17 +134,19 @@ public class FiremanBDI {
         }
     }
 
+    // Function that destroys a object of type "fire" and create a new one of "wetTerrain"
     public void putDownFireCell(ISpaceObject cell){
         space.destroySpaceObject(cell.getId());
 
         Vector2Double doubleVector = (Vector2Double) cell.getProperty("position");
         Map properties = new HashMap();
-        properties.put("position", new Vector2Int(doubleVector.getXAsInteger(), doubleVector.getYAsInteger()));
+        properties.put("position", VECTOR2DOUBLE_TO_VECTOR2INT(doubleVector));
         properties.put("type", 1);
         space.createSpaceObject("wetTerrain", properties, null);
 
     }
 
+    // Function to eliminate repeated ISpaceObjects on queues that determinate fireman next movement
     public void removeRepeatedCells(Vector2Int current){
 
         Queue<ISpaceObject> newNear = Collections.asLifoQueue(new ArrayDeque<ISpaceObject>());
@@ -143,18 +158,16 @@ public class FiremanBDI {
         nearObjectsToExtinguish = getQueueRepeatedFree(nearObjectsToExtinguish, current, true);
     }
 
+    // Function that checks if some IspaceObject is not of "fire" type.
     public boolean wasAlreadyExtinguished(ISpaceObject cell){
-        if (cell.getType() == "fire"){
-            return true;
-        } else {
-            return false;
-        }
+        return cell.getType().equals("fire");
     }
 
+    // Check [Void removeRepeatedCells]
     public Queue<ISpaceObject> getQueueRepeatedFree(Queue<ISpaceObject> oldQueue,Vector2Int currentPosition, boolean toExtinguished){
 
-        Queue<ISpaceObject> newQueue = new ArrayDeque<ISpaceObject>();
-        Queue<ISpaceObject> newVisionSight = new ArrayDeque<ISpaceObject>();
+        Queue<ISpaceObject> newQueue = new ArrayDeque<>();
+        Queue<ISpaceObject> newVisionSight = new ArrayDeque<>();
 
         String[][] grid = new String[space.getAreaSize().getXAsInteger()][space.getAreaSize().getYAsInteger()];
 
@@ -189,6 +202,106 @@ public class FiremanBDI {
             return newVisionSight;
     }
 
+    // Check if there is some event which status is true ( Active ).
+    public boolean existsActiveEvent(){
+        for (FiremanPersonEvent event : stressSignals){
+            if (event.getStatus()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Get active Event from stressSignals
+    public FiremanPersonEvent getActiveEvent(){
+
+        for(FiremanPersonEvent e: stressSignals){
+            if (e.getStatus()){
+                return e;
+            }
+        }
+
+        return null;
+    }
+
+    // Remove completed or not alive events
+    public void removeUselessEvents(){
+
+        ArrayList<FiremanPersonEvent> usefulArray = new ArrayList<>();
+
+        for(FiremanPersonEvent e: stressSignals){
+            if (!e.getCompleted() && !e.getDeadEvent()){
+                usefulArray.add(e);
+            }
+        }
+
+        stressSignals = usefulArray;
+    }
+
+    // Check if a object is still alive
+    public boolean checkAlivenessOfObject(Object id){
+        ISpaceObject obj;
+        try {
+            obj = space.getSpaceObject(id);
+        } catch (RuntimeException e){
+            return false;
+        }
+        return true;
+    }
+
+    // Converts Vector2Double into Vector2Int
+    public static Vector2Int VECTOR2DOUBLE_TO_VECTOR2INT(Vector2Double vec){
+        Vector2Int toReturn = new Vector2Int(vec.getXAsInteger(), vec.getYAsInteger());
+        return toReturn;
+    }
+
+    // Get current position of an object id
+    public Vector2Int currentPositionOfAnObjectId(Object id){
+        ISpaceObject objectSeeked = space.getSpaceObject0(id);
+        if (objectSeeked != null) {
+            return (Vector2Int) objectSeeked.getProperty("position");
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void RescueMessage(Object personID, Object firemanID){
+
+        if (firemanID == myself.getId()){
+
+            ISpaceObject personObj = space.getSpaceObject0(personID);
+
+            Vector2Int position = (Vector2Int) personObj.getProperty("position");
+
+
+            // Check if there is already an active event. We need this to verify if this fireman can accept this event.
+            boolean canAcceptThisEvent = true;
+            for (FiremanPersonEvent event : stressSignals) {
+                if (event.getStatus()){
+                    canAcceptThisEvent = false;
+                }
+            }
+
+            if (canAcceptThisEvent){
+                // Change Goal desired Position and add this accepted event to the stressSignals
+                Goal.setDesiredPosition(position);
+                FiremanPersonEvent rescue = new FiremanPersonEvent(firemanID,personID);
+                stressSignals.add(rescue);
+                textMessage.messageRescueConfirmationForPerson(firemanID, personID);
+
+                System.out.println("[Fireman " + firemanID + "] - Accept a rescue request from [Person " + personID + "]");
+                return;
+            }
+        }
+        // TODO: Mandar uma mensagem a dizer para procurar outro.
+    }
+
+    @Override
+    public void RescueConfirmation(Object firemanID, Object personID) {
+
+    }
+
     @Plan(trigger = @Trigger(goals = FiremanGoal.class))
     public class MovingPlan {
 
@@ -205,19 +318,20 @@ public class FiremanBDI {
             }
             else if (nearObjectsToExtinguish.size() > 0){
 
+                // Check if fire cells are not on other sides since getNearObjects returns cells as the map is connected from both sides.
                 if(canExtinguish(goal.getCurrentPosition(),(Vector2Double) nearObjectsToExtinguish.peek().getProperty("position"))){
                     putDownFireCell(nearObjectsToExtinguish.peek());
                     System.out.println("[" + currentTime + "] Eliminating (" + nearObjectsToExtinguish.peek().getProperty("position") + ") from ("
                     + goal.getCurrentPosition() + ")");
                     Vector2Double positionToExtinguish = (Vector2Double) nearObjectsToExtinguish.peek().getProperty("position");
-                    Vector2Int pos = new Vector2Int(positionToExtinguish.getXAsInteger(),positionToExtinguish.getYAsInteger());
+                    Vector2Int pos = VECTOR2DOUBLE_TO_VECTOR2INT(positionToExtinguish);
                 }
                 direction = new Vector2Int(0,0);
                 nearObjectsToExtinguish.remove();
             } else if (nearObjects.size() > 0){
 
                 Vector2Double pos = (Vector2Double) nearObjects.peek().getProperty("position");
-                //goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
+                goal.setDesiredPosition(VECTOR2DOUBLE_TO_VECTOR2INT(pos));
                 nearObjects.remove();
                 direction = returnDirection(space, goal.getCurrentPosition(),new Vector2Int(pos.getXAsInteger(),pos.getYAsInteger()));
 
@@ -230,7 +344,7 @@ public class FiremanBDI {
 
                     if (fire.length > 0) {
                         Vector2Double pos = (Vector2Double) fire[0].getProperty("position");
-                        goal.setDesiredPosition(new Vector2Int(pos.getXAsInteger(), pos.getYAsInteger()));
+                        goal.setDesiredPosition(VECTOR2DOUBLE_TO_VECTOR2INT(pos));
                         direction = returnDirection(space, goal.getCurrentPosition(),goal.getDesiredPosition());
                     } else {
                         goal.changeNoMoreFireCells();
@@ -244,17 +358,29 @@ public class FiremanBDI {
 
             myself.setProperty("position",goal.getCurrentPosition());
 
-            getNearObjects(goal.getCurrentPosition(),VISION_CAMPS,false);
+            if (!existsActiveEvent()){
+                getNearObjects(goal.getCurrentPosition(),VISION_CAMPS,false);
+            } else {
+
+                if (!checkAlivenessOfObject(getActiveEvent().getPerson())) {
+                    goal.setDesiredPosition(currentPositionOfAnObjectId(getActiveEvent().getPerson()));
+                } else {
+                    goal.setDesiredPosition(null);
+                    getActiveEvent().changeDeadEvent();
+                    removeUselessEvents();
+                }
+            }
 
             getNearObjects(goal.getCurrentPosition(),EXTINGUISH_CAMPS,true);
 
+            /*
             System.out.println("[" + currentTime + "] NearObjects size: " + nearObjects.size());
             System.out.println("[" + currentTime + "] NearObjectsToExtinguish: " + nearObjectsToExtinguish.size());
             System.out.println("[" + currentTime + "] Current position: (" + goal.getCurrentPosition() + ")");
             System.out.println("[" + currentTime + "] Desired Position: (" + goal.getDesiredPosition() + ")");
             System.out.println("[" + currentTime + "] Direction: (" + direction + ")");
             System.out.println("______________");
-
+            */
 
             removeRepeatedCells(goal.getCurrentPosition());
             throw new PlanFailureException();

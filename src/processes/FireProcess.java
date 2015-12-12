@@ -40,7 +40,6 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
         fireElement = space.getSpaceObjectsByType("fire");
 
         System.out.println("[" + arg0.getTime() + "] Initialize clock.");
-        System.out.println("\n\n");
         initTime = arg0.getTime();
     }
 
@@ -52,7 +51,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 600) {
+        if (iClockService.getTime() - initTime > 1000) {
 
             ISpaceObject[] terrain = space.getSpaceObjectsByType("terrain");
             if ( terrain.length == 0 || terrain == null){
