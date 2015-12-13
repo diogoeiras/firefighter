@@ -48,4 +48,8 @@ public class FiremanPersonEvent {
     public void changeDeadEvent(){
         this.deadEvent = true;
     }
+
+    public void changeStatus(){
+        this.status = !this.status;
+    }
 }

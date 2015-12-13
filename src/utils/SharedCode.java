@@ -17,17 +17,12 @@ public class SharedCode {
         this.myID = myID;
     };
 
-    public void messageFiremanForRescue(final Object[] firemen){
+    public void messageFiremanForRescue(final ISpaceObject firemen){
         SServiceProvider.getServices(agent.getServiceProvider(), ICommunicationService.class, RequiredServiceInfo.SCOPE_PLATFORM)
                 .addResultListener(new IntermediateDefaultResultListener<ICommunicationService>()
                 {
                     public void intermediateResultAvailable(ICommunicationService ts) {
-                        Object fid = null;
-                        Object[] test = firemen;
-                        if (test != null && test.length > 0){
-                            fid = ((ISpaceObject) test[0]).getId();
-                        }
-                        ts.RescueMessage(myID,fid);
+                        ts.RescueMessage(myID,firemen.getId());
                     }
                 });
     }
