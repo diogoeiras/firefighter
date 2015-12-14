@@ -22,6 +22,10 @@ public class PersonGoal {
         this.rescued = !this.rescued;
     }
 
+    public boolean getRescued(){
+        return this.rescued;
+    }
+
     @GoalRecurCondition(beliefs="currentTime")
     public boolean checkRecur(ChangeEvent event) {
         if (dead || rescued) {

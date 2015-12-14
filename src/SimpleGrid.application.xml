@@ -136,10 +136,6 @@
 
             <components>
                 <component type="fireman"/>
-                <component type="fireman"/>
-                <component type="fireman"/>
-                <component type="person"/>
-                <component type="person"/>
                 <component type="person"/>
             </components>
 

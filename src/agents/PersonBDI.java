@@ -39,13 +39,11 @@ public class PersonBDI implements ICommunicationService {
     @Belief
     protected ISpaceObject myself = space.getAvatar(person.getComponentDescription(), person.getModel().getFullName());
 
-    @Belief(updaterate = 280)
+    @Belief(updaterate = 120)
     protected long currentTime = System.currentTimeMillis();
 
     @AgentBody
     public void body() {
-
-        System.out.println("["+ person.getAgentName() + "]" + " Vision Sight: " + VISION);
 
         helpAsked = false;
         textMessage = new SharedCode(person,myself.getId());
@@ -138,7 +136,7 @@ public class PersonBDI implements ICommunicationService {
         Object nearestSoFarID = null;
 
         for (ISpaceObject e : allFiremen){
-            Vector2Int position = (Vector2Int) e.getProperty("position");
+            Vector2Int position = FiremanBDI.currentPositionOfAnObjectId(space,e.getId());
             IVector1 thisDistance = space.getDistance(currentPosition,position);
 
             if (thisDistance.getAsInteger() < distance && !didIRequestAlreadyThisFiremanHelp(e.getId())){
@@ -151,6 +149,7 @@ public class PersonBDI implements ICommunicationService {
             return space.getSpaceObject(nearestSoFarID);
         else return null;
     }
+
 
     public boolean didIRequestAlreadyThisFiremanHelp(Object id){
         for (Object e : firemanWhoWereAskedForHelpButRefused){
@@ -178,12 +177,33 @@ public class PersonBDI implements ICommunicationService {
         @PlanBody
         protected void changePosition(PersonGoal goal) {
 
+
+            System.out.println("Person:" + myself.getProperty("position"));
+
             Vector2Int direction = null, currentPosition = (Vector2Int) myself.getProperty("position");
             ArrayList<ISpaceObject> fireElements = getFireObjects();
 
-            Object[] nearFireman = space.getNearObjects(currentPosition, new Vector1Int(1),"fireman").toArray();
+            ArrayList<ISpaceObject> nearFireman = new ArrayList<>();
 
-            if (nearFireman != null && nearFireman.length > 0){
+            try {
+                Vector2Int curr = FiremanBDI.currentPositionOfAnObjectId(space,myself.getId());
+                ISpaceObject[] temp = space.getSpaceObjectsByType("fireman");
+
+                for (ISpaceObject e : temp){
+                    Vector2Int pos = FiremanBDI.currentPositionOfAnObjectId(space,e.getId());
+
+                    if (pos.getXAsInteger() == curr.getXAsInteger() &&
+                            pos.getYAsInteger() == curr.getYAsInteger()){
+                        nearFireman.add(e);
+                    }
+                }
+
+
+            } catch (RuntimeException e){
+                nearFireman = null;
+            }
+
+            if (nearFireman != null && nearFireman.size() > 0){
                 System.out.println("A person was saved on: (" + currentPosition + ")");
                 goal.changeRescuedStatus();
                 space.destroySpaceObject(myself.getId());
@@ -242,13 +262,12 @@ public class PersonBDI implements ICommunicationService {
             }
 
             if (direction != null){
-                System.out.println(direction);
                 Vector2Int nextPos = new Vector2Int(currentPosition.getXAsInteger() + direction.getXAsInteger(),
                         currentPosition.getYAsInteger() + direction.getXAsInteger());
                 myself.setProperty("position",nextPos);
             } else {
                 Object[] selectiveArray = space.getNearObjects(currentPosition,new Vector1Int(1),"fire").toArray();
-                if (selectiveArray.length >= getNumCellsNeed(currentPosition)){
+                if (selectiveArray.length >= getNumCellsNeed(currentPosition) && !goal.getRescued()){
                     System.out.println("A person died on: (" + currentPosition + ")");
                     goal.changeDeadStatus();
                     space.destroySpaceObject(myself.getId());

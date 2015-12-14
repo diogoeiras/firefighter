@@ -51,7 +51,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 100) {
+        if (iClockService.getTime() - initTime > 450) {
 
             ISpaceObject[] terrain = space.getSpaceObjectsByType("terrain");
             if ( terrain.length == 0 || terrain == null){
