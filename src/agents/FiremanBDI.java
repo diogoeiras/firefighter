@@ -332,40 +332,30 @@ public class FiremanBDI implements ICommunicationService {
 
                 if (existsActiveEvent()){
 
-                    Vector2Int currentPositionOfPerson = currentPositionOfAnObjectId(space,getActiveEvent().getPerson());
-                    Vector2Int directionToPerson = null, desiredCell = null;
+                    Vector2Int currentPositionOfPerson = currentPositionOfAnObjectId(space,getActiveEvent().getPerson()),
+                         directionToPerson = null;
+                    Vector2Double desiredCell = null;
 
                     if (currentPositionOfPerson != null){
                         directionToPerson = returnDirection(space,goal.getCurrentPosition(),currentPositionOfPerson);
                         if (directionToPerson != null){
-                            desiredCell = new Vector2Int(goal.getCurrentPosition().getXAsInteger() + directionToPerson.getXAsInteger(),
+                            desiredCell = new Vector2Double(goal.getCurrentPosition().getXAsInteger() + directionToPerson.getXAsInteger(),
                                     goal.getCurrentPosition().getYAsInteger() + directionToPerson.getYAsInteger());
-                        }
-                    }
 
-                    boolean shouldIPutFireDown = false;
-                    ISpaceObject objectToPutDown = null;
-                    while(nearObjectsToExtinguish.size() != 0){
+                            if (desiredCell != null) {
+                                if (canEliminate(currentPositionOfAnObjectId(space, myself.getId()), desiredCell)) {
 
-                        Vector2Int cell = currentPositionOfAnObjectId(space,nearObjectsToExtinguish.peek().getId());
+                                    ISpaceObject cell = getSpaceObjectInPos(desiredCell);
 
-                        if (cell != null && desiredCell != null) {
-                            if (cell.getXAsInteger() == desiredCell.getXAsInteger() && cell.getYAsInteger() == desiredCell.getYAsInteger()) {
-                                shouldIPutFireDown = true;
-                                objectToPutDown = nearObjectsToExtinguish.peek();
-                                System.out.println("Just erasing one");
+                                    if (cell != null)
+                                        putDownFireCell(cell);
+                                }
                             }
                         }
-
-                        nearObjectsToExtinguish.remove();
                     }
 
-                    if (shouldIPutFireDown) {
-                        Vector2Double desireExt = new Vector2Double(desiredCell.getXAsInteger(), desiredCell.getYAsInteger());
-                        if (canEliminate(currentPositionOfAnObjectId(space, myself.getId()), desireExt)) {
-                            if (objectToPutDown != null)
-                                putDownFireCell(objectToPutDown);
-                        }
+                    while(nearObjectsToExtinguish.size() > 0){
+                        nearObjectsToExtinguish.remove();
                     }
 
                     if (directionToPerson != null) {
@@ -562,6 +552,7 @@ public class FiremanBDI implements ICommunicationService {
                     goal.getCurrentPosition().getYAsInteger() == goal.getDesiredPosition().getYAsInteger();
         }
 
+        // Function to return person in the same position of fireman
         public Object[] getPersonOnCurrentPosition(FiremanGoal goal) {
             ArrayList<ISpaceObject> person = new ArrayList<>();
             try {
@@ -582,6 +573,32 @@ public class FiremanBDI implements ICommunicationService {
                 person = null;
             }
             return person.toArray();
+        }
+
+        // Function to return a IspaceObject of type "fire" in position pos
+        private ISpaceObject getSpaceObjectInPos(Vector2Double pos){
+
+            ISpaceObject fireCell = null;
+
+            try {
+
+                ISpaceObject[] fireElem = space.getSpaceObjectsByType("fire");
+
+                for(ISpaceObject fire: fireElem){
+                    Vector2Int curr = currentPositionOfAnObjectId(space,fire.getId());
+
+                    if (curr.getXAsInteger() == pos.getXAsInteger() &&
+                            curr.getYAsInteger() == pos.getYAsInteger()){
+                        fireCell = fire;
+                        break;
+                    }
+                }
+
+            } catch (RuntimeException e){
+                fireCell = null;
+            }
+
+            return fireCell;
         }
     }
 }

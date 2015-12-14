@@ -22,7 +22,7 @@
     </imports>
 
     <extensiontypes>
-        <env:envspacetype name="2dspace" class="Grid2D" width="50" height="50">
+        <env:envspacetype name="2dspace" class="Grid2D" width="20" height="20">
 
             <env:objecttypes>
 
@@ -136,6 +136,8 @@
 
             <components>
                 <component type="fireman"/>
+                <component type="fireman"/>
+                <component type="person"/>
                 <component type="person"/>
             </components>
 

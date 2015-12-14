@@ -177,9 +177,6 @@ public class PersonBDI implements ICommunicationService {
         @PlanBody
         protected void changePosition(PersonGoal goal) {
 
-
-            System.out.println("Person:" + myself.getProperty("position"));
-
             Vector2Int direction = null, currentPosition = (Vector2Int) myself.getProperty("position");
             ArrayList<ISpaceObject> fireElements = getFireObjects();
 
@@ -231,7 +228,6 @@ public class PersonBDI implements ICommunicationService {
 
                 if (directionToFireman!= null && smartMovement != null && acceptedMovement(currentPosition,smartMovement)){
                     direction = smartMovement;
-                    System.out.println("Going to fireman");
                 } else {
                     // Check if there is a safe spot to go
                     ArrayList<Vector2Int> possibleMovs = new ArrayList<>();
