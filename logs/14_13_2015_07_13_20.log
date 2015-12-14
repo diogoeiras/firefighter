@@ -1,0 +1,19 @@
+[STARTING RUN OF logs/14_13_2015_07_13_20.log ]
+
+
+[1450077200304] Initializing FireProcess
+[1450077200304] Getting Fire first element
+[1450077200304] Initialize clock.
+Leader:1605
+[1450077200887] Fireman 1605 has the 1 quad.
+[1450077200887] Fireman 1605 accepted his quad.
+I am here 38, 13
+[1450077201883] Fireman 1604 has the 0 quad.
+[1450077202027] Fireman 1606 has the 2 quad.
+[1450077202186] Fireman 1604 accepted his quad.
+I am here 38, 13
+[1450077202022] Fireman 1607 has the 3 quad.
+[1450077202186] Fireman 1606 accepted his quad.
+I am here 38, 13
+[1450077202186] Fireman 1607 accepted his quad.
+I am here 38, 13

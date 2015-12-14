@@ -1,5 +1,6 @@
 package processes;
 
+import agents.FiremanBDI;
 import jadex.bridge.service.types.clock.IClockService;
 import jadex.commons.SimplePropertyObject;
 import jadex.extension.envsupport.environment.IEnvironmentSpace;
@@ -17,13 +18,15 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     ISpaceObject[] fireElement;
     long initTime;
     int spaceHeight , spaceWidth;
+    boolean leadershipNeeded = true;
+    public static Object LEADER_ID;
 
     // Random variable
     Random rnd = new Random();
 
     // TEMPORARY LOCAL FOR VARIABLES
-    String direction = "W", secondDirection;
-    double Kmh = 50.0, humidity = 88;
+    String direction = "N", secondDirection;
+    double Kmh = 20.0, humidity = 95;
     int cellsToFire = 1;
 
     @Override
@@ -51,7 +54,15 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     @Override
     public void execute(IClockService iClockService, IEnvironmentSpace iEnvironmentSpace) {
 
-        if (iClockService.getTime() - initTime > 450) {
+        if (iClockService.getTime() - initTime > 300) {
+
+            if (FiremanBDI.BEHAVIOR == "QUAD" && leadershipNeeded) {
+                ISpaceObject[] fireman = space.getSpaceObjectsByType("fireman");
+                if (fireman != null && fireman.length > 0) {
+                    LEADER_ID = fireman[rnd.nextInt(fireman.length)].getId();
+                    leadershipNeeded = false;
+                }
+            }
 
             ISpaceObject[] terrain = space.getSpaceObjectsByType("terrain");
             if ( terrain.length == 0 || terrain == null){
@@ -126,7 +137,6 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
     public ArrayList<String> retrieveDirectionList(){
         ArrayList<String> possibleDirections = new ArrayList<String>();
 
-        // TODO: Improve this.
         if (direction != "N")
             possibleDirections.add("N");
         if (direction != "S")

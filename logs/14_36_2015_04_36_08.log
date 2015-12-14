@@ -1,0 +1,105 @@
+[STARTING RUN OF logs/14_36_2015_04_36_08.log ]
+
+
+[1450067768823] Initializing FireProcess
+[1450067768823] Getting Fire first element
+[1450067768823] Initialize clock.
+[1450067768835] NearObjects size: 0
+[1450067768835] NearObjectsToExtinguish: 0
+[1450067768835] Current position: (9, 6)
+[1450067768835] Desired Position: (12, 2)
+[1450067768835] Direction: (1, -1)
+______________
+[1450067768827] NearObjects size: 1
+[1450067768827] NearObjectsToExtinguish: 1
+[1450067768827] Current position: (12, 3)
+[1450067768827] Desired Position: (null)
+[1450067768827] Direction: (1, -1)
+______________
+[Fireman 403] - Accept a rescue request from [Person 405]
+[1450067769219] NearObjects size: 0
+[1450067769219] NearObjectsToExtinguish: 0
+[1450067769219] Current position: (10, 5)
+[1450067769219] Desired Position: (12, 2)
+[1450067769219] NearObjects size: 0
+[1450067769219] NearObjectsToExtinguish: 0
+[1450067769219] Direction: (1, -1)
+______________
+[1450067769219] Current position: (13, 4)
+[1450067769219] Desired Position: (15, 7)
+[1450067769219] Direction: (1, 1)
+______________
+[1450067769569] NearObjects size: 0
+[1450067769569] NearObjects size: 1
+[1450067769569] NearObjectsToExtinguish: 0
+[1450067769569] NearObjectsToExtinguish: 0
+[1450067769569] Current position: (11, 4)
+[1450067769569] Current position: (14, 5)
+[1450067769569] Desired Position: (12, 2)
+[1450067769569] Desired Position: (15, 7)
+[1450067769569] Direction: (1, -1)
+______________
+[1450067769569] Direction: (1, 1)
+______________
+[1450067769919] NearObjects size: 0
+[1450067769919] NearObjectsToExtinguish: 0
+[1450067769919] Current position: (15, 6)
+[1450067769919] NearObjects size: 2
+[1450067769919] NearObjectsToExtinguish: 2
+[1450067769919] Current position: (12, 3)
+[1450067769919] Desired Position: (12, 2)
+[1450067769919] Desired Position: (15, 7)
+[1450067769919] Direction: (1, 1)
+[1450067769919] Direction: (1, -1)
+______________
+______________
+[1450067770269] NearObjects size: 0
+[1450067770269] NearObjectsToExtinguish: 0
+[1450067770269] Current position: (15, 7)
+[1450067770269] Desired Position: (15, 7)
+[1450067770269] Direction: (0, 1)
+______________
+[1450067770269] NearObjects size: 3
+[1450067770269] NearObjectsToExtinguish: 2
+[1450067770269] Current position: (12, 3)
+[1450067770269] Desired Position: (12, 2)
+[1450067770269] Direction: (0, 0)
+______________
+[1450067770619] NearObjects size: 0
+[1450067770619] NearObjectsToExtinguish: 0
+[1450067770619] Current position: (15, 7)
+[1450067770619] Desired Position: (15, 7)
+[1450067770619] Direction: (0, 0)
+______________
+[1450067770619] NearObjects size: 3
+[1450067770619] NearObjectsToExtinguish: 1
+[1450067770619] Current position: (12, 3)
+[1450067770619] Desired Position: (12, 2)
+[1450067770619] Direction: (0, 0)
+______________
+A person was saved on: (15, 7)
+[1450067770969] NearObjects size: 0
+[1450067770969] NearObjectsToExtinguish: 0
+[1450067770969] Current position: (15, 7)
+[1450067770969] NearObjects size: 3
+[1450067770969] Desired Position: (null)
+[1450067770969] NearObjectsToExtinguish: 0
+[1450067770969] Direction: (0, 0)
+______________
+[1450067770969] Current position: (12, 3)
+[1450067770969] Desired Position: (12, 2)
+[1450067770969] Direction: (0, 0)
+______________
+[1450067771319] NearObjects size: 2
+[1450067771319] NearObjectsToExtinguish: 0
+[1450067771319] Current position: (12, 3)
+[1450067771319] Desired Position: (12, 2)
+[1450067771319] Direction: (0, 0)
+______________
+[1450067771670] NearObjects size: 1
+[1450067771670] NearObjectsToExtinguish: 0
+[1450067771670] Current position: (12, 3)
+[1450067771670] Desired Position: (12, 2)
+[1450067771670] Direction: (0, 0)
+______________
+Debug file: logs/14_36_2015_04_36_14.log

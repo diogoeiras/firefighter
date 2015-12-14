@@ -1,0 +1,1884 @@
+[STARTING RUN OF logs/14_24_2015_05_24_25.log ]
+
+
+[1450070665972] Initializing FireProcess
+[1450070665972] Getting Fire first element
+[1450070665972] Initialize clock.
+[1450070666165] NearObjects size: 0
+[1450070666165] NearObjectsToExtinguish: 0
+[1450070666165] Current position: (2, 12)
+[1450070666165] Desired Position: (3, 25)
+[1450070666165] Direction: (1, 1)
+______________
+[1450070666515] NearObjects size: 0
+[1450070666515] NearObjectsToExtinguish: 0
+[1450070666515] Current position: (3, 13)
+[1450070666515] Desired Position: (3, 25)
+[1450070666515] Direction: (1, 1)
+______________
+[1450070666665] NearObjects size: 0
+[1450070666665] NearObjectsToExtinguish: 0
+[1450070666665] Current position: (3, 14)
+[1450070666665] Desired Position: (3, 25)
+[1450070666665] Direction: (0, 1)
+______________
+[1450070666816] NearObjects size: 0
+[1450070666816] NearObjectsToExtinguish: 0
+[1450070666816] Current position: (3, 15)
+[1450070666816] Desired Position: (3, 25)
+[1450070666816] Direction: (0, 1)
+______________
+[1450070666966] NearObjects size: 0
+[1450070666966] NearObjectsToExtinguish: 0
+[1450070666966] Current position: (3, 16)
+[1450070666966] Desired Position: (3, 25)
+[1450070666966] Direction: (0, 1)
+______________
+[1450070667116] NearObjects size: 0
+[1450070667116] NearObjectsToExtinguish: 0
+[1450070667116] Current position: (3, 17)
+[1450070667116] Desired Position: (3, 25)
+[1450070667116] Direction: (0, 1)
+______________
+[1450070667266] NearObjects size: 0
+[1450070667266] NearObjectsToExtinguish: 0
+[1450070667266] Current position: (3, 18)
+[1450070667266] Desired Position: (3, 25)
+[1450070667266] Direction: (0, 1)
+______________
+[1450070667417] NearObjects size: 0
+[1450070667417] NearObjectsToExtinguish: 0
+[1450070667417] Current position: (3, 19)
+[1450070667417] Desired Position: (3, 25)
+[1450070667417] Direction: (0, 1)
+______________
+[1450070667567] NearObjects size: 0
+[1450070667567] NearObjectsToExtinguish: 0
+[1450070667567] Current position: (3, 20)
+[1450070667567] Desired Position: (3, 25)
+[1450070667567] Direction: (0, 1)
+______________
+[1450070667718] NearObjects size: 0
+[1450070667718] NearObjectsToExtinguish: 0
+[1450070667718] Current position: (3, 21)
+[1450070667718] Desired Position: (3, 25)
+[1450070667718] Direction: (0, 1)
+______________
+[1450070667870] NearObjects size: 0
+[1450070667870] NearObjectsToExtinguish: 0
+[1450070667870] Current position: (3, 22)
+[1450070667870] Desired Position: (3, 25)
+[1450070667870] Direction: (0, 1)
+______________
+[1450070668020] NearObjects size: 0
+[1450070668020] NearObjectsToExtinguish: 0
+[1450070668020] Current position: (3, 23)
+[1450070668020] Desired Position: (3, 25)
+[1450070668020] Direction: (0, 1)
+______________
+[1450070668170] NearObjects size: 1
+[1450070668170] NearObjectsToExtinguish: 1
+[1450070668170] Current position: (3, 24)
+[1450070668170] Desired Position: (3, 25)
+[1450070668170] Direction: (0, 1)
+______________
+[1450070668321] NearObjects size: 4
+[1450070668321] NearObjectsToExtinguish: 2
+[1450070668321] Current position: (3, 25)
+[1450070668321] Desired Position: (3, 25)
+[1450070668321] Direction: (0, 1)
+______________
+[1450070668471] NearObjects size: 4
+[1450070668471] NearObjectsToExtinguish: 2
+[1450070668471] Current position: (3, 25)
+[1450070668471] Desired Position: (null)
+[1450070668471] Direction: (0, 0)
+______________
+[1450070668621] NearObjects size: 7
+[1450070668621] NearObjectsToExtinguish: 2
+[1450070668621] Current position: (3, 26)
+[1450070668621] Desired Position: (null)
+[1450070668621] Direction: (0, 1)
+______________
+[1450070668772] NearObjects size: 8
+[1450070668772] NearObjectsToExtinguish: 2
+[1450070668772] Current position: (4, 26)
+[1450070668772] Desired Position: (null)
+[1450070668772] Direction: (1, 0)
+______________
+[1450070668922] NearObjects size: 8
+[1450070668922] NearObjectsToExtinguish: 3
+[1450070668922] Current position: (5, 26)
+[1450070668922] Desired Position: (null)
+[1450070668922] Direction: (1, 0)
+______________
+[1450070669075] NearObjects size: 6
+[1450070669075] NearObjectsToExtinguish: 1
+[1450070669075] Current position: (5, 25)
+[1450070669075] Desired Position: (null)
+[1450070669075] Direction: (0, -1)
+______________
+[1450070669225] NearObjects size: 4
+[1450070669225] NearObjectsToExtinguish: 0
+[1450070669225] Current position: (6, 25)
+[1450070669225] Desired Position: (null)
+[1450070669225] Direction: (1, 0)
+______________
+[1450070669376] NearObjects size: 3
+[1450070669376] NearObjectsToExtinguish: 0
+[1450070669376] Current position: (6, 25)
+[1450070669376] Desired Position: (null)
+[1450070669376] Direction: (0, 0)
+______________
+[1450070669527] NearObjects size: 2
+[1450070669527] NearObjectsToExtinguish: 0
+[1450070669527] Current position: (6, 25)
+[1450070669527] Desired Position: (null)
+[1450070669527] Direction: (0, 0)
+______________
+[1450070669678] NearObjects size: 1
+[1450070669678] NearObjectsToExtinguish: 0
+[1450070669678] Current position: (6, 25)
+[1450070669678] Desired Position: (null)
+[1450070669678] Direction: (0, 0)
+______________
+[1450070669828] NearObjects size: 0
+[1450070669828] NearObjectsToExtinguish: 0
+[1450070669828] Current position: (6, 25)
+[1450070669828] Desired Position: (null)
+[1450070669828] Direction: (0, 0)
+______________
+[1450070669979] NearObjects size: 1
+[1450070669979] NearObjectsToExtinguish: 0
+[1450070669979] Current position: (5, 26)
+[1450070669979] Desired Position: (2, 26)
+[1450070669979] Direction: (-1, 1)
+______________
+[1450070670129] NearObjects size: 6
+[1450070670129] NearObjectsToExtinguish: 3
+[1450070670129] Current position: (6, 27)
+[1450070670129] Desired Position: (2, 26)
+[1450070670129] Direction: (1, 1)
+______________
+[1450070670279] NearObjects size: 6
+[1450070670279] NearObjectsToExtinguish: 0
+[1450070670279] Current position: (6, 27)
+[1450070670279] Desired Position: (2, 26)
+[1450070670279] Direction: (null)
+______________
+[1450070670430] NearObjects size: 5
+[1450070670430] NearObjectsToExtinguish: 0
+[1450070670430] Current position: (6, 27)
+[1450070670430] Desired Position: (2, 26)
+[1450070670430] Direction: (0, 0)
+______________
+[1450070670580] NearObjects size: 4
+[1450070670580] NearObjectsToExtinguish: 0
+[1450070670580] Current position: (6, 27)
+[1450070670580] Desired Position: (2, 26)
+[1450070670580] Direction: (0, 0)
+______________
+[1450070670731] NearObjects size: 3
+[1450070670731] NearObjectsToExtinguish: 0
+[1450070670731] Current position: (6, 27)
+[1450070670731] Desired Position: (2, 26)
+[1450070670731] Direction: (0, 0)
+______________
+[1450070670881] NearObjects size: 5
+[1450070670881] NearObjectsToExtinguish: 3
+[1450070670881] Current position: (5, 28)
+[1450070670881] Desired Position: (2, 26)
+[1450070670881] Direction: (-1, 1)
+______________
+[1450070671031] NearObjects size: 6
+[1450070671031] NearObjectsToExtinguish: 2
+[1450070671031] Current position: (4, 28)
+[1450070671031] Desired Position: (2, 26)
+[1450070671031] Direction: (-1, 0)
+______________
+[1450070671182] NearObjects size: 7
+[1450070671182] NearObjectsToExtinguish: 2
+[1450070671182] Current position: (3, 28)
+[1450070671182] Desired Position: (2, 26)
+[1450070671182] Direction: (-1, 0)
+______________
+[1450070671333] NearObjects size: 8
+[1450070671333] NearObjectsToExtinguish: 3
+[1450070671333] Current position: (2, 28)
+[1450070671333] Desired Position: (2, 26)
+[1450070671333] Direction: (-1, 0)
+______________
+[1450070671483] NearObjects size: 9
+[1450070671483] NearObjectsToExtinguish: 2
+[1450070671483] Current position: (2, 29)
+[1450070671483] Desired Position: (2, 26)
+[1450070671483] Direction: (0, 1)
+______________
+[1450070671635] NearObjects size: 9
+[1450070671635] NearObjectsToExtinguish: 3
+[1450070671635] Current position: (2, 30)
+[1450070671635] Desired Position: (2, 26)
+[1450070671635] Direction: (0, 1)
+______________
+[1450070671785] NearObjects size: 6
+[1450070671785] NearObjectsToExtinguish: 2
+[1450070671785] Current position: (2, 31)
+[1450070671785] Desired Position: (2, 26)
+[1450070671785] Direction: (0, 1)
+______________
+[1450070671935] NearObjects size: 5
+[1450070671935] NearObjectsToExtinguish: 0
+[1450070671935] Current position: (1, 31)
+[1450070671935] Desired Position: (2, 26)
+[1450070671935] Direction: (-1, 0)
+______________
+[1450070672086] NearObjects size: 4
+[1450070672086] NearObjectsToExtinguish: 0
+[1450070672086] Current position: (1, 31)
+[1450070672086] Desired Position: (2, 26)
+[1450070672086] Direction: (0, 0)
+______________
+[1450070672238] NearObjects size: 3
+[1450070672238] NearObjectsToExtinguish: 0
+[1450070672238] Current position: (1, 31)
+[1450070672238] Desired Position: (2, 26)
+[1450070672238] Direction: (0, 0)
+______________
+[1450070672388] NearObjects size: 2
+[1450070672388] NearObjectsToExtinguish: 0
+[1450070672388] Current position: (1, 31)
+[1450070672388] Desired Position: (2, 26)
+[1450070672388] Direction: (0, 0)
+______________
+[1450070672538] NearObjects size: 1
+[1450070672538] NearObjectsToExtinguish: 0
+[1450070672538] Current position: (1, 31)
+[1450070672538] Desired Position: (2, 26)
+[1450070672538] Direction: (0, 0)
+______________
+[1450070672688] NearObjects size: 2
+[1450070672688] NearObjectsToExtinguish: 2
+[1450070672688] Current position: (0, 30)
+[1450070672688] Desired Position: (2, 26)
+[1450070672688] Direction: (-1, -1)
+______________
+[1450070672839] NearObjects size: 3
+[1450070672839] NearObjectsToExtinguish: 1
+[1450070672839] Current position: (0, 29)
+[1450070672839] Desired Position: (2, 26)
+[1450070672839] Direction: (0, -1)
+______________
+[1450070672989] NearObjects size: 4
+[1450070672989] NearObjectsToExtinguish: 1
+[1450070672989] Current position: (0, 28)
+[1450070672989] Desired Position: (2, 26)
+[1450070672989] Direction: (0, -1)
+______________
+[1450070673140] NearObjects size: 5
+[1450070673140] NearObjectsToExtinguish: 2
+[1450070673140] Current position: (0, 27)
+[1450070673140] Desired Position: (2, 26)
+[1450070673140] Direction: (0, -1)
+______________
+[1450070673290] NearObjects size: 6
+[1450070673290] NearObjectsToExtinguish: 1
+[1450070673290] Current position: (1, 27)
+[1450070673290] Desired Position: (2, 26)
+[1450070673290] Direction: (1, 0)
+______________
+[1450070673440] NearObjects size: 8
+[1450070673440] NearObjectsToExtinguish: 2
+[1450070673440] Current position: (1, 26)
+[1450070673440] Desired Position: (2, 26)
+[1450070673440] Direction: (0, -1)
+______________
+[1450070673591] NearObjects size: 5
+[1450070673591] NearObjectsToExtinguish: 1
+[1450070673591] Current position: (2, 26)
+[1450070673591] Desired Position: (2, 26)
+[1450070673591] Direction: (1, 0)
+______________
+[1450070673741] NearObjects size: 5
+[1450070673741] NearObjectsToExtinguish: 1
+[1450070673741] Current position: (2, 26)
+[1450070673741] Desired Position: (null)
+[1450070673741] Direction: (0, 0)
+______________
+[1450070673891] NearObjects size: 7
+[1450070673891] NearObjectsToExtinguish: 1
+[1450070673891] Current position: (2, 25)
+[1450070673891] Desired Position: (null)
+[1450070673891] Direction: (0, -1)
+______________
+[1450070674041] NearObjects size: 8
+[1450070674041] NearObjectsToExtinguish: 3
+[1450070674041] Current position: (2, 24)
+[1450070674041] Desired Position: (null)
+[1450070674041] Direction: (0, -1)
+______________
+[1450070674191] NearObjects size: 7
+[1450070674191] NearObjectsToExtinguish: 2
+[1450070674191] Current position: (3, 24)
+[1450070674191] Desired Position: (null)
+[1450070674191] Direction: (1, 0)
+______________
+[1450070674341] NearObjects size: 9
+[1450070674341] NearObjectsToExtinguish: 2
+[1450070674341] Current position: (3, 23)
+[1450070674341] Desired Position: (null)
+[1450070674341] Direction: (0, -1)
+______________
+[1450070674492] NearObjects size: 9
+[1450070674492] NearObjectsToExtinguish: 3
+[1450070674492] Current position: (3, 22)
+[1450070674492] Desired Position: (null)
+[1450070674492] Direction: (0, -1)
+______________
+[1450070674642] NearObjects size: 9
+[1450070674642] NearObjectsToExtinguish: 2
+[1450070674642] Current position: (4, 22)
+[1450070674642] Desired Position: (null)
+[1450070674642] Direction: (1, 0)
+______________
+[1450070674792] NearObjects size: 9
+[1450070674792] NearObjectsToExtinguish: 3
+[1450070674792] Current position: (5, 22)
+[1450070674792] Desired Position: (null)
+[1450070674792] Direction: (1, 0)
+______________
+[1450070674942] NearObjects size: 9
+[1450070674942] NearObjectsToExtinguish: 2
+[1450070674942] Current position: (5, 21)
+[1450070674942] Desired Position: (null)
+[1450070674942] Direction: (0, -1)
+______________
+[1450070675092] NearObjects size: 8
+[1450070675092] NearObjectsToExtinguish: 3
+[1450070675092] Current position: (5, 20)
+[1450070675092] Desired Position: (null)
+[1450070675092] Direction: (0, -1)
+______________
+[1450070675242] NearObjects size: 7
+[1450070675242] NearObjectsToExtinguish: 1
+[1450070675242] Current position: (4, 20)
+[1450070675242] Desired Position: (null)
+[1450070675242] Direction: (-1, 0)
+______________
+[1450070675392] NearObjects size: 7
+[1450070675392] NearObjectsToExtinguish: 2
+[1450070675392] Current position: (3, 20)
+[1450070675392] Desired Position: (null)
+[1450070675392] Direction: (-1, 0)
+______________
+[1450070675542] NearObjects size: 8
+[1450070675542] NearObjectsToExtinguish: 3
+[1450070675542] Current position: (2, 20)
+[1450070675542] Desired Position: (null)
+[1450070675542] Direction: (-1, 0)
+______________
+[1450070675692] NearObjects size: 6
+[1450070675692] NearObjectsToExtinguish: 1
+[1450070675692] Current position: (2, 21)
+[1450070675692] Desired Position: (null)
+[1450070675692] Direction: (0, 1)
+______________
+[1450070675843] NearObjects size: 8
+[1450070675843] NearObjectsToExtinguish: 2
+[1450070675843] Current position: (1, 21)
+[1450070675843] Desired Position: (null)
+[1450070675843] Direction: (-1, 0)
+______________
+[1450070675993] NearObjects size: 7
+[1450070675993] NearObjectsToExtinguish: 2
+[1450070675993] Current position: (1, 22)
+[1450070675993] Desired Position: (null)
+[1450070675993] Direction: (0, 1)
+______________
+[1450070676143] NearObjects size: 5
+[1450070676143] NearObjectsToExtinguish: 1
+[1450070676143] Current position: (1, 23)
+[1450070676143] Desired Position: (null)
+[1450070676143] Direction: (0, 1)
+______________
+[1450070676293] NearObjects size: 5
+[1450070676293] NearObjectsToExtinguish: 1
+[1450070676293] Current position: (0, 23)
+[1450070676293] Desired Position: (null)
+[1450070676293] Direction: (-1, 0)
+______________
+[1450070676443] NearObjects size: 4
+[1450070676443] NearObjectsToExtinguish: 1
+[1450070676443] Current position: (0, 24)
+[1450070676443] Desired Position: (null)
+[1450070676443] Direction: (0, 1)
+______________
+[1450070676593] NearObjects size: 2
+[1450070676593] NearObjectsToExtinguish: 0
+[1450070676593] Current position: (0, 25)
+[1450070676593] Desired Position: (null)
+[1450070676593] Direction: (0, 1)
+______________
+[1450070676743] NearObjects size: 1
+[1450070676743] NearObjectsToExtinguish: 0
+[1450070676743] Current position: (0, 25)
+[1450070676743] Desired Position: (null)
+[1450070676743] Direction: (0, 0)
+______________
+[1450070676894] NearObjects size: 0
+[1450070676894] NearObjectsToExtinguish: 0
+[1450070676894] Current position: (0, 25)
+[1450070676894] Desired Position: (null)
+[1450070676894] Direction: (0, 0)
+______________
+[1450070677044] NearObjects size: 0
+[1450070677044] NearObjectsToExtinguish: 0
+[1450070677044] Current position: (1, 26)
+[1450070677044] Desired Position: (14, 27)
+[1450070677044] Direction: (1, 1)
+______________
+[1450070677194] NearObjects size: 0
+[1450070677194] NearObjectsToExtinguish: 0
+[1450070677194] Current position: (2, 27)
+[1450070677194] Desired Position: (14, 27)
+[1450070677194] Direction: (1, 1)
+______________
+[1450070677344] NearObjects size: 0
+[1450070677344] NearObjectsToExtinguish: 0
+[1450070677344] Current position: (3, 27)
+[1450070677344] Desired Position: (14, 27)
+[1450070677344] Direction: (1, 0)
+______________
+[1450070677494] NearObjects size: 0
+[1450070677494] NearObjectsToExtinguish: 0
+[1450070677494] Current position: (4, 27)
+[1450070677494] Desired Position: (14, 27)
+[1450070677494] Direction: (1, 0)
+______________
+[1450070677644] NearObjects size: 0
+[1450070677644] NearObjectsToExtinguish: 0
+[1450070677644] Current position: (5, 27)
+[1450070677644] Desired Position: (14, 27)
+[1450070677644] Direction: (1, 0)
+______________
+[1450070677794] NearObjects size: 2
+[1450070677794] NearObjectsToExtinguish: 0
+[1450070677794] Current position: (6, 27)
+[1450070677794] Desired Position: (14, 27)
+[1450070677794] Direction: (1, 0)
+______________
+[1450070677945] NearObjects size: 5
+[1450070677945] NearObjectsToExtinguish: 3
+[1450070677945] Current position: (7, 26)
+[1450070677945] Desired Position: (14, 27)
+[1450070677945] Direction: (1, -1)
+______________
+[1450070678096] NearObjects size: 5
+[1450070678096] NearObjectsToExtinguish: 0
+[1450070678096] Current position: (7, 26)
+[1450070678096] Desired Position: (14, 27)
+[1450070678096] Direction: (null)
+______________
+[1450070678246] NearObjects size: 8
+[1450070678246] NearObjectsToExtinguish: 3
+[1450070678246] Current position: (8, 27)
+[1450070678246] Desired Position: (14, 27)
+[1450070678246] Direction: (1, 1)
+______________
+[1450070678396] NearObjects size: 8
+[1450070678396] NearObjectsToExtinguish: 0
+[1450070678396] Current position: (8, 27)
+[1450070678396] Desired Position: (14, 27)
+[1450070678396] Direction: (null)
+______________
+[1450070678546] NearObjects size: 7
+[1450070678546] NearObjectsToExtinguish: 0
+[1450070678546] Current position: (8, 27)
+[1450070678546] Desired Position: (14, 27)
+[1450070678546] Direction: (0, 0)
+______________
+[1450070678696] NearObjects size: 6
+[1450070678696] NearObjectsToExtinguish: 0
+[1450070678696] Current position: (8, 27)
+[1450070678696] Desired Position: (14, 27)
+[1450070678696] Direction: (0, 0)
+______________
+[1450070678846] NearObjects size: 5
+[1450070678846] NearObjectsToExtinguish: 0
+[1450070678846] Current position: (8, 27)
+[1450070678846] Desired Position: (14, 27)
+[1450070678846] Direction: (0, 0)
+______________
+[1450070678997] NearObjects size: 4
+[1450070678997] NearObjectsToExtinguish: 0
+[1450070678997] Current position: (8, 27)
+[1450070678997] Desired Position: (14, 27)
+[1450070678997] Direction: (0, 0)
+______________
+[1450070679147] NearObjects size: 6
+[1450070679147] NearObjectsToExtinguish: 3
+[1450070679147] Current position: (9, 26)
+[1450070679147] Desired Position: (14, 27)
+[1450070679147] Direction: (1, -1)
+______________
+[1450070679297] NearObjects size: 8
+[1450070679297] NearObjectsToExtinguish: 3
+[1450070679297] Current position: (10, 26)
+[1450070679297] Desired Position: (14, 27)
+[1450070679297] Direction: (1, 0)
+______________
+[1450070679447] NearObjects size: 9
+[1450070679447] NearObjectsToExtinguish: 2
+[1450070679447] Current position: (10, 25)
+[1450070679447] Desired Position: (14, 27)
+[1450070679447] Direction: (0, -1)
+______________
+[1450070679598] NearObjects size: 9
+[1450070679598] NearObjectsToExtinguish: 3
+[1450070679598] Current position: (10, 24)
+[1450070679598] Desired Position: (14, 27)
+[1450070679598] Direction: (0, -1)
+______________
+[1450070679749] NearObjects size: 9
+[1450070679749] NearObjectsToExtinguish: 3
+[1450070679749] Current position: (10, 23)
+[1450070679749] Desired Position: (14, 27)
+[1450070679749] Direction: (0, -1)
+______________
+[1450070679899] NearObjects size: 9
+[1450070679899] NearObjectsToExtinguish: 3
+[1450070679899] Current position: (10, 22)
+[1450070679899] Desired Position: (14, 27)
+[1450070679899] Direction: (0, -1)
+______________
+[1450070680050] NearObjects size: 9
+[1450070680050] NearObjectsToExtinguish: 2
+[1450070680050] Current position: (11, 22)
+[1450070680050] Desired Position: (14, 27)
+[1450070680050] Direction: (1, 0)
+______________
+[1450070680200] NearObjects size: 9
+[1450070680200] NearObjectsToExtinguish: 2
+[1450070680200] Current position: (11, 21)
+[1450070680200] Desired Position: (14, 27)
+[1450070680200] Direction: (0, -1)
+______________
+[1450070680350] NearObjects size: 9
+[1450070680350] NearObjectsToExtinguish: 3
+[1450070680350] Current position: (11, 20)
+[1450070680350] Desired Position: (14, 27)
+[1450070680350] Direction: (0, -1)
+______________
+[1450070680500] NearObjects size: 9
+[1450070680500] NearObjectsToExtinguish: 3
+[1450070680500] Current position: (11, 19)
+[1450070680500] Desired Position: (14, 27)
+[1450070680500] Direction: (0, -1)
+______________
+[1450070680650] NearObjects size: 9
+[1450070680650] NearObjectsToExtinguish: 3
+[1450070680650] Current position: (11, 18)
+[1450070680650] Desired Position: (14, 27)
+[1450070680650] Direction: (0, -1)
+______________
+[1450070680801] NearObjects size: 9
+[1450070680801] NearObjectsToExtinguish: 2
+[1450070680801] Current position: (10, 18)
+[1450070680801] Desired Position: (14, 27)
+[1450070680801] Direction: (-1, 0)
+______________
+[1450070680951] NearObjects size: 9
+[1450070680951] NearObjectsToExtinguish: 3
+[1450070680951] Current position: (9, 18)
+[1450070680951] Desired Position: (14, 27)
+[1450070680951] Direction: (-1, 0)
+______________
+[1450070681102] NearObjects size: 9
+[1450070681102] NearObjectsToExtinguish: 3
+[1450070681102] Current position: (8, 18)
+[1450070681102] Desired Position: (14, 27)
+[1450070681102] Direction: (-1, 0)
+______________
+[1450070681253] NearObjects size: 9
+[1450070681253] NearObjectsToExtinguish: 2
+[1450070681253] Current position: (8, 17)
+[1450070681253] Desired Position: (14, 27)
+[1450070681253] Direction: (0, -1)
+______________
+[1450070681403] NearObjects size: 9
+[1450070681403] NearObjectsToExtinguish: 2
+[1450070681403] Current position: (7, 17)
+[1450070681403] Desired Position: (14, 27)
+[1450070681403] Direction: (-1, 0)
+______________
+[1450070681553] NearObjects size: 9
+[1450070681553] NearObjectsToExtinguish: 2
+[1450070681553] Current position: (7, 16)
+[1450070681553] Desired Position: (14, 27)
+[1450070681553] Direction: (0, -1)
+______________
+[1450070681704] NearObjects size: 9
+[1450070681704] NearObjectsToExtinguish: 3
+[1450070681704] Current position: (7, 15)
+[1450070681704] Desired Position: (14, 27)
+[1450070681704] Direction: (0, -1)
+______________
+[1450070681855] NearObjects size: 9
+[1450070681855] NearObjectsToExtinguish: 3
+[1450070681855] Current position: (7, 14)
+[1450070681855] Desired Position: (14, 27)
+[1450070681855] Direction: (0, -1)
+______________
+[1450070682005] NearObjects size: 9
+[1450070682005] NearObjectsToExtinguish: 2
+[1450070682005] Current position: (6, 14)
+[1450070682005] Desired Position: (14, 27)
+[1450070682005] Direction: (-1, 0)
+______________
+[1450070682155] NearObjects size: 9
+[1450070682155] NearObjectsToExtinguish: 3
+[1450070682155] Current position: (5, 14)
+[1450070682155] Desired Position: (14, 27)
+[1450070682155] Direction: (-1, 0)
+______________
+[1450070682306] NearObjects size: 9
+[1450070682306] NearObjectsToExtinguish: 3
+[1450070682306] Current position: (4, 14)
+[1450070682306] Desired Position: (14, 27)
+[1450070682306] Direction: (-1, 0)
+______________
+[1450070682457] NearObjects size: 9
+[1450070682457] NearObjectsToExtinguish: 3
+[1450070682457] Current position: (3, 14)
+[1450070682457] Desired Position: (14, 27)
+[1450070682457] Direction: (-1, 0)
+______________
+[1450070682608] NearObjects size: 9
+[1450070682608] NearObjectsToExtinguish: 2
+[1450070682608] Current position: (3, 13)
+[1450070682608] Desired Position: (14, 27)
+[1450070682608] Direction: (0, -1)
+______________
+[1450070682758] NearObjects size: 9
+[1450070682758] NearObjectsToExtinguish: 2
+[1450070682758] Current position: (2, 13)
+[1450070682758] Desired Position: (14, 27)
+[1450070682758] Direction: (-1, 0)
+______________
+[1450070682908] NearObjects size: 9
+[1450070682908] NearObjectsToExtinguish: 2
+[1450070682908] Current position: (2, 12)
+[1450070682908] Desired Position: (14, 27)
+[1450070682908] Direction: (0, -1)
+______________
+[1450070683058] NearObjects size: 9
+[1450070683058] NearObjectsToExtinguish: 3
+[1450070683058] Current position: (2, 11)
+[1450070683058] Desired Position: (14, 27)
+[1450070683058] Direction: (0, -1)
+______________
+[1450070683208] NearObjects size: 9
+[1450070683208] NearObjectsToExtinguish: 2
+[1450070683208] Current position: (3, 11)
+[1450070683208] Desired Position: (14, 27)
+[1450070683208] Direction: (1, 0)
+______________
+[1450070683358] NearObjects size: 7
+[1450070683358] NearObjectsToExtinguish: 1
+[1450070683358] Current position: (3, 10)
+[1450070683358] Desired Position: (14, 27)
+[1450070683358] Direction: (0, -1)
+______________
+[1450070683508] NearObjects size: 8
+[1450070683508] NearObjectsToExtinguish: 1
+[1450070683508] Current position: (4, 10)
+[1450070683508] Desired Position: (14, 27)
+[1450070683508] Direction: (1, 0)
+______________
+[1450070683658] NearObjects size: 7
+[1450070683658] NearObjectsToExtinguish: 2
+[1450070683658] Current position: (5, 10)
+[1450070683658] Desired Position: (14, 27)
+[1450070683658] Direction: (1, 0)
+______________
+[1450070683808] NearObjects size: 8
+[1450070683808] NearObjectsToExtinguish: 2
+[1450070683808] Current position: (5, 11)
+[1450070683808] Desired Position: (14, 27)
+[1450070683808] Direction: (0, 1)
+______________
+[1450070683959] NearObjects size: 6
+[1450070683959] NearObjectsToExtinguish: 2
+[1450070683959] Current position: (5, 12)
+[1450070683959] Desired Position: (14, 27)
+[1450070683959] Direction: (0, 1)
+______________
+[1450070684109] NearObjects size: 4
+[1450070684109] NearObjectsToExtinguish: 0
+[1450070684109] Current position: (4, 12)
+[1450070684109] Desired Position: (14, 27)
+[1450070684109] Direction: (-1, 0)
+______________
+[1450070684260] NearObjects size: 3
+[1450070684260] NearObjectsToExtinguish: 0
+[1450070684260] Current position: (4, 12)
+[1450070684260] Desired Position: (14, 27)
+[1450070684260] Direction: (0, 0)
+______________
+[1450070684410] NearObjects size: 2
+[1450070684410] NearObjectsToExtinguish: 0
+[1450070684410] Current position: (4, 12)
+[1450070684410] Desired Position: (14, 27)
+[1450070684410] Direction: (0, 0)
+______________
+[1450070684560] NearObjects size: 1
+[1450070684560] NearObjectsToExtinguish: 0
+[1450070684560] Current position: (4, 12)
+[1450070684560] Desired Position: (14, 27)
+[1450070684560] Direction: (0, 0)
+______________
+[1450070684711] NearObjects size: 0
+[1450070684711] NearObjectsToExtinguish: 0
+[1450070684711] Current position: (4, 12)
+[1450070684711] Desired Position: (14, 27)
+[1450070684711] Direction: (0, 0)
+______________
+[1450070684861] NearObjects size: 0
+[1450070684861] NearObjectsToExtinguish: 0
+[1450070684861] Current position: (5, 13)
+[1450070684861] Desired Position: (14, 27)
+[1450070684861] Direction: (1, 1)
+______________
+[1450070685011] NearObjects size: 0
+[1450070685011] NearObjectsToExtinguish: 0
+[1450070685011] Current position: (6, 14)
+[1450070685011] Desired Position: (14, 27)
+[1450070685011] Direction: (1, 1)
+______________
+[1450070685161] NearObjects size: 0
+[1450070685161] NearObjectsToExtinguish: 0
+[1450070685161] Current position: (7, 15)
+[1450070685161] Desired Position: (14, 27)
+[1450070685161] Direction: (1, 1)
+______________
+[1450070685311] NearObjects size: 2
+[1450070685311] NearObjectsToExtinguish: 1
+[1450070685311] Current position: (8, 16)
+[1450070685311] Desired Position: (14, 27)
+[1450070685311] Direction: (1, 1)
+______________
+[1450070685461] NearObjects size: 4
+[1450070685461] NearObjectsToExtinguish: 2
+[1450070685461] Current position: (9, 16)
+[1450070685461] Desired Position: (14, 27)
+[1450070685461] Direction: (1, 0)
+______________
+[1450070685611] NearObjects size: 6
+[1450070685611] NearObjectsToExtinguish: 2
+[1450070685611] Current position: (9, 15)
+[1450070685611] Desired Position: (14, 27)
+[1450070685611] Direction: (0, -1)
+______________
+[1450070685761] NearObjects size: 7
+[1450070685761] NearObjectsToExtinguish: 2
+[1450070685761] Current position: (9, 14)
+[1450070685761] Desired Position: (14, 27)
+[1450070685761] Direction: (0, -1)
+______________
+[Fireman 1603] - Accept a rescue request from [Person 1606]
+[1450070685912] NearObjects size: 7
+[1450070685912] NearObjectsToExtinguish: 2
+[1450070685912] Current position: (10, 15)
+[1450070685912] Desired Position: (32, 33)
+[1450070685912] Direction: (1, 1)
+______________
+[1450070686062] NearObjects size: 6
+[1450070686062] NearObjectsToExtinguish: 2
+[1450070686062] Current position: (11, 16)
+[1450070686062] Desired Position: (32, 33)
+[1450070686062] Direction: (1, 1)
+______________
+[1450070686212] NearObjects size: 6
+[1450070686212] NearObjectsToExtinguish: 2
+[1450070686212] Current position: (12, 17)
+[1450070686212] Desired Position: (32, 33)
+[1450070686212] Direction: (1, 1)
+______________
+[1450070686362] NearObjects size: 7
+[1450070686362] NearObjectsToExtinguish: 3
+[1450070686362] Current position: (13, 18)
+[1450070686362] Desired Position: (32, 33)
+[1450070686362] Direction: (1, 1)
+______________
+[1450070686512] NearObjects size: 9
+[1450070686512] NearObjectsToExtinguish: 4
+[1450070686512] Current position: (14, 19)
+[1450070686512] Desired Position: (32, 33)
+[1450070686512] Direction: (1, 1)
+______________
+[1450070686662] NearObjects size: 9
+[1450070686662] NearObjectsToExtinguish: 4
+[1450070686662] Current position: (15, 20)
+[1450070686662] Desired Position: (32, 33)
+[1450070686662] Direction: (1, 1)
+______________
+[1450070686814] NearObjects size: 9
+[1450070686814] NearObjectsToExtinguish: 4
+[1450070686814] Current position: (16, 21)
+[1450070686814] Desired Position: (32, 33)
+[1450070686814] Direction: (1, 1)
+______________
+[1450070686964] NearObjects size: 9
+[1450070686964] NearObjectsToExtinguish: 4
+[1450070686964] Current position: (17, 22)
+[1450070686964] Desired Position: (32, 33)
+[1450070686964] Direction: (1, 1)
+______________
+[1450070687114] NearObjects size: 9
+[1450070687114] NearObjectsToExtinguish: 4
+[1450070687114] Current position: (18, 23)
+[1450070687114] Desired Position: (32, 33)
+[1450070687114] Direction: (1, 1)
+______________
+[1450070687265] NearObjects size: 9
+[1450070687265] NearObjectsToExtinguish: 4
+[1450070687265] Current position: (19, 24)
+[1450070687265] Desired Position: (32, 33)
+[1450070687265] Direction: (1, 1)
+______________
+[1450070687415] NearObjects size: 9
+[1450070687415] NearObjectsToExtinguish: 4
+[1450070687415] Current position: (20, 25)
+[1450070687415] Desired Position: (32, 33)
+[1450070687415] Direction: (1, 1)
+______________
+[1450070687565] NearObjects size: 9
+[1450070687565] NearObjectsToExtinguish: 4
+[1450070687565] Current position: (21, 26)
+[1450070687565] Desired Position: (32, 33)
+[1450070687565] Direction: (1, 1)
+______________
+[1450070687716] NearObjects size: 9
+[1450070687716] NearObjectsToExtinguish: 4
+[1450070687716] Current position: (22, 27)
+[1450070687716] Desired Position: (32, 33)
+[1450070687716] Direction: (1, 1)
+______________
+[1450070687866] NearObjects size: 9
+[1450070687866] NearObjectsToExtinguish: 4
+[1450070687866] Current position: (23, 28)
+[1450070687866] Desired Position: (32, 33)
+[1450070687866] Direction: (1, 1)
+______________
+[1450070688016] NearObjects size: 9
+[1450070688016] NearObjectsToExtinguish: 4
+[1450070688016] Current position: (24, 29)
+[1450070688016] Desired Position: (32, 33)
+[1450070688016] Direction: (1, 1)
+______________
+[1450070688166] NearObjects size: 9
+[1450070688166] NearObjectsToExtinguish: 4
+[1450070688166] Current position: (25, 30)
+[1450070688166] Desired Position: (32, 33)
+[1450070688166] Direction: (1, 1)
+______________
+[1450070688317] NearObjects size: 9
+[1450070688317] NearObjectsToExtinguish: 4
+[1450070688317] Current position: (26, 31)
+[1450070688317] Desired Position: (32, 33)
+[1450070688317] Direction: (1, 1)
+______________
+[1450070688468] NearObjects size: 9
+[1450070688468] NearObjectsToExtinguish: 4
+[1450070688468] Current position: (27, 32)
+[1450070688468] Desired Position: (32, 33)
+[1450070688468] Direction: (1, 1)
+______________
+[1450070688618] NearObjects size: 8
+[1450070688618] NearObjectsToExtinguish: 4
+[1450070688618] Current position: (28, 33)
+[1450070688618] Desired Position: (32, 33)
+[1450070688618] Direction: (1, 1)
+______________
+[1450070688768] NearObjects size: 3
+[1450070688768] NearObjectsToExtinguish: 2
+[1450070688768] Current position: (29, 34)
+[1450070688768] Desired Position: (32, 33)
+[1450070688768] Direction: (1, 1)
+______________
+[1450070688919] NearObjects size: 0
+[1450070688919] NearObjectsToExtinguish: 0
+[1450070688919] Current position: (30, 35)
+[1450070688919] Desired Position: (32, 33)
+[1450070688919] Direction: (1, 1)
+______________
+[1450070689070] NearObjects size: 0
+[1450070689070] NearObjectsToExtinguish: 0
+[1450070689070] Current position: (31, 36)
+[1450070689070] Desired Position: (35, 36)
+[1450070689070] Direction: (1, 1)
+______________
+[1450070689220] NearObjects size: 0
+[1450070689220] NearObjectsToExtinguish: 0
+[1450070689220] Current position: (32, 36)
+[1450070689220] Desired Position: (35, 36)
+[1450070689220] Direction: (1, 0)
+______________
+[1450070689370] NearObjects size: 0
+[1450070689370] NearObjectsToExtinguish: 0
+[1450070689370] Current position: (33, 36)
+[1450070689370] Desired Position: (35, 36)
+[1450070689370] Direction: (1, 0)
+______________
+[1450070689521] NearObjects size: 0
+[1450070689521] NearObjectsToExtinguish: 0
+[1450070689521] Current position: (34, 36)
+[1450070689521] Desired Position: (35, 36)
+[1450070689521] Direction: (1, 0)
+______________
+[1450070689671] NearObjects size: 0
+[1450070689671] NearObjectsToExtinguish: 0
+[1450070689671] Current position: (35, 36)
+[1450070689671] Desired Position: (35, 36)
+[1450070689671] Direction: (1, 0)
+______________
+A person was saved on: (35, 36)
+[1450070689821] NearObjects size: 0
+[1450070689821] NearObjectsToExtinguish: 0
+[1450070689821] Current position: (35, 36)
+[1450070689821] Desired Position: (null)
+[1450070689821] Direction: (0, 0)
+______________
+[1450070689971] NearObjects size: 0
+[1450070689971] NearObjectsToExtinguish: 0
+[1450070689971] Current position: (34, 35)
+[1450070689971] Desired Position: (20, 31)
+[1450070689971] Direction: (-1, -1)
+______________
+[1450070690121] NearObjects size: 0
+[1450070690121] NearObjectsToExtinguish: 0
+[1450070690121] Current position: (33, 34)
+[1450070690121] Desired Position: (20, 31)
+[1450070690121] Direction: (-1, -1)
+______________
+[1450070690271] NearObjects size: 0
+[1450070690271] NearObjectsToExtinguish: 0
+[1450070690271] Current position: (32, 33)
+[1450070690271] Desired Position: (20, 31)
+[1450070690271] Direction: (-1, -1)
+______________
+[1450070690422] NearObjects size: 3
+[1450070690422] NearObjectsToExtinguish: 1
+[1450070690422] Current position: (31, 32)
+[1450070690422] Desired Position: (20, 31)
+[1450070690422] Direction: (-1, -1)
+______________
+[1450070690572] NearObjects size: 7
+[1450070690572] NearObjectsToExtinguish: 3
+[1450070690572] Current position: (30, 32)
+[1450070690572] Desired Position: (20, 31)
+[1450070690572] Direction: (-1, 0)
+______________
+[1450070690722] NearObjects size: 7
+[1450070690722] NearObjectsToExtinguish: 2
+[1450070690722] Current position: (30, 31)
+[1450070690722] Desired Position: (20, 31)
+[1450070690722] Direction: (0, -1)
+______________
+[1450070690872] NearObjects size: 9
+[1450070690872] NearObjectsToExtinguish: 2
+[1450070690872] Current position: (29, 31)
+[1450070690872] Desired Position: (20, 31)
+[1450070690872] Direction: (-1, 0)
+______________
+[1450070691022] NearObjects size: 9
+[1450070691022] NearObjectsToExtinguish: 2
+[1450070691022] Current position: (29, 30)
+[1450070691022] Desired Position: (20, 31)
+[1450070691022] Direction: (0, -1)
+______________
+[1450070691172] NearObjects size: 9
+[1450070691172] NearObjectsToExtinguish: 2
+[1450070691172] Current position: (28, 30)
+[1450070691172] Desired Position: (20, 31)
+[1450070691172] Direction: (-1, 0)
+______________
+[1450070691324] NearObjects size: 8
+[1450070691324] NearObjectsToExtinguish: 3
+[1450070691324] Current position: (27, 30)
+[1450070691324] Desired Position: (20, 31)
+[1450070691324] Direction: (-1, 0)
+______________
+[1450070691475] NearObjects size: 7
+[1450070691475] NearObjectsToExtinguish: 1
+[1450070691475] Current position: (26, 30)
+[1450070691475] Desired Position: (20, 31)
+[1450070691475] Direction: (-1, 0)
+______________
+[1450070691625] NearObjects size: 8
+[1450070691625] NearObjectsToExtinguish: 2
+[1450070691625] Current position: (26, 29)
+[1450070691625] Desired Position: (20, 31)
+[1450070691625] Direction: (0, -1)
+______________
+[1450070691775] NearObjects size: 7
+[1450070691775] NearObjectsToExtinguish: 1
+[1450070691775] Current position: (25, 29)
+[1450070691775] Desired Position: (20, 31)
+[1450070691775] Direction: (-1, 0)
+______________
+[1450070691926] NearObjects size: 8
+[1450070691926] NearObjectsToExtinguish: 2
+[1450070691926] Current position: (25, 28)
+[1450070691926] Desired Position: (20, 31)
+[1450070691926] Direction: (0, -1)
+______________
+[1450070692076] NearObjects size: 7
+[1450070692076] NearObjectsToExtinguish: 1
+[1450070692076] Current position: (24, 28)
+[1450070692076] Desired Position: (20, 31)
+[1450070692076] Direction: (-1, 0)
+______________
+[Fireman 1603] - Accept a rescue request from [Person 1605]
+[1450070692226] NearObjects size: 7
+[1450070692226] NearObjectsToExtinguish: 2
+[1450070692226] Current position: (23, 27)
+[1450070692226] Desired Position: (21, 1)
+[1450070692226] Direction: (-1, -1)
+______________
+[1450070692376] NearObjects size: 7
+[1450070692376] NearObjectsToExtinguish: 2
+[1450070692376] Current position: (22, 26)
+[1450070692376] Desired Position: (21, 1)
+[1450070692376] Direction: (-1, -1)
+______________
+[1450070692526] NearObjects size: 8
+[1450070692526] NearObjectsToExtinguish: 3
+[1450070692526] Current position: (22, 25)
+[1450070692526] Desired Position: (21, 1)
+[1450070692526] Direction: (0, -1)
+______________
+[1450070692677] NearObjects size: 8
+[1450070692677] NearObjectsToExtinguish: 4
+[1450070692677] Current position: (21, 24)
+[1450070692677] Desired Position: (21, 1)
+[1450070692677] Direction: (-1, -1)
+______________
+[Fireman 1603] - Refused a rescue request from [Person 1607]
+[1450070692827] NearObjects size: 8
+[1450070692827] NearObjectsToExtinguish: 4
+[1450070692827] Current position: (20, 23)
+[1450070692827] Desired Position: (21, 1)
+[1450070692827] Direction: (-1, -1)
+______________
+[1450070692977] NearObjects size: 9
+[1450070692977] NearObjectsToExtinguish: 3
+[1450070692977] Current position: (20, 22)
+[1450070692977] Desired Position: (21, 1)
+[1450070692977] Direction: (0, -1)
+______________
+[1450070693127] NearObjects size: 9
+[1450070693127] NearObjectsToExtinguish: 3
+[1450070693127] Current position: (20, 21)
+[1450070693127] Desired Position: (21, 1)
+[1450070693127] Direction: (0, -1)
+______________
+[1450070693278] NearObjects size: 9
+[1450070693278] NearObjectsToExtinguish: 3
+[1450070693278] Current position: (20, 20)
+[1450070693278] Desired Position: (21, 1)
+[1450070693278] Direction: (0, -1)
+______________
+[1450070693429] NearObjects size: 9
+[1450070693429] NearObjectsToExtinguish: 4
+[1450070693429] Current position: (19, 19)
+[1450070693429] Desired Position: (21, 1)
+[1450070693429] Direction: (-1, -1)
+______________
+[1450070693579] NearObjects size: 9
+[1450070693579] NearObjectsToExtinguish: 3
+[1450070693579] Current position: (19, 18)
+[1450070693579] Desired Position: (21, 1)
+[1450070693579] Direction: (0, -1)
+______________
+A person died on: (19, -1)
+[1450070693729] NearObjects size: 9
+[1450070693729] NearObjectsToExtinguish: 3
+[1450070693729] Current position: (19, 17)
+[1450070693729] Desired Position: (21, 1)
+[1450070693729] Direction: (0, -1)
+______________
+[1450070693879] NearObjects size: 9
+[1450070693879] NearObjectsToExtinguish: 3
+[1450070693879] Current position: (19, 16)
+[1450070693879] Desired Position: (21, 1)
+[1450070693879] Direction: (0, -1)
+______________
+[1450070694029] NearObjects size: 9
+[1450070694029] NearObjectsToExtinguish: 3
+[1450070694029] Current position: (19, 15)
+[1450070694029] Desired Position: (21, 1)
+[1450070694029] Direction: (0, -1)
+______________
+[1450070694179] NearObjects size: 9
+[1450070694179] NearObjectsToExtinguish: 2
+[1450070694179] Current position: (18, 15)
+[1450070694179] Desired Position: (21, 1)
+[1450070694179] Direction: (-1, 0)
+______________
+[1450070694329] NearObjects size: 9
+[1450070694329] NearObjectsToExtinguish: 3
+[1450070694329] Current position: (17, 15)
+[1450070694329] Desired Position: (21, 1)
+[1450070694329] Direction: (-1, 0)
+______________
+[1450070694480] NearObjects size: 9
+[1450070694480] NearObjectsToExtinguish: 3
+[1450070694480] Current position: (16, 15)
+[1450070694480] Desired Position: (21, 1)
+[1450070694480] Direction: (-1, 0)
+______________
+[1450070694630] NearObjects size: 9
+[1450070694630] NearObjectsToExtinguish: 2
+[1450070694630] Current position: (16, 16)
+[1450070694630] Desired Position: (21, 1)
+[1450070694630] Direction: (0, 1)
+______________
+[1450070694780] NearObjects size: 9
+[1450070694780] NearObjectsToExtinguish: 2
+[1450070694780] Current position: (15, 16)
+[1450070694780] Desired Position: (21, 1)
+[1450070694780] Direction: (-1, 0)
+______________
+[1450070694930] NearObjects size: 9
+[1450070694930] NearObjectsToExtinguish: 3
+[1450070694930] Current position: (14, 16)
+[1450070694930] Desired Position: (21, 1)
+[1450070694930] Direction: (-1, 0)
+______________
+[1450070695080] NearObjects size: 8
+[1450070695080] NearObjectsToExtinguish: 3
+[1450070695080] Current position: (13, 16)
+[1450070695080] Desired Position: (21, 1)
+[1450070695080] Direction: (-1, 0)
+______________
+[1450070695230] NearObjects size: 6
+[1450070695230] NearObjectsToExtinguish: 0
+[1450070695230] Current position: (13, 17)
+[1450070695230] Desired Position: (21, 1)
+[1450070695230] Direction: (0, 1)
+______________
+[1450070695380] NearObjects size: 5
+[1450070695380] NearObjectsToExtinguish: 0
+[1450070695380] Current position: (13, 17)
+[1450070695380] Desired Position: (21, 1)
+[1450070695380] Direction: (0, 0)
+______________
+[1450070695530] NearObjects size: 4
+[1450070695530] NearObjectsToExtinguish: 0
+[1450070695530] Current position: (13, 17)
+[1450070695530] Desired Position: (21, 1)
+[1450070695530] Direction: (0, 0)
+______________
+[1450070695682] NearObjects size: 3
+[1450070695682] NearObjectsToExtinguish: 0
+[1450070695682] Current position: (13, 17)
+[1450070695682] Desired Position: (21, 1)
+[1450070695682] Direction: (0, 0)
+______________
+[1450070695832] NearObjects size: 2
+[1450070695832] NearObjectsToExtinguish: 0
+[1450070695832] Current position: (13, 17)
+[1450070695832] Desired Position: (21, 1)
+[1450070695832] Direction: (0, 0)
+______________
+[1450070695982] NearObjects size: 1
+[1450070695982] NearObjectsToExtinguish: 0
+[1450070695982] Current position: (13, 17)
+[1450070695982] Desired Position: (21, 1)
+[1450070695982] Direction: (0, 0)
+______________
+[1450070696133] NearObjects size: 4
+[1450070696133] NearObjectsToExtinguish: 2
+[1450070696133] Current position: (14, 18)
+[1450070696133] Desired Position: (21, 1)
+[1450070696133] Direction: (1, 1)
+______________
+[1450070696283] NearObjects size: 5
+[1450070696283] NearObjectsToExtinguish: 2
+[1450070696283] Current position: (15, 18)
+[1450070696283] Desired Position: (21, 1)
+[1450070696283] Direction: (1, 0)
+______________
+[1450070696433] NearObjects size: 7
+[1450070696433] NearObjectsToExtinguish: 2
+[1450070696433] Current position: (16, 18)
+[1450070696433] Desired Position: (21, 1)
+[1450070696433] Direction: (1, 0)
+______________
+[1450070696584] NearObjects size: 8
+[1450070696584] NearObjectsToExtinguish: 2
+[1450070696584] Current position: (16, 19)
+[1450070696584] Desired Position: (21, 1)
+[1450070696584] Direction: (0, 1)
+______________
+[1450070696734] NearObjects size: 7
+[1450070696734] NearObjectsToExtinguish: 1
+[1450070696734] Current position: (16, 20)
+[1450070696734] Desired Position: (21, 1)
+[1450070696734] Direction: (0, 1)
+______________
+[1450070696885] NearObjects size: 8
+[1450070696885] NearObjectsToExtinguish: 2
+[1450070696885] Current position: (17, 20)
+[1450070696885] Desired Position: (21, 1)
+[1450070696885] Direction: (1, 0)
+______________
+[1450070697035] NearObjects size: 8
+[1450070697035] NearObjectsToExtinguish: 3
+[1450070697035] Current position: (18, 20)
+[1450070697035] Desired Position: (21, 1)
+[1450070697035] Direction: (1, 0)
+______________
+[1450070697187] NearObjects size: 8
+[1450070697187] NearObjectsToExtinguish: 2
+[1450070697187] Current position: (18, 21)
+[1450070697187] Desired Position: (21, 1)
+[1450070697187] Direction: (0, 1)
+______________
+[1450070697338] NearObjects size: 7
+[1450070697338] NearObjectsToExtinguish: 1
+[1450070697338] Current position: (18, 22)
+[1450070697338] Desired Position: (21, 1)
+[1450070697338] Direction: (0, 1)
+______________
+[1450070697488] NearObjects size: 5
+[1450070697488] NearObjectsToExtinguish: 1
+[1450070697488] Current position: (19, 22)
+[1450070697488] Desired Position: (21, 1)
+[1450070697488] Direction: (1, 0)
+______________
+[1450070697638] NearObjects size: 5
+[1450070697638] NearObjectsToExtinguish: 0
+[1450070697638] Current position: (19, 23)
+[1450070697638] Desired Position: (21, 1)
+[1450070697638] Direction: (0, 1)
+______________
+[1450070697788] NearObjects size: 4
+[1450070697788] NearObjectsToExtinguish: 0
+[1450070697788] Current position: (19, 23)
+[1450070697788] Desired Position: (21, 1)
+[1450070697788] Direction: (0, 0)
+______________
+[1450070697939] NearObjects size: 3
+[1450070697939] NearObjectsToExtinguish: 0
+[1450070697939] Current position: (19, 23)
+[1450070697939] Desired Position: (21, 1)
+[1450070697939] Direction: (0, 0)
+______________
+[1450070698089] NearObjects size: 2
+[1450070698089] NearObjectsToExtinguish: 0
+[1450070698089] Current position: (19, 23)
+[1450070698089] Desired Position: (21, 1)
+[1450070698089] Direction: (0, 0)
+______________
+[1450070698239] NearObjects size: 4
+[1450070698239] NearObjectsToExtinguish: 1
+[1450070698239] Current position: (20, 24)
+[1450070698239] Desired Position: (21, 1)
+[1450070698239] Direction: (1, 1)
+______________
+[1450070698390] NearObjects size: 4
+[1450070698390] NearObjectsToExtinguish: 0
+[1450070698390] Current position: (20, 24)
+[1450070698390] Desired Position: (21, 1)
+[1450070698390] Direction: (null)
+______________
+[1450070698540] NearObjects size: 7
+[1450070698540] NearObjectsToExtinguish: 3
+[1450070698540] Current position: (19, 25)
+[1450070698540] Desired Position: (21, 1)
+[1450070698540] Direction: (-1, 1)
+______________
+[1450070698690] NearObjects size: 8
+[1450070698690] NearObjectsToExtinguish: 3
+[1450070698690] Current position: (19, 26)
+[1450070698690] Desired Position: (21, 1)
+[1450070698690] Direction: (0, 1)
+______________
+[1450070698840] NearObjects size: 7
+[1450070698840] NearObjectsToExtinguish: 1
+[1450070698840] Current position: (20, 26)
+[1450070698840] Desired Position: (21, 1)
+[1450070698840] Direction: (1, 0)
+______________
+[1450070698990] NearObjects size: 8
+[1450070698990] NearObjectsToExtinguish: 2
+[1450070698990] Current position: (20, 27)
+[1450070698990] Desired Position: (21, 1)
+[1450070698990] Direction: (0, 1)
+______________
+[1450070699140] NearObjects size: 6
+[1450070699140] NearObjectsToExtinguish: 1
+[1450070699140] Current position: (21, 27)
+[1450070699140] Desired Position: (21, 1)
+[1450070699140] Direction: (1, 0)
+______________
+[1450070699291] NearObjects size: 8
+[1450070699291] NearObjectsToExtinguish: 2
+[1450070699291] Current position: (21, 28)
+[1450070699291] Desired Position: (21, 1)
+[1450070699291] Direction: (0, 1)
+______________
+[1450070699441] NearObjects size: 9
+[1450070699441] NearObjectsToExtinguish: 3
+[1450070699441] Current position: (21, 29)
+[1450070699441] Desired Position: (21, 1)
+[1450070699441] Direction: (0, 1)
+______________
+[1450070699593] NearObjects size: 9
+[1450070699593] NearObjectsToExtinguish: 3
+[1450070699593] Current position: (21, 30)
+[1450070699593] Desired Position: (21, 1)
+[1450070699593] Direction: (0, 1)
+______________
+[1450070699744] NearObjects size: 9
+[1450070699744] NearObjectsToExtinguish: 2
+[1450070699744] Current position: (20, 30)
+[1450070699744] Desired Position: (21, 1)
+[1450070699744] Direction: (-1, 0)
+______________
+[1450070699894] NearObjects size: 9
+[1450070699894] NearObjectsToExtinguish: 3
+[1450070699894] Current position: (19, 30)
+[1450070699894] Desired Position: (21, 1)
+[1450070699894] Direction: (-1, 0)
+______________
+[1450070700044] NearObjects size: 9
+[1450070700044] NearObjectsToExtinguish: 3
+[1450070700044] Current position: (18, 30)
+[1450070700044] Desired Position: (21, 1)
+[1450070700044] Direction: (-1, 0)
+______________
+[1450070700194] NearObjects size: 9
+[1450070700194] NearObjectsToExtinguish: 3
+[1450070700194] Current position: (17, 30)
+[1450070700194] Desired Position: (21, 1)
+[1450070700194] Direction: (-1, 0)
+______________
+[1450070700344] NearObjects size: 9
+[1450070700344] NearObjectsToExtinguish: 2
+[1450070700344] Current position: (17, 31)
+[1450070700344] Desired Position: (21, 1)
+[1450070700344] Direction: (0, 1)
+______________
+[1450070700494] NearObjects size: 9
+[1450070700494] NearObjectsToExtinguish: 3
+[1450070700494] Current position: (17, 32)
+[1450070700494] Desired Position: (21, 1)
+[1450070700494] Direction: (0, 1)
+______________
+[1450070700645] NearObjects size: 9
+[1450070700645] NearObjectsToExtinguish: 2
+[1450070700645] Current position: (16, 32)
+[1450070700645] Desired Position: (21, 1)
+[1450070700645] Direction: (-1, 0)
+______________
+[1450070700795] NearObjects size: 9
+[1450070700795] NearObjectsToExtinguish: 2
+[1450070700795] Current position: (16, 33)
+[1450070700795] Desired Position: (21, 1)
+[1450070700795] Direction: (0, 1)
+______________
+[1450070700945] NearObjects size: 9
+[1450070700945] NearObjectsToExtinguish: 2
+[1450070700945] Current position: (15, 33)
+[1450070700945] Desired Position: (21, 1)
+[1450070700945] Direction: (-1, 0)
+______________
+[1450070701096] NearObjects size: 9
+[1450070701096] NearObjectsToExtinguish: 3
+[1450070701096] Current position: (14, 33)
+[1450070701096] Desired Position: (21, 1)
+[1450070701096] Direction: (-1, 0)
+______________
+A person died on: (36, 15)
+[1450070701246] NearObjects size: 9
+[1450070701246] NearObjectsToExtinguish: 3
+[1450070701246] Current position: (13, 33)
+[1450070701246] Desired Position: (21, 1)
+[1450070701246] Direction: (-1, 0)
+______________
+[1450070701396] NearObjects size: 9
+[1450070701396] NearObjectsToExtinguish: 2
+[1450070701396] Current position: (13, 32)
+[1450070701396] Desired Position: (21, 1)
+[1450070701396] Direction: (0, -1)
+______________
+[1450070701546] NearObjects size: 9
+[1450070701546] NearObjectsToExtinguish: 2
+[1450070701546] Current position: (12, 32)
+[1450070701546] Desired Position: (21, 1)
+[1450070701546] Direction: (-1, 0)
+______________
+[1450070701696] NearObjects size: 9
+[1450070701696] NearObjectsToExtinguish: 3
+[1450070701696] Current position: (11, 32)
+[1450070701696] Desired Position: (21, 1)
+[1450070701696] Direction: (-1, 0)
+______________
+[1450070701846] NearObjects size: 9
+[1450070701846] NearObjectsToExtinguish: 2
+[1450070701846] Current position: (11, 33)
+[1450070701846] Desired Position: (21, 1)
+[1450070701846] Direction: (0, 1)
+______________
+[1450070701996] NearObjects size: 9
+[1450070701996] NearObjectsToExtinguish: 3
+[1450070701996] Current position: (11, 34)
+[1450070701996] Desired Position: (21, 1)
+[1450070701996] Direction: (0, 1)
+______________
+[1450070702146] NearObjects size: 9
+[1450070702146] NearObjectsToExtinguish: 2
+[1450070702146] Current position: (10, 34)
+[1450070702146] Desired Position: (21, 1)
+[1450070702146] Direction: (-1, 0)
+______________
+[1450070702296] NearObjects size: 9
+[1450070702296] NearObjectsToExtinguish: 2
+[1450070702296] Current position: (10, 35)
+[1450070702296] Desired Position: (21, 1)
+[1450070702296] Direction: (0, 1)
+______________
+[1450070702446] NearObjects size: 9
+[1450070702446] NearObjectsToExtinguish: 2
+[1450070702446] Current position: (9, 35)
+[1450070702446] Desired Position: (21, 1)
+[1450070702446] Direction: (-1, 0)
+______________
+[1450070702596] NearObjects size: 9
+[1450070702596] NearObjectsToExtinguish: 3
+[1450070702596] Current position: (8, 35)
+[1450070702596] Desired Position: (21, 1)
+[1450070702596] Direction: (-1, 0)
+______________
+[1450070702746] NearObjects size: 9
+[1450070702746] NearObjectsToExtinguish: 2
+[1450070702746] Current position: (8, 36)
+[1450070702746] Desired Position: (21, 1)
+[1450070702746] Direction: (0, 1)
+______________
+[1450070702896] NearObjects size: 9
+[1450070702896] NearObjectsToExtinguish: 3
+[1450070702896] Current position: (8, 37)
+[1450070702896] Desired Position: (21, 1)
+[1450070702896] Direction: (0, 1)
+______________
+[1450070703046] NearObjects size: 9
+[1450070703046] NearObjectsToExtinguish: 2
+[1450070703046] Current position: (7, 37)
+[1450070703046] Desired Position: (21, 1)
+[1450070703046] Direction: (-1, 0)
+______________
+[1450070703196] NearObjects size: 9
+[1450070703196] NearObjectsToExtinguish: 2
+[1450070703196] Current position: (7, 38)
+[1450070703196] Desired Position: (21, 1)
+[1450070703196] Direction: (0, 1)
+______________
+[1450070703346] NearObjects size: 6
+[1450070703346] NearObjectsToExtinguish: 2
+[1450070703346] Current position: (7, 39)
+[1450070703346] Desired Position: (21, 1)
+[1450070703346] Direction: (0, 1)
+______________
+[1450070703496] NearObjects size: 6
+[1450070703496] NearObjectsToExtinguish: 1
+[1450070703496] Current position: (8, 39)
+[1450070703496] Desired Position: (21, 1)
+[1450070703496] Direction: (1, 0)
+______________
+[1450070703646] NearObjects size: 6
+[1450070703646] NearObjectsToExtinguish: 2
+[1450070703646] Current position: (9, 39)
+[1450070703646] Desired Position: (21, 1)
+[1450070703646] Direction: (1, 0)
+______________
+[1450070703796] NearObjects size: 6
+[1450070703796] NearObjectsToExtinguish: 2
+[1450070703796] Current position: (10, 39)
+[1450070703796] Desired Position: (21, 1)
+[1450070703796] Direction: (1, 0)
+______________
+[1450070703946] NearObjects size: 6
+[1450070703946] NearObjectsToExtinguish: 2
+[1450070703946] Current position: (11, 39)
+[1450070703946] Desired Position: (21, 1)
+[1450070703946] Direction: (1, 0)
+______________
+[1450070704096] NearObjects size: 6
+[1450070704096] NearObjectsToExtinguish: 2
+[1450070704096] Current position: (12, 39)
+[1450070704096] Desired Position: (21, 1)
+[1450070704096] Direction: (1, 0)
+______________
+[1450070704246] NearObjects size: 6
+[1450070704246] NearObjectsToExtinguish: 2
+[1450070704246] Current position: (13, 39)
+[1450070704246] Desired Position: (21, 1)
+[1450070704246] Direction: (1, 0)
+______________
+[1450070704396] NearObjects size: 9
+[1450070704396] NearObjectsToExtinguish: 2
+[1450070704396] Current position: (13, 38)
+[1450070704396] Desired Position: (21, 1)
+[1450070704396] Direction: (0, -1)
+______________
+[1450070704546] NearObjects size: 9
+[1450070704546] NearObjectsToExtinguish: 2
+[1450070704546] Current position: (14, 38)
+[1450070704546] Desired Position: (21, 1)
+[1450070704546] Direction: (1, 0)
+______________
+[1450070704696] NearObjects size: 9
+[1450070704696] NearObjectsToExtinguish: 2
+[1450070704696] Current position: (14, 37)
+[1450070704696] Desired Position: (21, 1)
+[1450070704696] Direction: (0, -1)
+______________
+[1450070704846] NearObjects size: 9
+[1450070704846] NearObjectsToExtinguish: 2
+[1450070704846] Current position: (15, 37)
+[1450070704846] Desired Position: (21, 1)
+[1450070704846] Direction: (1, 0)
+______________
+[1450070704996] NearObjects size: 9
+[1450070704996] NearObjectsToExtinguish: 3
+[1450070704996] Current position: (16, 37)
+[1450070704996] Desired Position: (21, 1)
+[1450070704996] Direction: (1, 0)
+______________
+[1450070705147] NearObjects size: 9
+[1450070705147] NearObjectsToExtinguish: 3
+[1450070705147] Current position: (17, 37)
+[1450070705147] Desired Position: (21, 1)
+[1450070705147] Direction: (1, 0)
+______________
+[1450070705297] NearObjects size: 9
+[1450070705297] NearObjectsToExtinguish: 2
+[1450070705297] Current position: (17, 38)
+[1450070705297] Desired Position: (21, 1)
+[1450070705297] Direction: (0, 1)
+______________
+[1450070705447] NearObjects size: 6
+[1450070705447] NearObjectsToExtinguish: 2
+[1450070705447] Current position: (17, 39)
+[1450070705447] Desired Position: (21, 1)
+[1450070705447] Direction: (0, 1)
+______________
+[1450070705597] NearObjects size: 5
+[1450070705597] NearObjectsToExtinguish: 1
+[1450070705597] Current position: (16, 39)
+[1450070705597] Desired Position: (21, 1)
+[1450070705597] Direction: (-1, 0)
+______________
+[1450070705747] NearObjects size: 3
+[1450070705747] NearObjectsToExtinguish: 0
+[1450070705747] Current position: (15, 39)
+[1450070705747] Desired Position: (21, 1)
+[1450070705747] Direction: (-1, 0)
+______________
+[1450070705897] NearObjects size: 2
+[1450070705897] NearObjectsToExtinguish: 0
+[1450070705897] Current position: (15, 39)
+[1450070705897] Desired Position: (21, 1)
+[1450070705897] Direction: (0, 0)
+______________
+[1450070706047] NearObjects size: 1
+[1450070706047] NearObjectsToExtinguish: 0
+[1450070706047] Current position: (15, 39)
+[1450070706047] Desired Position: (21, 1)
+[1450070706047] Direction: (0, 0)
+______________
+[1450070706197] NearObjects size: 0
+[1450070706197] NearObjectsToExtinguish: 0
+[1450070706197] Current position: (15, 39)
+[1450070706197] Desired Position: (21, 1)
+[1450070706197] Direction: (0, 0)
+______________
+[1450070706348] NearObjects size: 0
+[1450070706348] NearObjectsToExtinguish: 0
+[1450070706348] Current position: (16, 38)
+[1450070706348] Desired Position: (20, 31)
+[1450070706348] Direction: (1, -1)
+______________
+[1450070706498] NearObjects size: 1
+[1450070706498] NearObjectsToExtinguish: 0
+[1450070706498] Current position: (17, 37)
+[1450070706498] Desired Position: (20, 31)
+[1450070706498] Direction: (1, -1)
+______________
+[1450070706648] NearObjects size: 6
+[1450070706648] NearObjectsToExtinguish: 3
+[1450070706648] Current position: (18, 36)
+[1450070706648] Desired Position: (20, 31)
+[1450070706648] Direction: (1, -1)
+______________
+[1450070706798] NearObjects size: 8
+[1450070706798] NearObjectsToExtinguish: 3
+[1450070706798] Current position: (19, 36)
+[1450070706798] Desired Position: (20, 31)
+[1450070706798] Direction: (1, 0)
+______________
+[1450070706948] NearObjects size: 7
+[1450070706948] NearObjectsToExtinguish: 2
+[1450070706948] Current position: (19, 37)
+[1450070706948] Desired Position: (20, 31)
+[1450070706948] Direction: (0, 1)
+______________
+[1450070707098] NearObjects size: 9
+[1450070707098] NearObjectsToExtinguish: 2
+[1450070707098] Current position: (20, 37)
+[1450070707098] Desired Position: (20, 31)
+[1450070707098] Direction: (1, 0)
+______________
+[1450070707248] NearObjects size: 9
+[1450070707248] NearObjectsToExtinguish: 3
+[1450070707248] Current position: (21, 37)
+[1450070707248] Desired Position: (20, 31)
+[1450070707248] Direction: (1, 0)
+______________
+[1450070707398] NearObjects size: 9
+[1450070707398] NearObjectsToExtinguish: 3
+[1450070707398] Current position: (22, 37)
+[1450070707398] Desired Position: (20, 31)
+[1450070707398] Direction: (1, 0)
+______________
+[1450070707548] NearObjects size: 9
+[1450070707548] NearObjectsToExtinguish: 3
+[1450070707548] Current position: (23, 37)
+[1450070707548] Desired Position: (20, 31)
+[1450070707548] Direction: (1, 0)
+______________
+[1450070707698] NearObjects size: 9
+[1450070707698] NearObjectsToExtinguish: 2
+[1450070707698] Current position: (23, 38)
+[1450070707698] Desired Position: (20, 31)
+[1450070707698] Direction: (0, 1)
+______________
+[1450070707849] NearObjects size: 9
+[1450070707849] NearObjectsToExtinguish: 2
+[1450070707849] Current position: (24, 38)
+[1450070707849] Desired Position: (20, 31)
+[1450070707849] Direction: (1, 0)
+______________
+[1450070707999] NearObjects size: 6
+[1450070707999] NearObjectsToExtinguish: 1
+[1450070707999] Current position: (24, 39)
+[1450070707999] Desired Position: (20, 31)
+[1450070707999] Direction: (0, 1)
+______________
+[1450070708149] NearObjects size: 6
+[1450070708149] NearObjectsToExtinguish: 1
+[1450070708149] Current position: (25, 39)
+[1450070708149] Desired Position: (20, 31)
+[1450070708149] Direction: (1, 0)
+______________
+[1450070708300] NearObjects size: 6
+[1450070708300] NearObjectsToExtinguish: 2
+[1450070708300] Current position: (26, 39)
+[1450070708300] Desired Position: (20, 31)
+[1450070708300] Direction: (1, 0)
+______________
+[1450070708451] NearObjects size: 6
+[1450070708451] NearObjectsToExtinguish: 2
+[1450070708451] Current position: (27, 39)
+[1450070708451] Desired Position: (20, 31)
+[1450070708451] Direction: (1, 0)
+______________
+[1450070708601] NearObjects size: 6
+[1450070708601] NearObjectsToExtinguish: 2
+[1450070708601] Current position: (28, 39)
+[1450070708601] Desired Position: (20, 31)
+[1450070708601] Direction: (1, 0)
+______________
+[1450070708752] NearObjects size: 6
+[1450070708752] NearObjectsToExtinguish: 2
+[1450070708752] Current position: (29, 39)
+[1450070708752] Desired Position: (20, 31)
+[1450070708752] Direction: (1, 0)
+______________
+[1450070708902] NearObjects size: 6
+[1450070708902] NearObjectsToExtinguish: 2
+[1450070708902] Current position: (30, 39)
+[1450070708902] Desired Position: (20, 31)
+[1450070708902] Direction: (1, 0)
+______________
+[1450070709052] NearObjects size: 6
+[1450070709052] NearObjectsToExtinguish: 2
+[1450070709052] Current position: (31, 39)
+[1450070709052] Desired Position: (20, 31)
+[1450070709052] Direction: (1, 0)
+______________
+[1450070709202] NearObjects size: 6
+[1450070709202] NearObjectsToExtinguish: 2
+[1450070709202] Current position: (32, 39)
+[1450070709202] Desired Position: (20, 31)
+[1450070709202] Direction: (1, 0)
+______________
+[1450070709352] NearObjects size: 9
+[1450070709352] NearObjectsToExtinguish: 2
+[1450070709352] Current position: (32, 38)
+[1450070709352] Desired Position: (20, 31)
+[1450070709352] Direction: (0, -1)
+______________
+[1450070709502] NearObjects size: 9
+[1450070709502] NearObjectsToExtinguish: 2
+[1450070709502] Current position: (33, 38)
+[1450070709502] Desired Position: (20, 31)
+[1450070709502] Direction: (1, 0)
+______________
+[1450070709652] NearObjects size: 9
+[1450070709652] NearObjectsToExtinguish: 2
+[1450070709652] Current position: (33, 37)
+[1450070709652] Desired Position: (20, 31)
+[1450070709652] Direction: (0, -1)
+______________
+[1450070709802] NearObjects size: 9
+[1450070709802] NearObjectsToExtinguish: 2
+[1450070709802] Current position: (34, 37)
+[1450070709802] Desired Position: (20, 31)
+[1450070709802] Direction: (1, 0)
+______________
+[1450070709952] NearObjects size: 9
+[1450070709952] NearObjectsToExtinguish: 2
+[1450070709952] Current position: (34, 36)
+[1450070709952] Desired Position: (20, 31)
+[1450070709952] Direction: (0, -1)
+______________
+[1450070710103] NearObjects size: 9
+[1450070710103] NearObjectsToExtinguish: 2
+[1450070710103] Current position: (35, 36)
+[1450070710103] Desired Position: (20, 31)
+[1450070710103] Direction: (1, 0)
+______________
+[1450070710254] NearObjects size: 9
+[1450070710254] NearObjectsToExtinguish: 2
+[1450070710254] Current position: (35, 35)
+[1450070710254] Desired Position: (20, 31)
+[1450070710254] Direction: (0, -1)
+______________
+[1450070710404] NearObjects size: 9
+[1450070710404] NearObjectsToExtinguish: 2
+[1450070710404] Current position: (36, 35)
+[1450070710404] Desired Position: (20, 31)
+[1450070710404] Direction: (1, 0)
+______________
+[1450070710554] NearObjects size: 9
+[1450070710554] NearObjectsToExtinguish: 2
+[1450070710554] Current position: (36, 34)
+[1450070710554] Desired Position: (20, 31)
+[1450070710554] Direction: (0, -1)
+______________
+[1450070710704] NearObjects size: 9
+[1450070710704] NearObjectsToExtinguish: 2
+[1450070710704] Current position: (37, 34)
+[1450070710704] Desired Position: (20, 31)
+[1450070710704] Direction: (1, 0)
+______________
+[1450070710854] NearObjects size: 9
+[1450070710854] NearObjectsToExtinguish: 3
+[1450070710854] Current position: (38, 34)
+[1450070710854] Desired Position: (20, 31)
+[1450070710854] Direction: (1, 0)
+______________
+[1450070711004] NearObjects size: 9
+[1450070711004] NearObjectsToExtinguish: 2
+[1450070711004] Current position: (38, 35)
+[1450070711004] Desired Position: (20, 31)
+[1450070711004] Direction: (0, 1)
+______________
+[1450070711154] NearObjects size: 9
+[1450070711154] NearObjectsToExtinguish: 3
+[1450070711154] Current position: (38, 36)
+[1450070711154] Desired Position: (20, 31)
+[1450070711154] Direction: (0, 1)
+______________
+[1450070711304] NearObjects size: 9
+[1450070711304] NearObjectsToExtinguish: 3
+[1450070711304] Current position: (38, 37)
+[1450070711304] Desired Position: (20, 31)
+[1450070711304] Direction: (0, 1)
+______________
+[1450070711454] NearObjects size: 8
+[1450070711454] NearObjectsToExtinguish: 2
+[1450070711454] Current position: (37, 37)
+[1450070711454] Desired Position: (20, 31)
+[1450070711454] Direction: (-1, 0)
+______________
+[1450070711606] NearObjects size: 9
+[1450070711606] NearObjectsToExtinguish: 2
+[1450070711606] Current position: (37, 38)
+[1450070711606] Desired Position: (20, 31)
+[1450070711606] Direction: (0, 1)
+______________
+[1450070711756] NearObjects size: 6
+[1450070711756] NearObjectsToExtinguish: 2
+[1450070711756] Current position: (37, 39)
+[1450070711756] Desired Position: (20, 31)
+[1450070711756] Direction: (0, 1)
+______________
+[1450070711907] NearObjects size: 6
+[1450070711907] NearObjectsToExtinguish: 1
+[1450070711907] Current position: (38, 39)
+[1450070711907] Desired Position: (20, 31)
+[1450070711907] Direction: (1, 0)
+______________
+[1450070712057] NearObjects size: 4
+[1450070712057] NearObjectsToExtinguish: 1
+[1450070712057] Current position: (39, 39)
+[1450070712057] Desired Position: (20, 31)
+[1450070712057] Direction: (1, 0)
+______________
+[1450070712207] NearObjects size: 4
+[1450070712207] NearObjectsToExtinguish: 0
+[1450070712207] Current position: (39, 38)
+[1450070712207] Desired Position: (20, 31)
+[1450070712207] Direction: (0, -1)
+______________
+[1450070712357] NearObjects size: 3
+[1450070712357] NearObjectsToExtinguish: 0
+[1450070712357] Current position: (39, 38)
+[1450070712357] Desired Position: (20, 31)
+[1450070712357] Direction: (0, 0)
+______________
+[1450070712507] NearObjects size: 2
+[1450070712507] NearObjectsToExtinguish: 0
+[1450070712507] Current position: (39, 38)
+[1450070712507] Desired Position: (20, 31)
+[1450070712507] Direction: (0, 0)
+______________
+[1450070712657] NearObjects size: 1
+[1450070712657] NearObjectsToExtinguish: 0
+[1450070712657] Current position: (39, 38)
+[1450070712657] Desired Position: (20, 31)
+[1450070712657] Direction: (0, 0)
+______________
+[1450070712807] NearObjects size: 0
+[1450070712807] NearObjectsToExtinguish: 0
+[1450070712807] Current position: (39, 38)
+[1450070712807] Desired Position: (20, 31)
+[1450070712807] Direction: (0, 0)
+______________
+[1450070712957] NearObjects size: 0
+[1450070712957] NearObjectsToExtinguish: 0
+[1450070712957] Current position: (38, 37)
+[1450070712957] Desired Position: (20, 31)
+[1450070712957] Direction: (-1, -1)
+______________
+[1450070713108] NearObjects size: 0
+[1450070713108] NearObjectsToExtinguish: 0
+[1450070713108] Current position: (37, 36)
+[1450070713108] Desired Position: (20, 31)
+[1450070713108] Direction: (-1, -1)
+______________

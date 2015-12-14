@@ -1,0 +1,24 @@
+[STARTING RUN OF logs/14_26_2015_07_26_21.log ]
+
+
+[1450077981343] Initializing FireProcess
+[1450077981343] Getting Fire first element
+[1450077981343] Initialize clock.
+Leader:1606
+I am here 13, 13
+I am here 13, 13
+I am here 13, 13
+[1450077983201] Fireman 1606 has the 2 quad.
+[1450077983201] Fireman 1606 accepted 2quad.
+I am here 13, 38
+[1450078000010] Fireman 1605 has the 1 quad.
+[1450078000010] Fireman 1604 has the 0 quad.
+[1450078000010] Fireman 1608 has the 3 quad.
+[1450078000039] Fireman 1605 accepted 1quad.
+[1450078000039] Fireman 1604 accepted 0quad.
+[1450078000039] Fireman 1608 accepted 3quad.
+A person died on: (35, 14)
+A person died on: (21, 8)
+A person died on: (22, 21)
+A person died on: (26, -2)
+A person died on: (4, 40)

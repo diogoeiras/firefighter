@@ -1,0 +1,13 @@
+[STARTING RUN OF logs/14_43_2015_02_43_17.log ]
+
+
+[1450060997124] Initializing FireProcess
+[1450060997124] Getting Fire first element
+[1450060997125] Initialize clock.
+[Fireman 2503] - Refused a rescue request from [Person 2505]
+[Fireman 2503] - Accept a rescue request from [Person 2505]
+[Fireman 2504] - Refused a rescue request from [Person 2507]
+[Fireman 2504] - Accept a rescue request from [Person 2507]
+A person was saved on: (47, 34)
+A person was saved on: (15, 23)
+[Fireman 2504] - Refused a rescue request from [Person 2506]

@@ -1,0 +1,20 @@
+[STARTING RUN OF logs/14_46_2015_01_46_07.log ]
+
+
+[1450057567936] Initializing FireProcess
+[1450057567936] Getting Fire first element
+[1450057567936] Initialize clock.
+[Fireman 2506] - Accept a rescue request from [Person 2509]
+A person was saved on: (49, 47)
+A person died on: (49, 46)
+[Fireman 2503] - Accept a rescue request from [Person 2514]
+A person was saved on: (19, 43)
+[Fireman 2503] - Accept a rescue request from [Person 2508]
+A person was saved on: (24, 35)
+holly
+holly
+holly
+holly
+holly
+holly
+A person died on: (49, 5)

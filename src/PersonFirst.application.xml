@@ -7,7 +7,7 @@
 	                    http://jadex.sourceforge.net/jadex-application-2.4.xsd
 	                    http://jadex.sourceforge.net/jadex-envspace
 	                    http://jadex.sourceforge.net/jadex-envspace-2.4.xsd"
-                 name="SimpleGrid" >
+                 name="PersonFirst" >
 
     <imports>
         <import>jadex.extension.envsupport.environment.space2d.*</import>
@@ -22,7 +22,7 @@
     </imports>
 
     <extensiontypes>
-        <env:envspacetype name="2dspace" class="Grid2D" width="20" height="20">
+        <env:envspacetype name="2dspace" class="Grid2D" width="50" height="50">
 
             <env:objecttypes>
 
@@ -119,7 +119,7 @@
     </componenttypes>
 
     <configurations>
-        <configuration name="1_bombeiro">
+        <configuration name="4_bombeiros_5_pessoas">
             <extensions>
                 <env:envspace name="2dspace" type="2dspace">
 
@@ -137,6 +137,11 @@
             <components>
                 <component type="fireman"/>
                 <component type="fireman"/>
+                <component type="fireman"/>
+                <component type="fireman"/>
+                <component type="person"/>
+                <component type="person"/>
+                <component type="person"/>
                 <component type="person"/>
                 <component type="person"/>
             </components>

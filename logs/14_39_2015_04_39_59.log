@@ -1,0 +1,31 @@
+[STARTING RUN OF logs/14_39_2015_04_39_59.log ]
+
+
+[1450067999382] Initializing FireProcess
+[1450067999383] Getting Fire first element
+[1450067999383] Initialize clock.
+[1450067999386] NearObjects size: 0
+[1450067999393] NearObjects size: 0
+[1450067999393] NearObjectsToExtinguish: 0
+[1450067999386] NearObjectsToExtinguish: 0
+[1450067999393] Current position: (1, 11)
+[1450067999393] Desired Position: (12, 2)
+[1450067999393] Direction: (1, -1)
+______________
+[1450067999386] Current position: (4, 11)
+[1450067999386] Desired Position: (12, 2)
+[1450067999386] Direction: (1, -1)
+______________
+[1450068012950] NearObjects size: 0
+[1450068012950] NearObjectsToExtinguish: 0
+[1450068012950] Current position: (2, 10)
+[1450068012950] Desired Position: (12, 2)
+[1450068012950] Direction: (1, -1)
+______________
+[Fireman 403] - Accept a rescue request from [Person 405]
+[1450068012951] NearObjects size: 0
+[1450068012951] NearObjectsToExtinguish: 0
+[1450068012951] Current position: (5, 10)
+[1450068012951] Desired Position: (6, 0)
+[1450068012951] Direction: (1, -1)
+______________

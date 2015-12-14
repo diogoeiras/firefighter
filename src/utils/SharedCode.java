@@ -37,5 +37,33 @@ public class SharedCode {
                 });
     }
 
+    public void messageRefuseRescue(final Object firemanID, final Object personId){
+        SServiceProvider.getServices(agent.getServiceProvider(), ICommunicationService.class, RequiredServiceInfo.SCOPE_PLATFORM)
+                .addResultListener(new IntermediateDefaultResultListener<ICommunicationService>()
+                {
+                    public void intermediateResultAvailable(ICommunicationService ts) {
+                        ts.refuseRescueRequest(myID,firemanID);
+                    }
+                });
+    }
 
+    public void sendQuads(final Object leaderID, final Object firemanID,final int quad){
+        SServiceProvider.getServices(agent.getServiceProvider(), ICommunicationService.class, RequiredServiceInfo.SCOPE_PLATFORM)
+                .addResultListener(new IntermediateDefaultResultListener<ICommunicationService>()
+                {
+                    public void intermediateResultAvailable(ICommunicationService ts) {
+                        ts.sendQuad(leaderID,firemanID,quad);
+                    }
+                });
+    }
+
+    public void confirmationQuads(final Object leaderID, final Object firemanID, final int quad){
+        SServiceProvider.getServices(agent.getServiceProvider(), ICommunicationService.class, RequiredServiceInfo.SCOPE_PLATFORM)
+                .addResultListener(new IntermediateDefaultResultListener<ICommunicationService>()
+                {
+                    public void intermediateResultAvailable(ICommunicationService ts) {
+                        ts.sendConfirmationQuad(leaderID,firemanID,quad);
+                    }
+                });
+    }
 }

@@ -1,5 +1,6 @@
 package processes;
 
+import agents.FiremanBDI;
 import jadex.bridge.service.types.clock.IClockService;
 import jadex.commons.SimplePropertyObject;
 import jadex.extension.envsupport.environment.IEnvironmentSpace;
@@ -56,6 +57,7 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
 
         properties.put("type", 1);
         space.createSpaceObject("fire", properties, null);
+
     }
 
     @Override
