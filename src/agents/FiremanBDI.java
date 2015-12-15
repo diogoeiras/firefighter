@@ -8,6 +8,7 @@ import jadex.bdiv3.runtime.impl.PlanFailureException;
 import jadex.bridge.service.annotation.Service;
 import jadex.extension.envsupport.environment.ISpaceObject;
 import jadex.extension.envsupport.environment.space2d.Grid2D;
+import jadex.extension.envsupport.math.IVector2;
 import jadex.extension.envsupport.math.Vector1Int;
 import jadex.extension.envsupport.math.Vector2Double;
 import jadex.extension.envsupport.math.Vector2Int;
@@ -41,7 +42,7 @@ public class FiremanBDI implements ICommunicationService {
     protected boolean alreadyDefinedQuads = false;
     protected ArrayList<ISpaceObject> firemanWithoutQuads = new ArrayList<>();
     protected int numberOfQuads;
-    protected boolean getFiremanInPosition = false;
+    protected boolean getFiremanInPosition;
 
     protected Vector2Int secondChoicePosition = null;
 
@@ -74,10 +75,10 @@ public class FiremanBDI implements ICommunicationService {
 
         myself.setProperty("position", new Vector2Int(xPosition, yPosition));
 
-        if (FiremanBDI.BEHAVIOR == "QUAD"){
-            if (myself.getId() == FireProcess.LEADER_ID){
+        if (FiremanBDI.BEHAVIOR == "QUAD") {
+            if (myself.getId() == FireProcess.LEADER_ID) {
                 this.LEADER = true;
-                System.out.println("Leader:" + myself.getId());
+                getFiremanInPosition = false;
             }
             QuadGoal = new FiremanQuadGoal(null);
             QuadGoal.setCurrentPosition(new Vector2Int(xPosition, yPosition));
@@ -299,16 +300,16 @@ public class FiremanBDI implements ICommunicationService {
      */
 
     // calculate center of quad
-    public Vector2Int getCenterOfQuad(int quad){
+    public Vector2Int getCenterOfQuad(int quad) {
         int x, y;
 
-        if(quad == 0){
+        if (quad == 0) {
             x = 12;
             y = 12;
-        } else if (quad == 1){
+        } else if (quad == 1) {
             x = 36;
             y = 12;
-        } else if (quad == 2){
+        } else if (quad == 2) {
             x = 12;
             y = 36;
         } else {
@@ -316,8 +317,10 @@ public class FiremanBDI implements ICommunicationService {
             y = 36;
         }
 
-        return new Vector2Int(x,y);
-    };
+        return new Vector2Int(x, y);
+    }
+
+    ;
 
     /*
             MESSAGING
@@ -346,7 +349,11 @@ public class FiremanBDI implements ICommunicationService {
 
             if (canAcceptThisEvent) {
                 // Change Goal desired Position and add this accepted event to the stressSignals
-                Goal.setDesiredPosition(position);
+                if (BEHAVIOR == "QUAD"){
+                    QuadGoal.setDesiredPosition(position);
+                } else {
+                    Goal.setDesiredPosition(position);
+                }
                 FiremanPersonEvent rescue = new FiremanPersonEvent(firemanID, personID);
                 stressSignals.add(rescue);
                 textMessage.messageRescueConfirmationForPerson(firemanID, personID);
@@ -367,17 +374,17 @@ public class FiremanBDI implements ICommunicationService {
 
     @Override
     public void sendConfirmationQuad(Object leaderID, Object firemanID, int quad) {
-        if (leaderID == myself.getId()){
+        if (leaderID == myself.getId()) {
             ArrayList<ISpaceObject> temp = new ArrayList<>();
-            for(ISpaceObject e: firemanWithoutQuads){
-                if (e.getId() != firemanID){
+            for (ISpaceObject e : firemanWithoutQuads) {
+                if (e.getId() != firemanID) {
                     temp.add(e);
-                } else{
-                    System.out.println("[" + currentTime + "] Fireman " + e.getId() + " accepted " + quad + "quad.");
+                } else {
+                    System.out.println("[" + currentTime + "] Fireman " + e.getId() + " accepted the " + quad + " quad.");
                 }
             }
             firemanWithoutQuads = temp;
-            if (firemanWithoutQuads.size() == 0){
+            if (firemanWithoutQuads.size() == 0) {
                 this.alreadyDefinedQuads = true;
             }
         }
@@ -385,10 +392,10 @@ public class FiremanBDI implements ICommunicationService {
 
     @Override
     public void sendQuad(Object leaderID, Object firemanID, int quad) {
-        if (firemanID == myself.getId()){
+        if (firemanID == myself.getId()) {
             QuadGoal.setQuad(quad);
             System.out.println("[" + currentTime + "] Fireman " + firemanID + " has the " + quad + " quad.");
-            textMessage.confirmationQuads(leaderID,firemanID,quad);
+            textMessage.confirmationQuads(leaderID, firemanID, quad);
         }
     }
 
@@ -415,7 +422,7 @@ public class FiremanBDI implements ICommunicationService {
 
                 // get where i am clean first
                 Object[] mySpot = getObjectsInCurrentPosition();
-                if (mySpot != null && mySpot.length > 0){
+                if (mySpot != null && mySpot.length > 0) {
                     putDownFireCell((ISpaceObject) mySpot[0]);
                 }
 
@@ -442,7 +449,7 @@ public class FiremanBDI implements ICommunicationService {
                     }
 
                     nearObjectsToExtinguish = null;
-                    nearObjectsToExtinguish  = new ArrayDeque<>();
+                    nearObjectsToExtinguish = new ArrayDeque<>();
 
                     if (directionToPerson != null) {
                         direction = directionToPerson;
@@ -450,8 +457,8 @@ public class FiremanBDI implements ICommunicationService {
 
                 } else {
                     // Clear one fire cell at a time.
-                    Vector2Int desiredPosition = new Vector2Int(0,0);
-                    while(nearObjectsToExtinguish.size() > 0) {
+                    Vector2Int desiredPosition = new Vector2Int(0, 0);
+                    while (nearObjectsToExtinguish.size() > 0) {
                         desiredPosition = currentPositionOfAnObjectId(space, nearObjectsToExtinguish.peek().getId());
 
                         if (desiredPosition != null) {
@@ -459,12 +466,12 @@ public class FiremanBDI implements ICommunicationService {
                             if (canEliminate(currentPositionOfAnObjectId(space, myself.getId()), desired)) {
                                 putDownFireCell(nearObjectsToExtinguish.peek());
                             }
-                        };
+                        }
 
                         nearObjectsToExtinguish.remove();
                     }
 
-                    direction = new Vector2Int(0,0);
+                    direction = new Vector2Int(0, 0);
                     //direction = returnDirection(space, goal.getCurrentPosition(), desiredPosition);
                 }
             } else if (existsActiveEvent()) {
@@ -513,13 +520,6 @@ public class FiremanBDI implements ICommunicationService {
             getNearObjects(goal.getCurrentPosition(), VISION_CAMPS, false);
 
             removeRepeatedCells(goal.getCurrentPosition());
-
-            System.out.println("[" + currentTime + "] NearObjects size: " + nearObjects.size());
-            System.out.println("[" + currentTime + "] NearObjectsToExtinguish: " + nearObjectsToExtinguish.size());
-            System.out.println("[" + currentTime + "] Current position: (" + goal.getCurrentPosition() + ")");
-            System.out.println("[" + currentTime + "] Desired Position: (" + goal.getDesiredPosition() + ")");
-            System.out.println("[" + currentTime + "] Direction: (" + direction + ")");
-            System.out.println("______________");
 
             throw new PlanFailureException();
 
@@ -619,8 +619,8 @@ public class FiremanBDI implements ICommunicationService {
         private Vector2Int getAnotherDirection(FiremanGoal goal) {
             Vector2Int direction = null;
 
-            if (goal.getDesiredPosition() != null && !currentEqualDesire(goal)){
-                direction = returnDirection(space,goal.getCurrentPosition(),goal.getDesiredPosition());
+            if (goal.getDesiredPosition() != null && !currentEqualDesire(goal)) {
+                direction = returnDirection(space, goal.getCurrentPosition(), goal.getDesiredPosition());
                 return direction;
             }
 
@@ -666,7 +666,7 @@ public class FiremanBDI implements ICommunicationService {
         // Function that compares two Vector2Int
         private boolean currentEqualDesire(FiremanGoal goal) {
 
-                return goal.getCurrentPosition().getXAsInteger() == goal.getDesiredPosition().getXAsInteger() &&
+            return goal.getCurrentPosition().getXAsInteger() == goal.getDesiredPosition().getXAsInteger() &&
                     goal.getCurrentPosition().getYAsInteger() == goal.getDesiredPosition().getYAsInteger();
         }
 
@@ -723,34 +723,132 @@ public class FiremanBDI implements ICommunicationService {
     }
 
     @Plan(trigger = @Trigger(goals = FiremanQuadGoal.class))
-    public class QuadPlan{
+    public class QuadPlan {
 
         @PlanBody
         protected void Quad(FiremanQuadGoal goal) {
 
-            if (LEADER || myself.getId() == FireProcess.LEADER_ID){
+            if (LEADER || myself.getId() == FireProcess.LEADER_ID) {
                 LEADER = true;
-                if (firemanWithoutQuads.size() == 0 && !alreadyDefinedQuads){
+                if (firemanWithoutQuads.size() == 0 && !alreadyDefinedQuads) {
                     ISpaceObject[] fireman = space.getSpaceObjectsByType("fireman");
-                    if (fireman != null){
+                    if (fireman != null) {
                         int i = 0;
-                        for (ISpaceObject e: fireman){
+                        for (ISpaceObject e : fireman) {
                             firemanWithoutQuads.add(e);
-                            textMessage.sendQuads(myself.getId(),e.getId(),i);
+                            textMessage.sendQuads(myself.getId(), e.getId(), i);
                             i++;
                         }
-                        numberOfQuads = i+1;
+                        numberOfQuads = i;
                     }
                 }
             }
 
-            if (QuadGoal.getQuad() != -1)
+            if (QuadGoal.getQuad() != -1 && !getFiremanInPosition) {
                 changePosition();
+            }else {
+                // Movement
+                Vector2Int direction = null;
+                if (QuadGoal.getDesiredPosition() != null && QuadGoal.getCurrentPosition().getXAsInteger() == QuadGoal.getDesiredPosition().getXAsInteger() && QuadGoal.getCurrentPosition().getYAsInteger() == QuadGoal.getDesiredPosition().getYAsInteger()) {
+                    QuadGoal.setDesiredPosition(null);
+                }
+                if (nearObjectsToExtinguish.size() > 0) {
+
+                    while(nearObjectsToExtinguish.size() != 0) {
+                        if (canPutDown(QuadGoal.getCurrentPosition(), currentPositionOfAnObjectId(space, nearObjectsToExtinguish.peek().getId()), QuadGoal.getQuad())) {
+                            putDownFire(nearObjectsToExtinguish.peek());
+                            nearObjectsToExtinguish.remove();
+                            direction = new Vector2Int(0,0);
+                            break;
+                        }
+                        nearObjectsToExtinguish.remove();
+                    }
+                } else if (existsActiveEvent()) {
+                    direction = returnDirection(space, QuadGoal.getCurrentPosition(), currentPositionOfAnObjectId(space, getActiveEvent().getPerson()));
+                } else if (nearObjects.size() > 0) {
+
+                    if (!existsActiveEvent()) {
+                        if (checkMovement(QuadGoal.getCurrentPosition(), currentPositionOfAnObjectId(space, nearObjects.peek().getId()))) {
+                            direction = returnDirection(space, QuadGoal.getCurrentPosition(), currentPositionOfAnObjectId(space, nearObjects.peek().getId()));
+                            QuadGoal.setDesiredPosition(currentPositionOfAnObjectId(space, nearObjects.peek().getId()));
+                        }
+                        nearObjects.remove();
+                    }
+                } else {
+
+                    if (QuadGoal.getDesiredPosition() != null) {
+                        direction = returnDirection(space, QuadGoal.getCurrentPosition(), QuadGoal.getDesiredPosition());
+
+                        if (direction != null ) {
+                            Vector2Int vec = new Vector2Int(QuadGoal.getCurrentPosition().getXAsInteger() + direction.getXAsInteger(), QuadGoal.getCurrentPosition().getYAsInteger());
+                            if (!checkMovement(QuadGoal.getCurrentPosition(), vec)) {
+                                QuadGoal.setDesiredPosition(null);
+                                direction = null;
+                            }
+                        }
+                    } else {
+                        ISpaceObject[] fireObjects = space.getSpaceObjectsByType("fire");
+
+                        for (ISpaceObject e : fireObjects) {
+
+                            try {
+                                Vector2Int vec = currentPositionOfAnObjectId(space, e.getId());
+
+                                if (vec != null && inThisQuad(vec)) {
+                                    QuadGoal.setDesiredPosition(vec);
+                                    direction = returnDirection(space, QuadGoal.getCurrentPosition(), vec);
+                                }
+                            } catch (NullPointerException P){
+                                direction = null;
+                            }
+                        }
+                    }
+                }
+
+                if (direction != null){
+
+                    Vector2Int nextPosition = new Vector2Int(QuadGoal.getCurrentPosition().getXAsInteger()+direction.getXAsInteger(), QuadGoal.getCurrentPosition().getYAsInteger() + direction.getYAsInteger() );
+
+                    myself.setProperty("position",nextPosition);
+                    goal.setCurrentPosition(nextPosition);
+                } else {
+                    ISpaceObject[] fireObjects = space.getSpaceObjectsByType("fire");
+
+                    for (ISpaceObject e : fireObjects) {
+                        try {
+                        Vector2Int vec = currentPositionOfAnObjectId(space, e.getId());
+
+                        if (vec != null && inThisQuad(vec)) {
+                            QuadGoal.setDesiredPosition(vec);
+                            direction = returnDirection(space, QuadGoal.getCurrentPosition(), vec);
+                            if (direction == null){
+                                break;
+                            }
+                            Vector2Int curr = new Vector2Int(QuadGoal.getCurrentPosition().getXAsInteger() + direction.getXAsInteger(), QuadGoal.getCurrentPosition().getYAsInteger() + direction.getYAsInteger());
+                            myself.setProperty("position",curr);
+                            goal.setCurrentPosition(curr);
+                            break;
+                        }} catch (NullPointerException e1){
+                            continue;
+                        }
+                    }
+
+                    if (direction == null){
+                        direction = returnDirection(space,QuadGoal.getCurrentPosition(),getCenterOfQuad(QuadGoal.getQuad()));
+                        Vector2Int curr = new Vector2Int(QuadGoal.getCurrentPosition().getXAsInteger() + direction.getXAsInteger(), QuadGoal.getCurrentPosition().getYAsInteger() + direction.getYAsInteger());
+                        myself.setProperty("position",curr);
+                        goal.setCurrentPosition(curr);
+                    }
+                }
+
+                getNearObjects(QuadGoal.getCurrentPosition(), VISION_CAMPS, false);
+                getNearObjects(QuadGoal.getCurrentPosition(), EXTINGUISH_CAMPS, true);
+            }
 
 
+            removeRepeatedCells(QuadGoal.getCurrentPosition());
 
             throw new PlanFailureException();
-
         }
 
         @PlanPassed
@@ -759,14 +857,90 @@ public class FiremanBDI implements ICommunicationService {
         }
 
 
-        private void changePosition(){
+        private void changePosition() {
             if (!getFiremanInPosition) {
                 QuadGoal.setCurrentPosition(getCenterOfQuad(QuadGoal.getQuad()));
                 myself.setProperty("position", QuadGoal.getCurrentPosition());
-                System.out.println("I am here " + myself.getProperty("position"));
                 getFiremanInPosition = true;
             }
         }
+
+        private boolean canPutDown(Vector2Int currentPosition, Vector2Int desiredPosition, int quad) {
+
+            int[][] bounds = getBoundaries(quad);
+
+            if (desiredPosition == null) return false;
+
+            if (desiredPosition.getXAsInteger() < bounds[0][0] || desiredPosition.getXAsInteger() > bounds[0][1]) {
+                return false;
+            } else if (desiredPosition.getYAsInteger() < bounds[1][0] || desiredPosition.getYAsInteger() > bounds[1][1]) {
+                return false;
+            } else if (Math.abs(desiredPosition.getXAsInteger() - currentPosition.getXAsInteger()) > 1 ||
+                    Math.abs(desiredPosition.getYAsInteger() - currentPosition.getYAsInteger()) > 1) {
+                return false;
+            }
+
+            return true;
+        }
+
+        private int[][] getBoundaries(int quad) {
+            int[][] bound = new int[2][2];
+
+            if (quad == 0) {
+                bound[0][0] = 0;
+                bound[0][1] = 24;
+                bound[1][0] = 0;
+                bound[1][1] = 24;
+            } else if (quad == 1) {
+                bound[0][0] = 25;
+                bound[0][1] = 49;
+                bound[1][0] = 0;
+                bound[1][1] = 24;
+            } else if (quad == 2) {
+                bound[0][0] = 0;
+                bound[0][1] = 24;
+                bound[1][0] = 25;
+                bound[1][1] = 49;
+            } else {
+                bound[0][0] = 25;
+                bound[0][1] = 49;
+                bound[1][0] = 25;
+                bound[1][1] = 49;
+            }
+
+            return bound;
+        }
+
+        private void putDownFire(ISpaceObject cell) {
+            if (space.destroyAndVerifySpaceObject(cell.getId())) {
+                Vector2Double doubleVector = (Vector2Double) cell.getProperty("position");
+                Vector2Int vec = new Vector2Int(doubleVector.getXAsInteger(), doubleVector.getYAsInteger());
+                Map properties = new HashMap();
+                properties.put("position", vec);
+                properties.put("type", 1);
+                space.createSpaceObject("wetTerrain", properties, null);
+            }
+        }
+
+        private boolean checkMovement(Vector2Int current, Vector2Int dest) {
+
+            if (canPutDown(current, dest, QuadGoal.getQuad())) {
+                return true;
+            } else return false;
+        }
+
+        private boolean inThisQuad(Vector2Int vec) {
+
+            int[][] bounds = getBoundaries(QuadGoal.getQuad());
+
+            if (vec.getXAsInteger() >= bounds[0][0] && vec.getXAsInteger() <= bounds[0][1] && vec.getYAsInteger() >= bounds[1][0] && vec.getYAsInteger() <= bounds[1][1]) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
     }
+
 
 }

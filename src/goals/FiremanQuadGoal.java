@@ -17,7 +17,7 @@ public class FiremanQuadGoal {
 
     public FiremanQuadGoal(Vector2Int desiredPosition){
         this.desiredPosition = desiredPosition;
-        QUAD_AREA = -1;
+        this.QUAD_AREA = -1;
     }
 
     public Vector2Int getCurrentPosition(){

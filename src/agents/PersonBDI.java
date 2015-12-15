@@ -42,6 +42,16 @@ public class PersonBDI implements ICommunicationService {
     @Belief(updaterate = 200)
     protected long currentTime = System.currentTimeMillis();
 
+    protected boolean isThereAFiremanHere = false;
+
+
+    /*
+
+        Agent functions
+
+     */
+
+
     @AgentBody
     public void body() {
 
@@ -63,8 +73,7 @@ public class PersonBDI implements ICommunicationService {
             }
         }
 
-        PersonGoal Goal = new PersonGoal();
-        PersonGoal goal = (PersonGoal) person.dispatchTopLevelGoal(Goal).get();
+        PersonGoal goal = (PersonGoal) person.dispatchTopLevelGoal(new PersonGoal()).get();
     }
 
     // Function that returns the number of cells needed around the person so he get kill
@@ -159,6 +168,12 @@ public class PersonBDI implements ICommunicationService {
         return false;
     }
 
+
+    /*
+        Functions related to communication between agents
+
+     */
+
     @Override
     public void refuseRescueRequest(Object firemanID, Object personID) {
         if (personID == myself.getId() && firemanResponsibleForSalvation == null) {
@@ -190,6 +205,13 @@ public class PersonBDI implements ICommunicationService {
 
     }
 
+    /*
+
+            Agent' Plans
+
+     */
+
+
     @Plan(trigger = @Trigger(goals = PersonGoal.class, service = @ServiceTrigger(type = ICommunicationService.class)))
     public class SavingPlan {
 
@@ -204,9 +226,10 @@ public class PersonBDI implements ICommunicationService {
             if (amIOnFire()) {
                 System.out.println("A person died on: (" + currentPosition + ")");
                 goal.changeDeadStatus();
-                space.destroySpaceObject(myself.getId());
+                person.adoptPlan(new PersonBDI.CleanPerson(myself.getId()));
             } else {
-
+                // TODO: Test
+                //nearFireman = null;
 
                 try {
                     Vector2Int curr = FiremanBDI.currentPositionOfAnObjectId(space, myself.getId());
@@ -226,12 +249,12 @@ public class PersonBDI implements ICommunicationService {
                     nearFireman = null;
                 }
 
-                if (nearFireman != null && nearFireman.size() > 0) {
-                    System.out.println("A person was saved on: (" + currentPosition + ")");
-                    goal.changeRescuedStatus();
-                    space.destroySpaceObject(myself.getId());
-                } else if (fireElements != null && fireElements.size() > 0) {
 
+                if (nearFireman != null && nearFireman.size() > 0) {
+                    System.out.println("[" + currentTime + "] A person was saved on: (" + currentPosition + ")");
+                    goal.changeRescuedStatus();
+                    person.adoptPlan(new PersonBDI.CleanPerson(myself.getId()));
+                } else if (fireElements != null && fireElements.size() > 0) {
 
                     // Send a rescue request to the nearest fireman available
                     if (!responseHelp) {
@@ -550,6 +573,42 @@ public class PersonBDI implements ICommunicationService {
                 return true;
             }
 
+        }
+    }
+
+    @Plan(trigger = @Trigger(goals = PersonGoal.class))
+    public class CleanPerson{
+
+        private Object idToEliminate;
+
+        public CleanPerson(){};
+
+        public CleanPerson(Object id){
+            idToEliminate = id;
+        }
+
+        @PlanBody
+        protected void saving(PersonGoal SaveGoal) {
+
+            try{
+                if (space.destroyAndVerifySpaceObject(idToEliminate)){
+                    SaveGoal.changeFiremanHere();
+                }else {
+                    throw new PlanFailureException();
+                }
+            } catch (RuntimeException e){
+                person.adoptPlan(new SavingPlan());
+                throw new PlanFailureException();
+            }
+        }
+
+        @PlanPassed
+        public void passed() {
+
+            System.out.println("A person was saved on: (" + FiremanBDI.currentPositionOfAnObjectId(space, myself.getId()) + ")");
+            space.destroySpaceObject(myself.getId());
+
+            System.out.println("[" + currentTime + "] ~~~ I was saved ~~~");
         }
     }
 }

@@ -44,6 +44,11 @@
                     <env:property name="type" class="String"/>
                 </env:objecttype>
 
+                <env:objecttype name="wall">
+                    <env:property name="position" class="IVector2"/>
+                    <env:property name="type" class="String"/>
+                </env:objecttype>
+
                 <env:objecttype name="fire">
                     <env:property name="position" class="IVector2"/>
                     <env:property name="type" class="String"/>
@@ -85,6 +90,12 @@
 
                     <env:drawable objecttype="wetTerrain" height="1.0" width="1.0">
                         <env:texturedrectangle layer="1" imagepath="images/wet_Terrain.png">
+                            <env:drawcondition>$object.type.equals(1)</env:drawcondition>
+                        </env:texturedrectangle>
+                    </env:drawable>
+
+                    <env:drawable objecttype="wall" height="1.0" width="1.0">
+                        <env:texturedrectangle layer="1" imagepath="images/wall.png">
                             <env:drawcondition>$object.type.equals(1)</env:drawcondition>
                         </env:texturedrectangle>
                     </env:drawable>
@@ -139,8 +150,6 @@
                 <component type="fireman"/>
                 <component type="fireman"/>
                 <component type="fireman"/>
-                <component type="person"/>
-                <component type="person"/>
                 <component type="person"/>
                 <component type="person"/>
                 <component type="person"/>

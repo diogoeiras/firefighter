@@ -8,10 +8,12 @@ import jadex.bdiv3.runtime.ChangeEvent;
 public class PersonGoal {
 
     private boolean dead, rescued;
+    private boolean firemanHere;
 
     public PersonGoal(){
         this.dead = false;
         this.rescued = false;
+        this.firemanHere = false;
     }
 
     public void changeDeadStatus(){
@@ -26,9 +28,13 @@ public class PersonGoal {
         return this.rescued;
     }
 
+    public void changeFiremanHere(){
+        this.firemanHere = !this.firemanHere;
+    }
+
     @GoalRecurCondition(beliefs="currentTime")
     public boolean checkRecur(ChangeEvent event) {
-        if (dead || rescued) {
+        if (dead || rescued || firemanHere) {
             return false;
         } else return true;
     }

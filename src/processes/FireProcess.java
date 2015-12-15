@@ -78,9 +78,9 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
                 /*
                     Probability :
-                            Direction -> 70% of getting to that direction & 10% for other each direction.
+                            Direction -> 85% of getting to that direction & 5% for other each direction.
                             Humidity -> (1 - %humidity) of going to another direction.
-                            Wind -> if (Kmh > 30) 30% of advancing 2 cells instead of one.
+                            Wind -> if (Kmh > 30) 5% of advancing 2 cells instead of one.
 
                  */
 
@@ -101,7 +101,12 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
                             , pos.getYAsInteger() + unitaryVectors.get(j).getYAsInteger());
                     if (newPos.getXAsInteger() >= 0 && newPos.getXAsInteger() < spaceHeight
                             && newPos.getYAsInteger() >= 0 && newPos.getYAsInteger() < spaceWidth) {
-                            createFireCell(newPos);
+                            if (fireElement.length > 100) {
+                                if (rnd.nextDouble() < 0.3)
+                                    createFireCell(newPos);
+                            }else {
+                                createFireCell(newPos);
+                            }
                     }
                 }
             }
@@ -154,11 +159,11 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
         ArrayList<String> directionList = retrieveDirectionList();
 
-        if (randomValue > 0.7 && randomValue < 0.8){
+        if (randomValue > 0.85 && randomValue < 0.9){
             direction = directionList.get(0);
-        } else if (randomValue > 0.8 && randomValue < 0.9){
+        } else if (randomValue > 0.90 && randomValue < 0.95){
             direction = directionList.get(1);
-        } else if (randomValue > 0.9 && randomValue <= 1.0){
+        } else if (randomValue > 0.95 && randomValue <= 1.0){
             direction = directionList.get(2);
         } else {
             // direction mantains.
@@ -177,7 +182,7 @@ public class FireProcess extends SimplePropertyObject implements ISpaceProcess {
 
     // Increase variable "cellsToFire" if necessary.
     public void setCellsToFire(Double randomValue){
-        if (Kmh > 30 && randomValue <= 0.3){
+        if (Kmh > 30 && randomValue <= 0.05){
             cellsToFire++;
         }
     }

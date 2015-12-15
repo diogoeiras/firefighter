@@ -1,9 +1,0 @@
-[STARTING RUN OF logs/14_30_2015_01_30_19.log ]
-
-
-[1450056619698] Initializing FireProcess
-[1450056619698] Getting Fire first element
-[1450056619698] Initialize clock.
-[Fireman 2506] - Accept a rescue request from [Person 2509]
-A person was saved on: (49, 43)
-Debug file: logs/14_30_2015_01_30_24.log
