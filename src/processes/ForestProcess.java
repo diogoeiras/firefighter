@@ -52,11 +52,18 @@ public class ForestProcess extends SimplePropertyObject implements ISpaceProcess
         Random rnd = new Random();
 
         // set fire
-        Map properties = new HashMap();
-        properties.put("position", new Vector2Int(rnd.nextInt() % spaceWidth, rnd.nextInt() % spaceHeight));
+        int numberofInitialSeeds = 1;
+        if (FiremanBDI.BEHAVIOR != "QUAD"){
+            numberofInitialSeeds = 2;
+        }
+        while(numberofInitialSeeds > 0) {
+            Map properties = new HashMap();
+            properties.put("position", new Vector2Int(rnd.nextInt() % spaceWidth, rnd.nextInt() % spaceHeight));
 
-        properties.put("type", 1);
-        space.createSpaceObject("fire", properties, null);
+            properties.put("type", 1);
+            space.createSpaceObject("fire", properties, null);
+            numberofInitialSeeds--;
+        }
 
     }
 

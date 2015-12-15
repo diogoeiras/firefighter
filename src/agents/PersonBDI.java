@@ -231,7 +231,7 @@ public class PersonBDI implements ICommunicationService {
                     person.adoptPlan(new PersonBDI.CleanPerson(myself.getId()));
                 } catch (NullPointerException e){
                     System.out.println("A person died on: (" + currentPosition + ")");
-                    goal.changeDeadStatus();
+                    //goal.changeDeadStatus();
                 }
             } else {
                 // TODO: Test

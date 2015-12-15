@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/agents/FiremanBDI.java" line="318" mnemonic="8" />
-    <bookmark url="file://$PROJECT_DIR$/src/agents/FiremanBDI.java" line="751" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/src/agents/FiremanBDI.java" line="319" mnemonic="8" />
+    <bookmark url="file://$PROJECT_DIR$/src/agents/FiremanBDI.java" line="769" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03dd84d0-2bf4-41b3-8cf1-78e31d4dd4a7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RndBehavior.application.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PersonFirst.application.xml" afterPath="$PROJECT_DIR$/src/PersonFirst.application.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/FiremanBDI.java" afterPath="$PROJECT_DIR$/src/agents/FiremanBDI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/PersonBDI.java" afterPath="$PROJECT_DIR$/src/agents/PersonBDI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/processes/ForestProcess.java" afterPath="$PROJECT_DIR$/src/processes/ForestProcess.java" />
     </list>
     <ignored path="FireFighter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,13 +34,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FiremanBDI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FiremanBDI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/agents/FiremanBDI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.5643154">
+              <caret line="533" column="53" selection-start-line="533" selection-start-column="53" selection-end-line="533" selection-end-column="53" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#771#879#0" expanded="false" />
+                <element signature="method#body#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#canEliminate#0;class#FiremanBDI#0" expanded="false" />
@@ -54,7 +60,6 @@
                 <element signature="method#RescueConfirmation#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#sendConfirmationQuad#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#sendQuad#0;class#FiremanBDI#0" expanded="false" />
-                <element signature="e#15201#15251#0" expanded="false" />
                 <element signature="method#personNear#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#tryToEliminatePerson#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#savePerson#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
@@ -67,62 +72,12 @@
                 <element signature="method#currentEqualDesire#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#getPersonOnCurrentPosition#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#getSpaceObjectInPos#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
-                <element signature="class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
-                <element signature="method#Quad#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#changePosition#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#canPutDown#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#getBoundaries#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#putDownFire#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#checkMovement#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
                 <element signature="method#inThisQuad#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonBDI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/agents/PersonBDI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6493776">
-              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
-              <folding>
-                <element signature="e#706#765#0" expanded="false" />
-                <element signature="method#body#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#getNumCellsNeed#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#fireAffectsMe#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#sendRescueRequest#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#getNearestFiremanAvailable#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#didIRequestAlreadyThisFiremanHelp#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#refuseRescueRequest#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#RescueConfirmation#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#RescueMessage#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#sendConfirmationQuad#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#sendQuad#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#changePosition#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#getFireObjects#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#convertUnitaryVector#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#revertConvertUnitaryVector#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#firemanDirection#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#getPriorityMovement#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#acceptedMovement#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="method#amIOnFire#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-                <element signature="class#CleanPerson#0;class#PersonBDI#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FireProcess.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/processes/FireProcess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-              <folding>
-                <element signature="method#createFireCell#0;class#FireProcess#0" expanded="false" />
-                <element signature="method#retrieveDirectionList#0;class#FireProcess#0" expanded="false" />
-                <element signature="method#setChanceOfAnotherSpread#0;class#FireProcess#0" expanded="false" />
-                <element signature="method#getNewPositionsForFireCells#0;class#FireProcess#0" expanded="false" />
-                <element signature="method#getPositionDirection#0;class#FireProcess#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -135,6 +90,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="XSLT Stylesheet" />
       </list>
     </option>
   </component>
@@ -158,15 +114,17 @@
         <option value="$PROJECT_DIR$/src/services/CommunicationService.java" />
         <option value="$PROJECT_DIR$/src/events/FiremanPersonEvent.java" />
         <option value="$PROJECT_DIR$/src/SimpleGrid.application.xml" />
-        <option value="$PROJECT_DIR$/src/processes/ForestProcess.java" />
         <option value="$PROJECT_DIR$/src/services/ICommunicationService.java" />
         <option value="$PROJECT_DIR$/src/utils/SharedCode.java" />
         <option value="$PROJECT_DIR$/src/goals/FiremanQuadGoal.java" />
         <option value="$PROJECT_DIR$/src/processes/FireProcess.java" />
         <option value="$PROJECT_DIR$/src/goals/SavePeopleGoal.java" />
         <option value="$PROJECT_DIR$/src/goals/PersonGoal.java" />
-        <option value="$PROJECT_DIR$/src/PersonFirst.application.xml" />
         <option value="$PROJECT_DIR$/src/agents/PersonBDI.java" />
+        <option value="$PROJECT_DIR$/src/RndBehavior.application.xml.xsl" />
+        <option value="$PROJECT_DIR$/src/PersonFirst.application.xml" />
+        <option value="$PROJECT_DIR$/src/processes/ForestProcess.java" />
+        <option value="$PROJECT_DIR$/src/RndBehavior.application.xml" />
         <option value="$PROJECT_DIR$/src/agents/FiremanBDI.java" />
       </list>
     </option>
@@ -186,7 +144,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1452" />
+    <option name="width" value="1456" />
     <option name="height" value="886" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -533,12 +491,12 @@
       <workItem from="1450049249358" duration="1202000" />
       <workItem from="1450050629526" duration="27324000" />
       <workItem from="1450106212234" duration="24456000" />
-      <workItem from="1450143825995" duration="2122000" />
+      <workItem from="1450143825995" duration="8191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232798000" />
+    <option name="totallyTimeSpent" value="238867000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -550,8 +508,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1452" height="886" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32860824" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -560,10 +518,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32860824" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3427835" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3427835" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17896935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17847222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -592,33 +550,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="232" />
+      <option name="time" value="235" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="goal.currentPosition" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/processes/FireProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="55" selection-start-line="107" selection-start-column="55" selection-end-line="107" selection-end-column="55" />
-          <folding>
-            <element signature="method#createFireCell#0;class#FireProcess#0" expanded="false" />
-            <element signature="method#retrieveDirectionList#0;class#FireProcess#0" expanded="false" />
-            <element signature="method#setChanceOfAnotherSpread#0;class#FireProcess#0" expanded="false" />
-            <element signature="method#getNewPositionsForFireCells#0;class#FireProcess#0" expanded="false" />
-            <element signature="method#getPositionDirection#0;class#FireProcess#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/terrain_6.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1024,14 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PersonFirst.application.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40027702">
-          <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/goals/PersonGoal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.753112">
@@ -1040,21 +972,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/agents/PersonBDI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6184486">
+          <caret line="227" column="21" selection-start-line="227" selection-start-column="21" selection-end-line="227" selection-end-column="21" />
+          <folding>
+            <element signature="e#706#765#0" expanded="false" />
+            <element signature="method#body#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#getNumCellsNeed#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#fireAffectsMe#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#sendRescueRequest#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#getNearestFiremanAvailable#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#didIRequestAlreadyThisFiremanHelp#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#refuseRescueRequest#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#RescueConfirmation#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#RescueMessage#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#sendConfirmationQuad#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#sendQuad#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#getFireObjects#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#filterFireCells#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#fireDirection#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#getUnitaryVectorOfDirection#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#convertUnitaryVector#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#revertConvertUnitaryVector#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#firemanDirection#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#getPriorityMovement#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#acceptedMovement#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="method#amIOnFire#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
+            <element signature="class#CleanPerson#0;class#PersonBDI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PersonFirst.application.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40350878">
+          <caret line="132" column="35" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/processes/ForestProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.587137">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="method#execute#0;class#ForestProcess#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processes/FireProcess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+        <state vertical-scroll-proportion="-0.4107884">
+          <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
           <folding>
+            <element signature="method#start#0;class#FireProcess#0" expanded="false" />
+            <element signature="method#execute#0;class#FireProcess#0" expanded="false" />
             <element signature="method#createFireCell#0;class#FireProcess#0" expanded="false" />
             <element signature="method#retrieveDirectionList#0;class#FireProcess#0" expanded="false" />
             <element signature="method#setChanceOfAnotherSpread#0;class#FireProcess#0" expanded="false" />
@@ -1064,12 +1036,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/RndBehavior.application.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6864035">
+          <caret line="150" column="43" selection-start-line="150" selection-start-column="43" selection-end-line="150" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/agents/FiremanBDI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.5643154">
+          <caret line="533" column="53" selection-start-line="533" selection-start-column="53" selection-end-line="533" selection-end-column="53" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#771#879#0" expanded="false" />
+            <element signature="method#body#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#getNearObjects#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#returnDirection#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#canEliminate#0;class#FiremanBDI#0" expanded="false" />
@@ -1087,7 +1069,6 @@
             <element signature="method#RescueConfirmation#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#sendConfirmationQuad#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#sendQuad#0;class#FiremanBDI#0" expanded="false" />
-            <element signature="e#15201#15251#0" expanded="false" />
             <element signature="method#personNear#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#tryToEliminatePerson#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#savePerson#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
@@ -1100,44 +1081,12 @@
             <element signature="method#currentEqualDesire#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#getPersonOnCurrentPosition#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#getSpaceObjectInPos#0;class#MovingPlan#0;class#FiremanBDI#0" expanded="false" />
-            <element signature="class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
-            <element signature="method#Quad#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#changePosition#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#canPutDown#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#getBoundaries#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#putDownFire#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#checkMovement#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
             <element signature="method#inThisQuad#0;class#QuadPlan#0;class#FiremanBDI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/agents/PersonBDI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6493776">
-          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
-          <folding>
-            <element signature="e#706#765#0" expanded="false" />
-            <element signature="method#body#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#getNumCellsNeed#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#fireAffectsMe#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#sendRescueRequest#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#getNearestFiremanAvailable#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#didIRequestAlreadyThisFiremanHelp#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#refuseRescueRequest#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#RescueConfirmation#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#RescueMessage#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#sendConfirmationQuad#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#sendQuad#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#changePosition#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#getFireObjects#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#convertUnitaryVector#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#revertConvertUnitaryVector#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#firemanDirection#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#getPriorityMovement#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#acceptedMovement#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="method#amIOnFire#0;class#SavingPlan#0;class#PersonBDI#0" expanded="false" />
-            <element signature="class#CleanPerson#0;class#PersonBDI#0" expanded="false" />
           </folding>
         </state>
       </provider>
