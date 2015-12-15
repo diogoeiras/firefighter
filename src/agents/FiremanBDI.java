@@ -28,7 +28,7 @@ import java.util.*;
 public class FiremanBDI implements ICommunicationService {
     @Agent
     protected BDIAgent fireman;
-    public static String BEHAVIOR = "QUAD";
+    public static String BEHAVIOR = "QUAD1";
     protected FiremanGoal Goal;
     protected FiremanQuadGoal QuadGoal;
 
@@ -471,8 +471,8 @@ public class FiremanBDI implements ICommunicationService {
                         nearObjectsToExtinguish.remove();
                     }
 
-                    direction = new Vector2Int(0, 0);
-                    //direction = returnDirection(space, goal.getCurrentPosition(), desiredPosition);
+                    //direction = new Vector2Int(0, 0);
+                    direction = returnDirection(space, goal.getCurrentPosition(), desiredPosition);
                 }
             } else if (existsActiveEvent()) {
                 FiremanPersonEvent event = getActiveEvent();

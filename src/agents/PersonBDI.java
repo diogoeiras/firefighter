@@ -3,6 +3,7 @@ package agents;
 import goals.PersonGoal;
 import jadex.bdiv3.BDIAgent;
 import jadex.bdiv3.annotation.*;
+import jadex.bdiv3.runtime.impl.PlanAbortedException;
 import jadex.bdiv3.runtime.impl.PlanFailureException;
 import jadex.bridge.service.annotation.Service;
 import jadex.extension.envsupport.environment.ISpaceObject;
@@ -224,9 +225,14 @@ public class PersonBDI implements ICommunicationService {
             ArrayList<ISpaceObject> nearFireman = new ArrayList<>();
 
             if (amIOnFire()) {
-                System.out.println("A person died on: (" + currentPosition + ")");
-                goal.changeDeadStatus();
-                person.adoptPlan(new PersonBDI.CleanPerson(myself.getId()));
+                try {
+                    System.out.println("A person died on: (" + currentPosition + ")");
+                    goal.changeDeadStatus();
+                    person.adoptPlan(new PersonBDI.CleanPerson(myself.getId()));
+                } catch (NullPointerException e){
+                    System.out.println("A person died on: (" + currentPosition + ")");
+                    goal.changeDeadStatus();
+                }
             } else {
                 // TODO: Test
                 //nearFireman = null;
@@ -251,9 +257,13 @@ public class PersonBDI implements ICommunicationService {
 
 
                 if (nearFireman != null && nearFireman.size() > 0) {
-                    System.out.println("[" + currentTime + "] A person was saved on: (" + currentPosition + ")");
-                    goal.changeRescuedStatus();
-                    person.adoptPlan(new PersonBDI.CleanPerson(myself.getId()));
+                    try {
+                        System.out.println("[" + currentTime + "] A person was saved on: (" + currentPosition + ")");
+                        goal.changeRescuedStatus();
+                        person.adoptPlan(new PersonBDI.CleanPerson(myself.getId()));
+                    } catch (NullPointerException e){
+                        System.out.println("[" + currentTime + "] A person was already dead on: (" + currentPosition + ")");
+                    }
                 } else if (fireElements != null && fireElements.size() > 0) {
 
                     // Send a rescue request to the nearest fireman available
